@@ -6,20 +6,152 @@
 
 @font-face {
   font-family: Regular;
-  src: url("../Fonts/MontserratAlternates-Regular.ttf");
+  src: url("../Fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: Negrito;
+  src: url("../Fonts/MontserratAlternates-Bold.ttf");
 }
 
 body {
+  height: 100vh;
   font-family: Regular;
-  background-color: #101014;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+    url(../Images/Banner-Home.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 header {
-    height: 7.75vh;
-    background-color: #141416;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 15%;
 }
 
-.cont {
-    padding: 1% 15%;
-    height: 92.25vh;
+.space-icon {
+    margin-left: 1%;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-icon img {
+    width: 75%;
+    object-fit: cover;
+}
+
+nav {
+    margin-left: 2.5%;
+    display: flex;
+    align-items: center;
+    gap: 17.5%;
+}
+
+.one-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-nav a {
+    font-size: 1.5rem;
+    color: white;
+    white-space: nowrap;
+}
+
+
+.space-others {
+    margin-right: 8%;
+    margin-left: auto;
+    display: flex;
+    gap: 40%;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.other {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.other a {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.other-destaque {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.other-destaque a {
+    font-weight: bolder;
+    font-size: 1.5rem;
+    color: #fc5451;
+}
+
+.espace-banner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5%; 
+}
+
+.informations-banner {
+  display: flex;
+  flex-direction: column;
+  height: 55%;
+}
+
+.titulo-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40%;
+}
+
+.titulo-banner h1 {
+  color: white;
+  font-size: 4rem;
+}
+
+.descricao-banner {
+  text-align: justify;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40%;
+}
+
+.descricao-banner h3 {
+  font-size: 2rem;
+  color: white;
+}
+
+.button-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20%;
 }

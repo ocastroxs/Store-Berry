@@ -17,6 +17,7 @@
 body {
     height: 100vh;
     font-family: Regular;
+    overflow-x: hidden;
 }
 
 a {
@@ -24,12 +25,13 @@ a {
 }
 
 .banner {
-    height: 60vh;
+    height: 70vh;
     background-image: linear-gradient(rgba(0, 0, 0, 1),
             rgba(0, 0, 0, 0)), url(../Images/Banner-Sobre.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 header {
@@ -73,16 +75,36 @@ nav {
 
 
 .space-others {
-    position: absolute;
-    right: 0;
+    margin-right: 8%;
+    margin-left: auto;
+    display: flex;
+    gap: 50%;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
+.other {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.other a {
+    font-size: 1.25rem;
+    color: white;
+}
 
+.other-destaque {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-
-
-
+.other-destaque a {
+    font-weight: bolder;
+    font-size: 1.25rem;
+    color: #fc5451;
+}
 
 .titulo {
     padding-left: 10%;
