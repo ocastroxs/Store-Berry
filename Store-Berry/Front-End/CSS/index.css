@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Regular;
+  src: url("../Fonts/MontserratAlternates-Regular.ttf");
+}
+
+body {
+  font-family: Regular;
+  background-color: #101014;
+}
+
+header {
+    height: 7.75vh;
+    background-color: #141416;
+}
+
+.cont {
+    padding: 1% 15%;
+    height: 92.25vh;
+}

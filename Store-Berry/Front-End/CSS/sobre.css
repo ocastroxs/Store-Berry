@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Regular;
+    src: url("../Fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: Negrito;
+    src: url("../Fonts/MontserratAlternates-Bold.ttf");
+}
+
+body {
+    height: 100vh;
+    font-family: Regular;
+}
+
+a {
+    text-decoration: none;
+}
+
+.banner {
+    height: 60vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0)), url(../Images/Banner-Sobre.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 20%;
+}
+
+.space-icon {
+    margin-left: 1%;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-icon img {
+    width: 65%;
+    object-fit: cover;
+}
+
+nav {
+    margin-left: 2.5%;
+    display: flex;
+    align-items: center;
+    gap: 17.5%;
+}
+
+.one-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-nav a {
+    font-size: 1.25rem;
+    color: white;
+    white-space: nowrap;
+}
+
+
+.space-others {
+    position: absolute;
+    right: 0;
+}
+
+
+
+
+
+
+
+
+.titulo {
+    padding-left: 10%;
+    display: flex;
+    align-items: center;
+    background-color: #ed5647;
+    height: 10vh;
+}
+
+.titulo h1 {
+    color: white;
+    font-size: 2.5rem;
+}
