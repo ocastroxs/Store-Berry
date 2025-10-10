@@ -109,6 +109,29 @@ nav {
     color: #fc5451;
 }
 
+header nav a,
+header .space-others a {
+  position: relative;
+  text-decoration: none;
+}
+
+header nav a::after,
+header .space-others a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2.5px;
+  background-color: #ff4a4a;
+  transition: width 0.3s ease;
+}
+
+header nav a:hover::after,
+header .space-others a:hover::after {
+  width: 100%;
+}
+
 .espace-banner {
   flex: 1;
   display: flex;
@@ -150,8 +173,35 @@ nav {
 }
 
 .button-banner {
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 20%;
+}
+
+.button-banner a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Negrito;
+  font-size: 1.35rem;
+  color: white;
+  border: none;
+  background-color: #ff5757;
+  border-radius: 1rem;
+  height: 75%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-banner a:hover {
+  background-color: #ff4444;
+  transform: translateY(-3px);
+}
+
+.button-banner a:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
