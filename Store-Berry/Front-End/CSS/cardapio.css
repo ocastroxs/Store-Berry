@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Regular;
+    src: url("../Fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: Negrito;
+    src: url("../Fonts/MontserratAlternates-Bold.ttf");
+}
+
+body {
+    height: 100vh;
+    font-family: Regular;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)),
+        url(../Images/Banner-Cardapio.svg);
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 15%;
+}
+
+.space-icon {
+    margin-left: 1%;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-icon img {
+    width: 75%;
+    object-fit: cover;
+}
+
+nav {
+    margin-left: 2.5%;
+    display: flex;
+    align-items: center;
+    gap: 17.5%;
+}
+
+.one-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-nav a {
+    font-size: 1.5rem;
+    color: white;
+    white-space: nowrap;
+}
+
+
+.space-others {
+    margin-right: 8%;
+    margin-left: auto;
+    display: flex;
+    gap: 40%;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.other {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.other a {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.other-destaque {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.other-destaque a {
+    font-weight: bolder;
+    font-size: 1.5rem;
+    color: #fc5451;
+}
+
+header nav a,
+header .space-others a {
+    position: relative;
+    text-decoration: none;
+}
+
+header nav a::after,
+header .space-others a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2.5px;
+    background-color: #ff4a4a;
+    transition: width 0.3s ease;
+}
+
+header nav a:hover::after,
+header .space-others a:hover::after {
+    width: 100%;
+}
+
+.espace-banner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%;
+}
+
+.informations-banner {
+    display: flex;
+    flex-direction: column;
+    height: 55%;
+}
+
+.titulo-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+}
+
+.titulo-banner h1 {
+    color: white;
+    font-size: 4rem;
+}
+
+.descricao-banner {
+    text-align: justify;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+}
+
+.descricao-banner h3 {
+    font-size: 2rem;
+    color: white;
+}
+
+.button-banner {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20%;
+}
+
+.button-banner a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Negrito;
+    font-size: 1.35rem;
+    color: white;
+    border: none;
+    background-color: #ff5757;
+    border-radius: 1rem;
+    height: 75%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-banner a:hover {
+    background-color: #ff4444;
+    transform: translateY(-3px);
+}
+
+.button-banner a:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-down {
+    position: relative;
+    top: 17.5%;
+    display: flex;
+    justify-content: center;
+}
+
+.scroll-down span {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 3rem;
+    color: #ff4444;
+}

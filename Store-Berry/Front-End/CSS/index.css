@@ -205,3 +205,17 @@ header .space-others a:hover::after {
   transform: translateY(1px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
+.scroll-down {
+  position: relative;
+  top: 17.5%;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-down span {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 3rem;
+  color: #ff4444;
+}
