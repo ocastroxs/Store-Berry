@@ -144,12 +144,14 @@ header .space-others a:hover::after {
 .informations-banner {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 55%;
 }
 
 .titulo-banner {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     height: 40%;
 }
@@ -160,7 +162,7 @@ header .space-others a:hover::after {
 }
 
 .descricao-banner {
-    text-align: justify;
+    text-align: center;
     width: 50%;
     display: flex;
     flex-direction: column;
