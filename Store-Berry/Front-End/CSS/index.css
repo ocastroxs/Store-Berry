@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,13 +19,17 @@
 }
 
 body {
-  height: 400vh;
   font-family: Regular;
   overflow-x: hidden;
   background-color: rgb(255, 255, 255);
   background-image: url(../Images/Background.svg);
   background-repeat: repeat;
   background-size: 5%;
+  transition: all 0.5s ease;
+}
+
+body.loaded {
+  opacity: 1;
 }
 
 
@@ -136,6 +144,11 @@ header nav a:hover::after,
 header .space-others a:hover::after {
   width: 100%;
 }
+
+header nav a.active::after {
+  width: 100%;
+}
+
 
 .espace-banner {
   flex: 1;
@@ -504,4 +517,110 @@ header .space-others a:hover::after {
     #fc5451,
     transparent
   );
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5vh;
+}
+
+.logo-footer {
+  margin-top: 1vh;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.logo-footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.logo-footer img {
+  width: 25%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.logo-footer img:hover {
+  transform: scale(1.08);
+}
+
+.nav-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  height: 7.5vh;
+  width: 100%;
+  padding: 0 35%;
+}
+
+.one-nav {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.one-nav h3 {
+  font-family: Negrito;
+  color: #737373;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.one-nav h3:hover {
+  color: #ff4a4a;
+  transform: translateY(-3px);
+}
+
+.social-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  height: 7.5vh;
+  width: 100%;
+  padding: 0 40%;
+}
+
+.one-social {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.one-social img {
+  width: 70%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.one-social img:hover {
+  transform: scale(1.1);
+}
+
+.direitos-footer {
+  display: flex;
+  justify-content: center;
+  height: 7vh;
+  width: 100%;
+  padding: 0 30%;
+}
+
+.direitos-footer p {
+  margin-top: 1.5vh;
+  font-family: Negrito;
+  font-size: 1.22rem;
+  color: #29b255;
 }

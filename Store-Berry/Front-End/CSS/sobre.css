@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +21,11 @@
 body {
     font-family: Regular;
     overflow-x: hidden;
+    transition: all 0.5s ease;
+}
+
+body.loaded {
+    opacity: 1;
 }
 
 a {
@@ -219,59 +228,136 @@ header .space-others a:hover::after {
     color: #ff4444;
 }
 
+
+/*sobre*/
+
 .all-sobre {
     height: 300vh;
     display: flex;
     flex-direction: column;
-    gap: 3vh;
-    padding: 0 7.5%;
+    padding: 3vh 20vw;
 }
 
-.topico-sobre {
-    margin-top: 3vh;
+
+
+
+.topico-sobre-NossaHistória{
     display: flex;
     gap: 5%;
 }
 
-.descricao-sobre {
+.descricao-sobre-NossaHistória {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 70%;
+    width: 55%;
 }
 
-.titulo-sobre {
+.titulo-sobre-NossaHistória {
     display: flex;
     align-items: center;
     height: 20%;
 }
 
-.titulo-sobre h3 {
+.titulo-sobre-NossaHistória h3 {
     color: #fc5451;
     font-family: Negrito;
     font-size: 3rem;
 }
 
-.escrita-sobre {
+.escrita-sobre-NossaHistória {
     display: flex;
     align-items: center;
-    height: 80%;
+    text-align: justify;
+    height: 60%;
 }
 
-.escrita-sobre p {
+.escrita-sobre-NossaHistória p {
     font-size: 1.5rem
 }
 
-.space-sobre {
-    width: 30%;
+.escrita-sobre-NossaHistória p b {
+    color: #ff4444;
+    font-weight: 900;
 }
 
-.img-sobre {
-    border-radius: 1rem;
+.space-sobre-NossaHistória {
+    height: 80%;
+    width: 45%;
+}
+
+.img-sobre-NossaHistória {
+    height: 100%;
+    border-radius: 1.5rem;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.img-sobre img {
+.img-sobre-NossaHistória img {
+    width: 100%;
+}
+
+
+
+
+
+
+.topico-sobre-OQueNosTornaÚnicos {
+    display: flex;
+    gap: 5%;
+}
+
+.descricao-sobre-OQueNosTornaÚnicos {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 55%;
+}
+
+.titulo-sobre-OQueNosTornaÚnicos {
+    display: flex;
+    align-items: center;
+    height: 30%;
+}
+
+.titulo-sobre-OQueNosTornaÚnicos h3 {
+    color: #fc5451;
+    font-family: Negrito;
+    font-size: 3rem;
+}
+
+.escrita-sobre-OQueNosTornaÚnicos {
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    height: 50%;
+}
+
+.escrita-sobre-OQueNosTornaÚnicos p {
+    font-size: 1.5rem
+}
+
+.escrita-sobre-OQueNosTornaÚnicos p b {
+    color: #ff4444;
+    font-weight: 900;
+}
+
+.space-sobre-OQueNosTornaÚnicos {
+    width: 45%;
+}
+
+.img-sobre-OQueNosTornaÚnicos{
+    height: 80%;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-sobre-OQueNosTornaÚnicos img{
     width: 100%;
     object-fit: contain;
 }
