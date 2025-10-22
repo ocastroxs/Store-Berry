@@ -1,11 +1,23 @@
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+@keyframes fadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @font-face {
@@ -22,6 +34,10 @@ body {
     font-family: Regular;
     overflow-x: hidden;
     transition: all 0.5s ease;
+    background-image: url(../Images/Background.svg);
+    background-size: 5%;
+    background-repeat: repeat;
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 body.loaded {
@@ -159,11 +175,18 @@ header .space-others a:hover::after {
     flex-direction: column;
     justify-content: center;
     height: 40%;
+    opacity: 0;
+    animation: fadeSlide 1s ease forwards;
 }
 
 .titulo-banner h1 {
     color: white;
     font-size: 4rem;
+}
+
+.titulo-banner h1:hover {
+    text-shadow: 0 0 15px rgba(255, 74, 74, 0.8);
+    transition: text-shadow 0.3s ease;
 }
 
 .descricao-banner {
@@ -232,16 +255,14 @@ header .space-others a:hover::after {
 /*sobre*/
 
 .all-sobre {
-    height: 300vh;
+    height: 255vh;
     display: flex;
     flex-direction: column;
-    padding: 3vh 20vw;
+    padding: 7vh 20vw;
 }
 
 
-
-
-.topico-sobre-NossaHistória{
+.topico-sobre-NossaHistória {
     display: flex;
     gap: 5%;
 }
@@ -348,7 +369,7 @@ header .space-others a:hover::after {
     width: 45%;
 }
 
-.img-sobre-OQueNosTornaÚnicos{
+.img-sobre-OQueNosTornaÚnicos {
     height: 80%;
     border-radius: 1.5rem;
     overflow: hidden;
@@ -357,7 +378,241 @@ header .space-others a:hover::after {
     justify-content: center;
 }
 
-.img-sobre-OQueNosTornaÚnicos img{
+.img-sobre-OQueNosTornaÚnicos img {
     width: 100%;
     object-fit: contain;
+}
+
+
+
+
+.topico-sobre-pontosImportates {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.descricao-sobre-pontosImportates {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+}
+
+.escrita-sobre-pontosImportates {
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    margin-bottom: 4vh;
+}
+
+.escrita-sobre-pontosImportates p {
+    font-size: 1.5rem
+}
+
+.escrita-sobre-pontosImportates p b {
+    color: #ff4444;
+    font-weight: 900;
+}
+
+
+
+.topico-sobre-ConheçaQuemFazAMagia {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    margin-top: 5dvh;
+}
+
+.descricao-sobre-ConheçaQuemFazAMagia {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+}
+
+.titulo-sobre-ConheçaQuemFazAMagia {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8dvh;
+}
+
+.titulo-sobre-ConheçaQuemFazAMagia h3 {
+    color: #fc5451;
+    font-family: Negrito;
+    font-size: 3rem;
+}
+
+.escrita-sobre-ConheçaQuemFazAMagia {
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    margin-bottom: 4vh;
+}
+
+.escrita-sobre-ConheçaQuemFazAMagia p {
+    font-size: 1.5rem
+}
+
+.escrita-sobre-ConheçaQuemFazAMagia p b {
+    color: #ff4444;
+    font-weight: 900;
+}
+
+.space-sobre-ConheçaQuemFazAMagia {
+    width: 100%;
+}
+
+.img-sobre-ConheçaQuemFazAMagia {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+.img-sobre-ConheçaQuemFazAMagia img {
+    width: 40%;
+    height: 40%;
+    object-fit: contain;
+    border-radius: 1.5rem;
+}
+
+.escrita-sobre-ConheçaQuemFazAMagia-frase {
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    margin-top: 4vh;
+}
+
+.escrita-sobre-ConheçaQuemFazAMagia-frase p {
+    font-size: 1.5rem
+}
+
+.escrita-sobre-ConheçaQuemFazAMagia-frase p b {
+    color: #ff4444;
+    font-weight: 900;
+}
+
+
+
+
+/* Footer */
+
+
+.linha-header {
+    width: 100%;
+    height: 2px;
+    margin-top: 7.5vh;
+    background: linear-gradient(to right,
+            transparent,
+            #fc5451,
+            transparent);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.logo-footer {
+    margin-top: 1vh;
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo-footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.logo-footer img {
+    width: 25%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.logo-footer img:hover {
+    transform: scale(1.08);
+}
+
+.nav-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    height: 7.5vh;
+    width: 100%;
+    padding: 0 35%;
+}
+
+.one-nav {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-nav h3 {
+    font-family: Negrito;
+    color: #737373;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.one-nav h3:hover {
+    color: #ff4a4a;
+    transform: translateY(-3px);
+}
+
+.social-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    height: 7.5vh;
+    width: 100%;
+    padding: 0 40%;
+}
+
+.one-social {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.one-social img {
+    width: 70%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.one-social img:hover {
+    transform: scale(1.1);
+}
+
+.direitos-footer {
+    display: flex;
+    justify-content: center;
+    height: 7vh;
+    width: 100%;
+    padding: 0 30%;
+}
+
+.direitos-footer p {
+    margin-top: 1.5vh;
+    font-family: Negrito;
+    font-size: 1.22rem;
+    color: #29b255;
 }

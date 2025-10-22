@@ -1,11 +1,23 @@
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+@keyframes fadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @font-face {
@@ -19,14 +31,13 @@ html {
 }
 
 body {
-    height: 300vh;
     overflow-x: hidden;
     font-family: Regular;
     transition: all 0.5s ease;
-    background-color: rgb(255, 255, 255);
     background-image: url(../Images/Background.svg);
-    background-repeat: repeat;
     background-size: 5%;
+    background-repeat: repeat;
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 body.loaded {
@@ -150,7 +161,6 @@ header nav a.active::after {
     width: 100%;
 }
 
-
 .espace-banner {
     flex: 1;
     display: flex;
@@ -172,11 +182,18 @@ header nav a.active::after {
     align-items: center;
     justify-content: center;
     height: 40%;
+    opacity: 0;
+    animation: fadeSlide 1s ease forwards;
 }
 
 .titulo-banner h1 {
     color: white;
     font-size: 4rem;
+}
+
+.titulo-banner h1:hover {
+    text-shadow: 0 0 15px rgba(255, 74, 74, 0.8);
+    transition: text-shadow 0.3s ease;
 }
 
 .descricao-banner {
@@ -266,17 +283,52 @@ header nav a.active::after {
 }
 
 .one-titulo button {
-    font-size: 1.9rem;
+    font-size: 1.9rem; 
     font-family: Negrito;
     color: #545454;
+    background: none;
     border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s ease;
+
+}
+
+.one-titulo button::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #ff4a4a;
+    transition: width 0.4s ease;
+    border-radius: 2px;
+}
+
+.one-titulo button:hover::after {
+    width: 100%;
+}
+
+.one-titulo button:hover {
+    color: #ff4a4a;
+    transform: scale(1.05);
+}
+
+.one-titulo button.active {
+    color: #ff4a4a;
+    transform: scale(1.05);
+}
+
+.one-titulo button.active::after {
+    width: 100%;
 }
 
 .all-produtos {
     padding: 5vh 17.5vw;
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 10vh;
 }
 
 .topico-produto {
@@ -294,24 +346,27 @@ header nav a.active::after {
 
 .titulo-produto h3 {
     font-size: 1.75rem;
-    color: black;
     font-family: Negrito;
+    color: #ff4a4a;
+    border-left: 6px solid #ff4a4a;
+    padding-left: 10px;
 }
 
 .all-produto {
     display: flex;
     flex-direction: column;
-    gap: 3vh;
+    gap: 2.5vh;
 }
 
 .row-produto {
     display: flex;
-    gap: 3vh;
+    gap: 2vw;
     height: auto;
     width: 100%;
 }
 
 .col-produto {
+    position: relative;
     border-radius: 1rem;
     height: 30vh;
     width: 25%;
@@ -323,9 +378,13 @@ header nav a.active::after {
     flex-direction: column;
     gap: 1vh;
     transition: all 0.3s ease;
+    padding-bottom: 0.5rem;
+    border-bottom: 5px solid #ff4a4a;
+    overflow: hidden;
 }
 
 .img-produto {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -336,8 +395,68 @@ header nav a.active::after {
 }
 
 .img-produto img {
-    width: 90%;
-    object-fit: cover;
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.overlay-cardapio {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  border-radius: inherit;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.overlay-cardapio h3 {
+  font-family: Negrito;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.overlay-cardapio button {
+  font-family: Negrito;
+  font-size: 1rem;
+  color: white;
+  background-color: #ff4a4a;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.overlay-cardapio button:hover {
+  color: #ff4a4a;
+  background-color: white;
+  transform: translateY(-3px);
+}
+
+.col-produto:hover img {
+  transform: scale(1.1);
+}
+
+.col-produto:hover .overlay-cardapio {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.col-produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 .nome-produto {
@@ -351,4 +470,120 @@ header nav a.active::after {
     font-family: Negrito;
     color: black;
     font-size: 1.5rem;
+}
+
+.linha-header {
+    width: 100%;
+    height: 2px;
+    margin-top: 7.5vh;
+    background: linear-gradient(to right,
+            transparent,
+            #fc5451,
+            transparent);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.logo-footer {
+    margin-top: 1vh;
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo-footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.logo-footer img {
+    width: 25%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.logo-footer img:hover {
+    transform: scale(1.08);
+}
+
+.nav-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    height: 7.5vh;
+    width: 100%;
+    padding: 0 35%;
+}
+
+.one-nav {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-nav h3 {
+    font-family: Negrito;
+    color: #737373;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.one-nav h3:hover {
+    color: #ff4a4a;
+    transform: translateY(-3px);
+}
+
+.social-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+    height: 7.5vh;
+    width: 100%;
+    padding: 0 40%;
+}
+
+.one-social {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.one-social img {
+    width: 70%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.one-social img:hover {
+    transform: scale(1.1);
+}
+
+.direitos-footer {
+    display: flex;
+    justify-content: center;
+    height: 7vh;
+    width: 100%;
+    padding: 0 30%;
+}
+
+.direitos-footer p {
+    margin-top: 1.5vh;
+    font-family: Negrito;
+    font-size: 1.22rem;
+    color: #29b255;
 }
