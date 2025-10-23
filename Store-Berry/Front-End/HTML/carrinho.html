@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Berry - Finalize a sua compra</title>
+    <link rel="stylesheet" href="../CSS/carrinho.css">
+    <link rel="shortcut icon" href="../Images/Icon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div class="banner" id="banner">
+        <header>
+            <div class="space-icon">
+                <img src="../Images/Icon.svg" alt="Icon">
+            </div>
+
+            <nav>
+                <div class="one-nav">
+                    <a href="../../index.html">Home</a>
+                </div>
+                <div class="one-nav">
+                    <a href="cardapio.html">Cardápio</a>
+                </div>
+                <div class="one-nav" style="margin-left: 1vw;">
+                    <a href="sobre.html">Sobre Nós</a>
+                </div>
+            </nav>
+
+            <div class="space-others">
+                <div class="other">
+                    <a href="carrinho.html" class="active">Carrinho</a>
+                </div>
+                <div class="other-destaque">
+                    <a href="entrar-conta.html">Login</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="padding">
+        <div class="info-carrinho">
+            <div class="title-carrinho">
+                <img src="../Images/Carrinho.svg" alt="Ícone de Carrinho">
+                <h3>Seu Carrinho</h3>
+            </div>
+            <div class="quantidade-carrinho">
+                <p id="quantidade-itens">0 itens no carrinho</p>
+            </div>
+        </div>
+
+        <div class="cont">
+            <div class="all-produtos" id="lista-produtos"></div>
+
+            <div class="resumo-produtos">
+                <div class="title-resumo">
+                    <h3>Resumo do Pedido</h3>
+                </div>
+
+                <div class="precos-resumo">
+                    <div class="subtotal-resumo">
+                        <p>Subtotal:</p>
+                        <p id="subtotal">R$ 0,00</p>
+                    </div>
+
+                    <div class="entrega-resumo">
+                        <p>Entrega:</p>
+                        <p id="entrega">Grátis</p>
+                    </div>
+
+                    <div class="linha-resumo"></div>
+
+                    <div class="total-resumo">
+                        <p>Total:</p>
+                        <p id="total">R$ 0,00</p>
+                    </div>
+                </div>
+
+                <div class="buttons-resumo">
+                    <div class="finalizar-resumo">
+                        <button id="btn-finalizar">Finalizar Pedido →</button>
+                    </div>
+
+                    <div class="continuar-resumo">
+                        <button id="btn-continuar">Continuar Comprando</button>
+                    </div>
+                </div>
+
+                <div class="desconto-resumo">
+                    <p>🍓 Entrega grátis para compras acima de R$ 50,00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =============== CONFIGURAÇÃO BÁSICA ===============
+
+        // URL da sua API (ajuste conforme o back-end)
+        const API_URL = "http://localhost:3000/carrinho";
+
+        // Elementos principais
+        const listaProdutos = document.getElementById("lista-produtos");
+        const subtotalElem = document.getElementById("subtotal");
+        const totalElem = document.getElementById("total");
+        const quantidadeElem = document.getElementById("quantidade-itens");
+
+
+        // =============== FUNÇÃO PRINCIPAL ===============
+
+        // Busca os dados do carrinho no back-end
+        async function carregarCarrinho() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error("Erro ao carregar carrinho.");
+
+                const data = await response.json();
+                renderizarCarrinho(data.itens);
+            } catch (err) {
+                console.error(err);
+                listaProdutos.innerHTML = `<p style="color:red;">Erro ao carregar o carrinho 😞</p>`;
+            }
+        }
+
+
+        // =============== FUNÇÃO DE RENDERIZAÇÃO ===============
+
+        function renderizarCarrinho(itens) {
+            listaProdutos.innerHTML = "";
+            let subtotal = 0;
+            let totalItens = 0;
+
+            itens.forEach((item) => {
+                subtotal += item.preco * item.quantidade;
+                totalItens += item.quantidade;
+
+                const produto = document.createElement("div");
+                produto.classList.add("one-produto");
+
+                produto.innerHTML = `
+      <div class="produto-img">
+        <img src="${item.imagem}" alt="${item.nome}">
+      </div>
+
+      <div class="produto-detalhes">
+        <h4>${item.nome}</h4>
+        <p>${item.categoria}</p>
+      </div>
+
+      <div class="produto-qtd">
+        <button class="menos" data-id="${item.id}">−</button>
+        <span>${item.quantidade}</span>
+        <button class="mais" data-id="${item.id}">+</button>
+      </div>
+
+      <div class="produto-preco">
+        <p class="total">R$ ${(item.preco * item.quantidade).toFixed(2)}</p>
+        <small>R$ ${item.preco.toFixed(2)} cada</small>
+      </div>
+
+      <button class="remover" data-id="${item.id}">×</button>
+    `;
+
+                listaProdutos.appendChild(produto);
+            });
+
+            // Atualiza totais
+            subtotalElem.textContent = `R$ ${subtotal.toFixed(2)}`;
+            totalElem.textContent = `R$ ${subtotal.toFixed(2)}`;
+            quantidadeElem.textContent = `${totalItens} ${totalItens > 1 ? "itens" : "item"} no carrinho`;
+
+            // Adiciona eventos
+            adicionarEventos();
+        }
+
+
+        // =============== EVENTOS DE BOTÕES ===============
+
+        function adicionarEventos() {
+            // Botão +
+            document.querySelectorAll(".mais").forEach((btn) => {
+                btn.addEventListener("click", async () => {
+                    const id = btn.dataset.id;
+                    await atualizarQuantidade(id, "aumentar");
+                });
+            });
+
+            // Botão −
+            document.querySelectorAll(".menos").forEach((btn) => {
+                btn.addEventListener("click", async () => {
+                    const id = btn.dataset.id;
+                    await atualizarQuantidade(id, "diminuir");
+                });
+            });
+
+            // Botão remover
+            document.querySelectorAll(".remover").forEach((btn) => {
+                btn.addEventListener("click", async () => {
+                    const id = btn.dataset.id;
+                    await removerProduto(id);
+                });
+            });
+        }
+
+
+        // =============== FUNÇÕES DE AÇÃO (API) ===============
+
+        // Atualiza quantidade de um produto
+        async function atualizarQuantidade(id, acao) {
+            try {
+                const response = await fetch(`${API_URL}/${id}/${acao}`, { method: "PUT" });
+                if (!response.ok) throw new Error("Erro ao atualizar quantidade.");
+                const data = await response.json();
+                renderizarCarrinho(data.itens);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // Remove um produto
+        async function removerProduto(id) {
+            try {
+                const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+                if (!response.ok) throw new Error("Erro ao remover produto.");
+                const data = await response.json();
+                renderizarCarrinho(data.itens);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+
+        // =============== BOTÕES DO RESUMO ===============
+
+        document.getElementById("btn-finalizar").addEventListener("click", () => {
+            alert("Pedido finalizado com sucesso! 🍓");
+        });
+
+        document.getElementById("btn-continuar").addEventListener("click", () => {
+            window.location.href = "cardapio.html";
+        });
+
+
+        // =============== INICIALIZAÇÃO ===============
+
+        carregarCarrinho();
+
+    </script>
+</body>
+
+</html>
