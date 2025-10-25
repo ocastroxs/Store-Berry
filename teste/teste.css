@@ -52,27 +52,21 @@ a {
 .banner {
   display: flex;
   flex-direction: column;
-  /* use min-height para garantir pelo menos a altura da viewport, mas permitir conteúdo maior */
-  min-height: 100vh;
-  height: auto;
+  height: 100vh;
   background-image:
     linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
-    url(../Store-Berry/Front-End/Images/1.svg);
+    url(../Store-Berry/Front-End/Images/Banner-Home.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* evitar fixed em dispositivos móveis (melhora desempenho e comportamento) */
-  background-attachment: scroll;
-  padding-bottom: 4vh; /* espaço extra para conteúdo em telas pequenas */
+  background-attachment: fixed;
 }
 
 header {
   position: relative;
   display: flex;
   align-items: center;
-  /* evitar heights percentuais rígidas que dependem do pai */
-  height: auto;
-  padding: 1rem;
+  height: 15%;
 }
 
 .space-icon {
@@ -169,22 +163,24 @@ header nav a.active::after {
 
 
 .espace-banner {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3rem 5%;
+  padding-left: 5%;
 }
 
 .informations-banner {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  height: 55%;
 }
 
 .titulo-banner {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 40%;
   opacity: 0;
   animation: fadeSlide 1s ease forwards;
 }
@@ -201,10 +197,11 @@ header nav a.active::after {
 
 .descricao-banner {
   text-align: justify;
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 40%;
 }
 
 .descricao-banner h3 {
@@ -213,10 +210,11 @@ header nav a.active::after {
 }
 
 .button-banner {
-  width: 220px; /* um tamanho fixo mais previsível */
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 20%;
 }
 
 .button-banner a {
@@ -561,10 +559,11 @@ footer {
   align-items: center;
   overflow: hidden;
   width: 100%;
+  height: 100%;
 }
 
 .logo-footer img {
-  width: 25%;
+  width: 10%;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
@@ -737,13 +736,19 @@ footer {
   }
 
   .direitos-footer p {
-    font-size: 1rem;
+    font-size: rem;
   }
 }
 
 @media (max-width: 576px) {
+
+  /* header */
+
+  .banner {
+    height: 80vh;
+  }
+
   header {
-    flex-direction: column;
     height: auto;
     padding: 1rem 0;
   }
@@ -754,15 +759,30 @@ footer {
   }
 
   nav {
-    flex-direction: column;
     gap: 1rem;
-    margin-left: 0;
+    padding-left: 1vw;
+  }
+
+  .space-icon{
+    margin: 0;
+  }
+
+  .one-nav{
+    width: auto;
+  }
+
+  .one-nav a {
+    font-size: 0.7rem;
   }
 
   .space-others {
-    flex-direction: column;
     gap: 1rem;
     margin-right: 0;
+    margin-left: 20vw;
+  }
+
+  .space-others a {
+    font-size: 0.7rem;
   }
 
   .titulo-banner h1 {
@@ -781,12 +801,24 @@ footer {
     font-size: 0.9rem;
   }
 
+  /* header */
+
+
+
+  .padding {
+    height: 380vh;
+  }  
+
   .row-beneficios {
     gap: 3vh;
   }
 
   .col-beneficio {
-    height: auto;
+    height: 450px;
+  }
+
+  .col-topicos {
+    height: 200px;
   }
 
   .cont-mapa {
@@ -795,7 +827,7 @@ footer {
   }
 
   .space-mapa {
-    width: 100%;
+    display: none;
   }
 
   .space-more {
@@ -803,6 +835,7 @@ footer {
   }
 
   .one-more {
+    height: auto;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -816,15 +849,57 @@ footer {
     width: 100%;
   }
 
+  .information-more b {
+    font-size: 1.2rem;
+  }
+
+  .information-more p {
+    font-size: 1rem;
+  }
+
+  /* footer */
+
   .nav-footer {
-    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .nav-footer h3 {
+    font-size: 1.1rem;
+  }
+
+  .logo-footer {
+    height: 10vh;
+  }
+
+  .logo-footer a {
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo-footer img {
+    width: 30%;
+  }
+
+  .social-footer {
+    width: 50%;
     gap: 1rem;
     padding: 0;
   }
 
-  .social-footer {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0;
+  .one-social img {
+    width: 100%;
   }
+
+  .direitos-footer {
+    padding: 0 1vh;
+  }
+
+  .direitos-footer p {
+    font-size: 0.7rem;
+    text-align: justify;
+  }
+
+  /* footer */
 }
