@@ -502,117 +502,371 @@ header .space-others a:hover::after {
 
 
 .linha-header {
-    width: 100%;
-    height: 2px;
-    margin-top: 7.5vh;
-    background: linear-gradient(to right,
-            transparent,
-            #fc5451,
-            transparent);
+  width: 100%;
+  height: 2px;
+  margin-top: 7.5vh;
+  background: linear-gradient(to right,
+      transparent,
+      #fc5451,
+      transparent);
 }
 
 footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5vh;
 }
 
 .logo-footer {
-    margin-top: 1vh;
-    width: 100%;
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  margin-top: 1vh;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .logo-footer a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .logo-footer img {
-    width: 25%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+  width: 10%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
 .logo-footer img:hover {
-    transform: scale(1.08);
+  transform: scale(1.08);
 }
 
 .nav-footer {
-    display: flex;
-    align-items: center;
-    gap: 1.5vw;
-    height: 7.5vh;
-    width: 100%;
-    padding: 0 35%;
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  height: 7.5vh;
+  width: 100%;
+  padding: 0 35%;
 }
 
 .one-nav {
-    width: 25%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .one-nav h3 {
-    font-family: Negrito;
-    color: #737373;
-    transition: color 0.3s ease, transform 0.3s ease;
+  font-family: Negrito;
+  color: #737373;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .one-nav h3:hover {
-    color: #ff4a4a;
-    transform: translateY(-3px);
+  color: #ff4a4a;
+  transform: translateY(-3px);
 }
 
 .social-footer {
-    display: flex;
-    align-items: center;
-    gap: 1.5vw;
-    height: 7.5vh;
-    width: 100%;
-    padding: 0 40%;
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  height: 7.5vh;
+  width: 100%;
+  padding: 0 40%;
 }
 
 .one-social {
-    width: 25%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .one-social img {
-    width: 70%;
-    object-fit: cover;
-    transition: transform 0.3s ease, filter 0.3s ease;
+  width: 70%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .one-social img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .direitos-footer {
-    display: flex;
-    justify-content: center;
-    height: 7vh;
-    width: 100%;
-    padding: 0 30%;
+  display: flex;
+  justify-content: center;
+  height: 7vh;
+  width: 100%;
+  padding: 0 30%;
 }
 
-.direitos-footer p {
-    margin-top: 1.5vh;
-    font-family: Negrito;
-    font-size: 1.22rem;
-    color: #29b255;
+@media screen and (max-width: 1200px) {
+    .space-others {
+        gap: 20%;
+    }
+
+    .all-sobre{
+        gap: 2vh;
+        height: auto;
+    }
+
+    .descricao-banner h3 {
+        font-size: 1.5rem;
+    }
+
+    .button-banner a {
+        font-size: 1.2rem;
+    }
+
+    .all-sobre {
+        padding: 7vh 10vw;
+    }
+
+    .titulo-sobre-NossaHistória h3,
+    .titulo-sobre-OQueNosTornaÚnicos h3,
+    .titulo-sobre-ConheçaQuemFazAMagia h3 {
+        font-size: 2.5rem;
+    }
+
+    .escrita-sobre-NossaHistória p,
+    .escrita-sobre-OQueNosTornaÚnicos p,
+    .escrita-sobre-pontosImportates p,
+    .escrita-sobre-ConheçaQuemFazAMagia p {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .topico-sobre-NossaHistória,
+    .topico-sobre-OQueNosTornaÚnicos {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .descricao-sobre-NossaHistória,
+    .descricao-sobre-OQueNosTornaÚnicos {
+        width: 100%;
+    }
+
+    .space-sobre-NossaHistória {
+        width: 90%;
+        height: 20vh;
+    }
+
+    .space-sobre-OQueNosTornaÚnicos {
+        display: none;
+    }
+
+    .img-sobre-ConheçaQuemFazAMagia {
+        gap: 2rem;
+    }
+
+    .img-sobre-ConheçaQuemFazAMagia img {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .titulo-banner h1 {
+        font-size: 2.5rem;
+    }
+
+    .descricao-banner h3 {
+        font-size: 1.2rem;
+    }
+
+    .button-banner a {
+        font-size: 1rem;
+    }
+
+    .space-icon {
+        width: 10%;
+    }
+
+    nav {
+        gap: 10%;
+    }
+
+    .space-others {
+        gap: 10%;
+    }
+
+    .titulo-sobre-NossaHistória h3,
+    .titulo-sobre-OQueNosTornaÚnicos h3,
+    .titulo-sobre-ConheçaQuemFazAMagia h3 {
+        font-size: 2rem;
+    }
+
+    .escrita-sobre-NossaHistória p,
+    .escrita-sobre-OQueNosTornaÚnicos p,
+    .escrita-sobre-pontosImportates p,
+    .escrita-sobre-ConheçaQuemFazAMagia p {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* header */
+
+    .banner {
+        height: 80vh;
+    }
+
+    header {
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    .space-icon {
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    nav {
+        gap: 1rem;
+        padding-left: 1vw;
+    }
+
+    .space-icon {
+        margin: 0;
+    }
+
+    .one-nav {
+        width: auto;
+    }
+
+    .one-nav a {
+        font-size: 0.7rem;
+    }
+
+    .space-others {
+        gap: 1rem;
+        margin-right: 0;
+        margin-left: 20vw;
+    }
+
+    .space-others a {
+        font-size: 0.7rem;
+    }
+
+    .espace-banner {
+        padding: 0 2%;
+    }
+
+    .informations-banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1vh;
+    }
+
+    .titulo-banner h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .descricao-banner {
+        width: 100%;
+        height: auto;
+    }
+
+    .descricao-banner h3 {
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .button-banner {
+        width: 45%;
+    }
+
+    .button-banner a {
+        font-size: 0.9rem;
+    }
+
+    /* header */
+
+    .titulo-sobre-NossaHistória,
+    .titulo-sobre-OQueNosTornaÚnicos {
+        margin-bottom: 2vh;
+    }
+
+    .titulo-sobre-ConheçaQuemFazAMagia,
+    .escrita-sobre-pontosImportates {
+        margin-bottom: 0vh;
+    }
+
+    .titulo-sobre-NossaHistória h3,
+    .titulo-sobre-OQueNosTornaÚnicos h3,
+    .titulo-sobre-ConheçaQuemFazAMagia h3 {
+        font-size: 1.75rem;
+    }
+
+    .escrita-sobre-NossaHistória p,
+    .escrita-sobre-OQueNosTornaÚnicos p,
+    .escrita-sobre-pontosImportates p,
+    .escrita-sobre-ConheçaQuemFazAMagia p,
+    .escrita-sobre-ConheçaQuemFazAMagia-frase p {
+        font-size: 1.1rem;
+    }
+
+    /* footer */
+
+    .nav-footer {
+        gap: 1rem;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .nav-footer h3 {
+        font-size: 1.1rem;
+    }
+
+    .logo-footer {
+        height: 10vh;
+    }
+
+    .logo-footer a {
+        width: 100%;
+        height: 100%;
+    }
+
+    .logo-footer img {
+        width: 30%;
+    }
+
+    .social-footer {
+        width: 50%;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .one-social img {
+        width: 100%;
+    }
+
+    .direitos-footer {
+        padding: 0 1vh;
+    }
+
+    .direitos-footer p {
+        font-size: 0.7rem;
+        text-align: justify;
+    }
+
+    /* footer */
 }
