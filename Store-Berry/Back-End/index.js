@@ -8,9 +8,13 @@ const routerCardapio = require("./Routes/routerCardapio");
 const routerCarrinho = require("./Routes/routerCarrinho");
 const routerConta = require("./Routes/routerConta");
 const routerSobre = require("./Routes/routerSobre");
+const logger = require("./Middlewares/logger");
+
+app.use(logger);
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "..")));
+app.use(express.static(path.join(__dirname, "../Front-End")));
 app.use("/", routerHome);
 app.use("/cardapio", routerCardapio);
 app.use("/carrinho", routerCarrinho);
