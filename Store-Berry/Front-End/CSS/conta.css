@@ -337,3 +337,146 @@ input[type=number] {
   color: #29b355;
   transform: scale(1.1);
 }
+
+@media screen and (max-width: 1200px) {
+  body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }  
+  
+  .cont {
+        width: 45vw;
+    }
+
+    .space-title h1 {
+        font-size: 2.25rem;
+    }
+
+    .space-button button {
+        width: 60%;
+        font-size: 1.25rem;
+    }
+
+    .space-politics a {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .cont {
+        width: 60vw;
+    }
+
+    .entrar-image-1 img,
+    .entrar-image-2 img,
+    .criar-image-1 img,
+    .criar-image-2 img {
+        display: none;
+    }
+
+    .space-logo img {
+        width: 75%;
+    }
+
+    .other {
+        height: 12vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cont {
+        width: 75vw;
+        height: 85vh;
+    }
+
+    .space-title h1 {
+        font-size: 2rem;
+    }
+
+    .information {
+        font-size: 0.9rem;
+    }
+
+    .information::placeholder {
+        font-size: 0.9rem;
+    }
+
+    .space-button h3 {
+        font-size: 1.1rem;
+    }
+
+    .other {
+        height: 10vh;
+    }
+
+    .space-politics a {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cont {
+        width: 90vw;
+        height: 80vh;
+        border-radius: 1.5rem;
+    }
+
+    .space-logo img {
+        width: 85%;
+    }
+
+    .space-title h1 {
+        font-size: 1.75rem;
+    }
+
+    .all-informations {
+        gap: 8%;
+    }
+
+    .information {
+        height: 25%;
+        font-size: 0.85rem;
+        padding: 0.75rem;
+    }
+
+    .information::placeholder {
+        font-size: 0.85rem;
+    }
+
+    .space-button button {
+        width: 70%;
+        font-size: 1.1rem;
+        height: 45%;
+    }
+
+    .space-button h3 {
+        font-size: 1rem;
+    }
+
+    .space-others {
+        gap: 2%;
+    }
+
+    .other {
+        height: 8vh;
+        width: 22%;
+    }
+
+    .other img {
+        width: 50%;
+    }
+
+    .other-apple img {
+        width: 45%;
+    }
+
+    .other-microsoft img {
+        width: 55%;
+    }
+
+    .space-politics a {
+        font-size: 0.9rem;
+    }
+}
