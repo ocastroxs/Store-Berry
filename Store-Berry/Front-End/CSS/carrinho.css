@@ -438,3 +438,138 @@ header a.active::after {
         min-width: 80px;
     }
 }
+
+/* Adicionando responsividade para dispositivos menores */
+
+@media (max-width: 1200px) {
+    /* header */
+
+    .space-others {
+        gap: 20%;
+    }
+
+    /* header */
+}
+
+@media (max-width: 768px) {
+     /* header */
+
+    .space-icon {
+        width: 10%;
+    }
+
+    nav {
+        gap: 10%;
+    }
+
+    .space-others {
+        gap: 10%;
+    }
+
+    /* header */
+
+    .info-carrinho {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .cont {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .produto-img img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .produto-detalhes h4 {
+        font-size: 1rem;
+    }
+
+    .produto-qtd button {
+        width: 26px;
+        height: 26px;
+        font-size: 1rem;
+    }
+
+    .produto-preco {
+        min-width: 80px;
+    }
+
+    .resumo-produtos {
+        padding: 1.5rem;
+    }
+
+    .buttons-resumo button {
+        padding: 0.7rem 0;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* header */
+
+    .banner {
+        height: 10vh;
+    }
+
+    header {
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    .space-icon {
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    nav {
+        gap: 1rem;
+        padding-left: 1vw;
+    }
+
+    .space-icon {
+        margin: 0;
+    }
+
+    .one-nav {
+        width: auto;
+    }
+
+    .one-nav a {
+        font-size: 0.7rem;
+    }
+
+    .space-others {
+        gap: 1rem;
+        margin-right: 0;
+        margin-left: 20vw;
+    }
+
+    .space-others a {
+        font-size: 0.7rem;
+    }
+
+    /* header */
+    .title-carrinho img {
+        width: 30px;
+    }
+
+    .title-carrinho h3 {
+        font-size: 1.5rem;
+    }
+
+    .produto-qtd span {
+        font-size: 0.9rem;
+    }
+
+    .produto-preco .total {
+        font-size: 1rem;
+    }
+
+    .desconto-resumo p {
+        font-size: 0.8rem;
+    }
+}
