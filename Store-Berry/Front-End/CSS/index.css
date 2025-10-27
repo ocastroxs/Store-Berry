@@ -250,7 +250,7 @@ header nav a.active::after {
   justify-content: center;
 }
 
-.scroll-down span {
+.scroll-down a {
   cursor: pointer;
   display: inline-block;
   font-size: 3rem;

@@ -53,18 +53,18 @@
                 </div>
 
                 <div class="button-banner">
-                    <a href="#">Ver Cardápio</a>
+                    <a href="#cont">Ver Cardápio</a>
                 </div>
 
             </div>
 
             <div class="scroll-down">
-                <span>&#x25BC;</span>
+                <a href="#cont">&#x25BC;</a>
             </div>
         </div>
     </div>
 
-    <div class="titulos-cardapio">
+    <div class="titulos-cardapio" id="cont">
         <div class="row-cardapio">
             <div class="one-titulo">
                 <button data-category="all">Todos</button>
@@ -556,26 +556,7 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <script>
-        const buttons = document.querySelectorAll('.one-titulo button');
-        const sections = document.querySelectorAll('.topico-produto');
-
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const category = button.getAttribute('data-category');
-                buttons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                sections.forEach(section => {
-                    if (category === 'all' || section.classList.contains(category)) {
-                        section.style.display = 'flex';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
-            });
-        });
-        document.querySelector('.one-titulo button[data-category="all"]').classList.add('active');
-    </script>
+    <script src="../JS/cardapio.js"></script>
 </body>
 
 </html>
