@@ -255,7 +255,7 @@ header .space-others a:hover::after {
 /*sobre*/
 
 .all-sobre {
-    height: 255vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     padding: 7vh 20vw;
@@ -265,6 +265,7 @@ header .space-others a:hover::after {
 .topico-sobre-NossaHistória {
     display: flex;
     gap: 5%;
+    margin-bottom: 5vh;
 }
 
 .descricao-sobre-NossaHistória {
@@ -317,13 +318,8 @@ header .space-others a:hover::after {
 }
 
 .img-sobre-NossaHistória img {
-    width: 100%;
+    width: 130%;
 }
-
-
-
-
-
 
 .topico-sobre-OQueNosTornaÚnicos {
     display: flex;
@@ -379,11 +375,9 @@ header .space-others a:hover::after {
 }
 
 .img-sobre-OQueNosTornaÚnicos img {
-    width: 100%;
+    width: 120%;
     object-fit: contain;
 }
-
-
 
 
 .topico-sobre-pontosImportates {

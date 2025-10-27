@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store Berry - Conheça o nosso Cardápio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="/CSS/cardapio.css">
     <link rel="shortcut icon" href="/Images/Icon.svg" type="image/x-icon">
 </head>
@@ -94,7 +96,7 @@
                             <img src="/Images/Cardapio-1.svg" alt="">
                             <div class="overlay-cardapio">
                                 <h3>Fondue</h3>
-                                <button id="">Ver mais</button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#Fondue">Ver mais</button>
                             </div>
                         </div>
                         <div class="nome-produto">
@@ -552,11 +554,37 @@
         </div>
     </footer>
 
+    <div class="modal fade" id="Fondue" tabindex="-1" aria-labelledby="Fondue" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content modal-all">
+                <div class="modal-header banner-modal">
+                    <h3 class="modal-title">Fondue de Morango</h3>
+                </div>
+
+                <div class="modal-body modal-descricao">
+                    <p>
+                        Delicie-se com o sabor irresistível do nosso fondue artesanal! Morangos frescos mergulhados em
+                        um
+                        creme de chocolate cremoso e aveludado, preparados com ingredientes selecionados para garantir
+                        uma experiência única. Ideal para compartilhar — ou saborear sozinho! 🍓🍫
+                    </p>
+                </div>
+
+                <div class="modal-footer modal-buttons">
+                    <button type="button" class="btn btn-secondary modal-button fechar"
+                        data-bs-dismiss="modal">Fechar detalhes</button>
+                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <script src="../JS/cardapio.js"></script>
+    <script src="/JS/cardapio.js"></script>
 </body>
 
 </html>
