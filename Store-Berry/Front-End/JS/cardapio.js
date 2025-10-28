@@ -17,7 +17,6 @@ const buttons = document.querySelectorAll('.one-titulo button');
         });
         document.querySelector('.one-titulo button[data-category="all"]').classList.add('active');
 
-        // Verifica se há um hash na URL e ativa o filtro correspondente
         const hash = window.location.hash.substring(1);
         if (hash) {
             const buttonToActivate = document.querySelector(`.one-titulo button[data-category="${hash}"]`);
