@@ -1,0 +1,148 @@
+{
+    "sobremesas": {
+        "fondue": {
+            "id": 1,
+            "nome": "Fondue com Morango",
+            "preco": 49.90
+        },
+        "chocolate": {
+            "id": 2,
+            "nome": "Chocolate com Morango",
+            "preco": 29.90
+        },
+        "bolo": {
+            "id": 3,
+            "nome": "Bolo com Morango",
+            "preco": 34.90
+        },
+        "torta": {
+            "id": 4,
+            "nome": "Torta com Morango",
+            "preco": 44.90
+        },
+        "cheesecake": {
+            "id": 5,
+            "nome": "Cheesecake com Morango",
+            "preco": 39.90
+        },
+        "pave": {
+            "id": 6,
+            "nome": "Pavê com Morango",
+            "preco": 27.90
+        },
+        "mousse": {
+            "id": 7,
+            "nome": "Mousse com Morango",
+            "preco": 32.90
+        },
+        "gelatina": {
+            "id": 8,
+            "nome": "Gelatina com Morango",
+            "preco": 19.90
+        },
+        "sorvete": {
+            "id": 9,
+            "nome": "Sorvete com Morango",
+            "preco": 24.90
+        },
+        "cupcake": {
+            "id": 10,
+            "nome": "Cupcake com Morango",
+            "preco": 22.90
+        },
+        "panqueca": {
+            "id": 11,
+            "nome": "Panqueca com Morango",
+            "preco": 27.90
+        },
+        "pudim": {
+            "id": 12,
+            "nome": "Pudim com Morango",
+            "preco": 29.90
+        }
+    },
+    "bebidas": {
+        "suco": {
+            "id": 13,
+            "nome": "Suco com Morango",
+            "preco": 9.90
+        },
+        "vitamina": {
+            "id": 14,
+            "nome": "Vitamina com Morango",
+            "preco": 11.90
+        },
+        "soda": {
+            "id": 15,
+            "nome": "Soda com Morango",
+            "preco": 8.90
+        },
+        "milkshake": {
+            "id": 16,
+            "nome": "Milkshake com Morango",
+            "preco": 14.90
+        },
+        "agua": {
+            "id": 17,
+            "nome": "Água com Morango",
+            "preco": 4.90
+        },
+        "cha": {
+            "id": 18,
+            "nome": "Chá com Morango",
+            "preco": 7.90
+        },
+        "bubblea": {
+            "id": 19,
+            "nome": "Bubble Tea",
+            "preco": 12.90
+        },
+        "limao": {
+            "id": 20,
+            "nome": "Suco com Limão",
+            "preco": 9.90
+        }
+    },
+    "conservas": {
+        "geleia": {
+            "id": 21,
+            "nome": "Geleia com Morango",
+            "preco": 14.90
+        },
+        "diet": {
+            "id": 22,
+            "nome": "Diet com Morango",
+            "preco": 14.90
+        },
+        "calda": {
+            "id": 23,
+            "nome": "Calda de Morango",
+            "preco": 9.90
+        },
+        "xarope": {
+            "id": 24,
+            "nome": "Xarope de Morango",
+            "preco": 9.90
+        },
+        "salada": {
+            "id": 25,
+            "nome": "Salada com Morango",
+            "preco": 18.90
+        },
+        "risoto": {
+            "id": 26,
+            "nome": "Risoto de Morango",
+            "preco": 29.90
+        },
+        "chutney": {
+            "id": 27,
+            "nome": "Chutney de Morango",
+            "preco": 12.90
+        },
+        "bruschetta": {
+            "id": 28,
+            "nome": "Bruschetta de Morango",
+            "preco": 16.90
+        }
+    }
+}

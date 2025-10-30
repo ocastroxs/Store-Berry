@@ -293,6 +293,7 @@ header nav a.active::after {
   width: 30%;
   gap: 2.75vh;
   transition: all 0.3s ease;
+  cursor: auto;
 }
 
 .col-beneficio:hover {

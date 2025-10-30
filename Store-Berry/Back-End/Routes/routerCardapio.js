@@ -8,5 +8,4 @@ router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../Front-End/HTML/cardapio.html'));
 });
 
-
 module.exports = router;

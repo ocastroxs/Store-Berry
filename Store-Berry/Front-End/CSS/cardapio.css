@@ -37,7 +37,7 @@ body {
     background-image: url(../Images/Background.svg);
     background-size: 5%;
     background-repeat: repeat;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgb(255, 255, 255);
 }
 
 body.loaded {
@@ -863,7 +863,7 @@ footer {
     height: 40%;
     background-image: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Banner-Cardapio.svg);
+        url(../Images/Fundo-1.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
