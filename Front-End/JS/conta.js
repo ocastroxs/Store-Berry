@@ -33,7 +33,6 @@ document.querySelectorAll("a").forEach(link => {
 
 // Função para mostrar mensagens
 function showMessage(message, type = 'error') {
-    // Remove mensagem anterior se existir
     const oldMessage = document.querySelector('.message-box');
     if (oldMessage) oldMessage.remove();
 
@@ -74,7 +73,6 @@ if (window.location.pathname.includes('criar')) {
             const emailValue = inputEmail.value;
             const senhaValue = inputSenha.value;
 
-            // Validações
             if (!cpfValue || !emailValue || !senhaValue) {
                 showMessage('Preencha todos os campos!', 'error');
                 return;
@@ -85,7 +83,6 @@ if (window.location.pathname.includes('criar')) {
                 return;
             }
 
-            // Validar CPF básico
             const cpfLimpo = cpfValue.replace(/\D/g, '');
             if (cpfLimpo.length !== 11) {
                 showMessage('CPF inválido!', 'error');
@@ -121,7 +118,7 @@ if (window.location.pathname.includes('criar')) {
     }
 }
 
-// Lógica de ENTRAR NA CONTA
+// Lógica de ENTRAR NA CONTA (CORRIGIDO)
 if (window.location.pathname.includes('entrar')) {
     const btnEntrar = document.querySelector('.space-button button');
     const inputCpf = document.querySelector('input[placeholder="CPF"]');
@@ -134,7 +131,6 @@ if (window.location.pathname.includes('entrar')) {
             const emailValue = inputEmail.value;
             const senhaValue = inputSenha.value;
 
-            // Validações
             if ((!cpfValue && !emailValue) || !senhaValue) {
                 showMessage('Preencha CPF/Email e Senha!', 'error');
                 return;
@@ -155,9 +151,10 @@ if (window.location.pathname.includes('entrar')) {
 
                 if (response.ok) {
                     showMessage(data.message, 'success');
+                    // AGUARDAR MAIS TEMPO para garantir que a sessão foi salva
                     setTimeout(() => {
                         window.location.href = '/';
-                    }, 1000);
+                    }, 1500); // Aumentado de 1000 para 1500ms
                 } else {
                     showMessage(data.error, 'error');
                 }
