@@ -1,8 +1,32 @@
 const express = require("express");
 const path = require("path");
 const bcrypt = require("bcrypt");
+const fs = require("fs").promises;
 const router = express.Router();
-const users = [];
+
+// Caminho do arquivo JSON
+const USERS_FILE = path.join(__dirname, '../data/users.json');
+
+// Função para ler usuários do arquivo
+async function readUsers() {
+    try {
+        const data = await fs.readFile(USERS_FILE, 'utf8');
+        return JSON.parse(data);
+    } catch (error) {
+        // Se o arquivo não existir, retorna array vazio
+        if (error.code === 'ENOENT') {
+            await fs.mkdir(path.dirname(USERS_FILE), { recursive: true });
+            await fs.writeFile(USERS_FILE, '[]', 'utf8');
+            return [];
+        }
+        throw error;
+    }
+}
+
+// Função para salvar usuários no arquivo
+async function saveUsers(users) {
+    await fs.writeFile(USERS_FILE, JSON.stringify(users, null, 2), 'utf8');
+}
 
 // Middleware para verificar se NÃO está logado
 function checkNotLoggedIn(req, res, next) {
@@ -29,34 +53,44 @@ router.post('/api/registrar', async (req, res) => {
             return res.status(400).json({ error: "Todos os campos são obrigatórios" });
         }
 
+        // Ler usuários existentes
+        const users = await readUsers();
+
+        // Verificar se usuário já existe
         const userExists = users.find(u => u.email === email || u.cpf === cpf);
         if (userExists) {
             return res.status(400).json({ error: "CPF ou Email já cadastrado" });
         }
 
+        // Hash da senha
         const hashedPassword = await bcrypt.hash(senha, 10);
         const primeiroNome = email.split('@')[0];
 
+        // Criar novo usuário
         const newUser = {
-            id: users.length + 1,
+            id: users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1,
             cpf: cpf.replace(/\D/g, ''),
             email,
             senha: hashedPassword,
-            nome: primeiroNome
+            nome: primeiroNome,
+            criadoEm: new Date().toISOString()
         };
+
+        // Adicionar e salvar
         users.push(newUser);
+        await saveUsers(users);
 
         res.json({ 
             success: true,
             message: "Conta criada com sucesso!" 
         });
     } catch (error) {
-        console.error(error);
+        console.error('Erro ao registrar:', error);
         res.status(500).json({ error: "Erro ao criar conta" });
     }
 });
 
-// API - Login (CORRIGIDO)
+// API - Login
 router.post('/api/login', async (req, res) => {
     try {
         const { cpf, email, senha } = req.body;
@@ -65,6 +99,10 @@ router.post('/api/login', async (req, res) => {
             return res.status(400).json({ error: "Preencha todos os campos" });
         }
 
+        // Ler usuários
+        const users = await readUsers();
+
+        // Buscar usuário por CPF ou Email
         const user = users.find(u => 
             (cpf && u.cpf === cpf.replace(/\D/g, '')) || 
             (email && u.email === email)
@@ -74,19 +112,18 @@ router.post('/api/login', async (req, res) => {
             return res.status(400).json({ error: "CPF/Email ou senha incorretos" });
         }
 
+        // Verificar senha
         const validPassword = await bcrypt.compare(senha, user.senha);
         if (!validPassword) {
             return res.status(400).json({ error: "CPF/Email ou senha incorretos" });
         }
 
-        // Criar sessão e ESPERAR salvar
+        // Criar sessão
         req.session.userId = user.id;
         req.session.userName = user.nome;
 
-        // IMPORTANTE: Garantir que a sessão foi salva antes de responder
         req.session.save((err) => {
             if (err) {
-                console.error('Erro ao salvar sessão:', err);
                 return res.status(500).json({ error: "Erro ao salvar sessão" });
             }
             
@@ -97,15 +134,13 @@ router.post('/api/login', async (req, res) => {
             });
         });
     } catch (error) {
-        console.error(error);
+        console.error('Erro ao fazer login:', error);
         res.status(500).json({ error: "Erro ao fazer login" });
     }
 });
 
 // API - Verificar se está logado
 router.get('/api/verificar', (req, res) => {
-    console.log('Verificando sessão:', req.session); // Debug
-    
     if (req.session.userId) {
         res.json({ 
             loggedIn: true, 
