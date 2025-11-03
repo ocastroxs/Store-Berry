@@ -1,1362 +1,2356 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Store Berry - Conheça o nosso Cardápio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CSS/cardapio.css">
-    <link rel="shortcut icon" href="/Images/Icon.svg" type="image/x-icon">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/CSS/cardapio.css" />
+    <link rel="stylesheet" href="/CSS/toast.css" />
+    <link rel="shortcut icon" href="/Images/Icon.svg" type="image/x-icon" />
+  </head>
 
-<body>
-
+  <body>
     <div class="banner" id="banner">
-        <header>
-            <div class="space-icon">
-                <img src="/Images/Icon.svg" alt="Icon">
-            </div>
-
-            <nav>
-                <div class="one-nav">
-                    <a href="/">Home</a>
-                </div>
-                <div class="one-nav">
-                    <a href="/cardapio" class="active">Cardápio</a>
-                </div>
-                <div class="one-nav" style="margin-left: 1vw;">
-                    <a href="/sobre">Sobre Nós</a>
-                </div>
-            </nav>
-
-            <div class="space-others">
-                <div class="other">
-                    <a href="/carrinho">Carrinho</a>
-                </div>
-                <div class="other-destaque">
-                    <a href="/conta/entrar" id="btnLoginHeader">Login</a>
-                </div>
-            </div>
-        </header>
-
-        <div class="espace-banner">
-            <div class="informations-banner">
-
-                <div class="titulo-banner">
-                    <h1>Nosso Cardápio</h1>
-                    <h1 style="color: #ff4a4a; font-family: Negrito;">Conheça nossos aperitivos</h1>
-                </div>
-
-                <div class="descricao-banner">
-                    <h3>De receitas tradicionais a criações únicas, cada sabor é escolhido para transformar o seu dia em
-                        um momento mais doce e especial.</h3>
-                </div>
-
-                <div class="button-banner">
-                    <a href="#cont">Ver Cardápio</a>
-                </div>
-
-            </div>
-
-            <div class="scroll-down">
-                <a href="#cont">&#x25BC;</a>
-            </div>
+      <header>
+        <div class="space-icon">
+          <img src="/Images/Icon.svg" alt="Icon" />
         </div>
+
+        <nav>
+          <div class="one-nav">
+            <a href="/">Home</a>
+          </div>
+          <div class="one-nav">
+            <a href="/cardapio" class="active">Cardápio</a>
+          </div>
+          <div class="one-nav" style="margin-left: 1vw">
+            <a href="/sobre">Sobre Nós</a>
+          </div>
+        </nav>
+
+        <div class="space-others">
+          <div class="other">
+            <a href="/carrinho">Carrinho</a>
+          </div>
+          <div class="other-destaque">
+            <a href="/conta/entrar" id="btnLoginHeader">Login</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="espace-banner">
+        <div class="informations-banner">
+          <div class="titulo-banner">
+            <h1>Nosso Cardápio</h1>
+            <h1 style="color: #ff4a4a; font-family: Negrito">
+              Conheça nossos aperitivos
+            </h1>
+          </div>
+
+          <div class="descricao-banner">
+            <h3>
+              De receitas tradicionais a criações únicas, cada sabor é escolhido
+              para transformar o seu dia em um momento mais doce e especial.
+            </h3>
+          </div>
+
+          <div class="button-banner">
+            <a href="#cont">Ver Cardápio</a>
+          </div>
+        </div>
+
+        <div class="scroll-down">
+          <a href="#cont">&#x25BC;</a>
+        </div>
+      </div>
     </div>
 
     <div class="titulos-cardapio" id="cont">
-        <div class="row-cardapio">
-            <div class="one-titulo">
-                <button data-category="all">Todos</button>
-            </div>
-            <div class="one-titulo">
-                <button data-category="doces">Doces e Sobremesas</button>
-            </div>
-            <div class="one-titulo">
-                <button data-category="bebidas">Bebidas</button>
-            </div>
-            <div class="one-titulo">
-                <button data-category="salgadas">Conservas e Comidas Salgadas</button>
-            </div>
+      <div class="row-cardapio">
+        <div class="one-titulo">
+          <button data-category="all">Todos</button>
         </div>
+        <div class="one-titulo">
+          <button data-category="doces">Doces e Sobremesas</button>
+        </div>
+        <div class="one-titulo">
+          <button data-category="bebidas">Bebidas</button>
+        </div>
+        <div class="one-titulo">
+          <button data-category="salgadas">Conservas e Comidas Salgadas</button>
+        </div>
+      </div>
     </div>
 
     <div class="all-produtos">
-        <div id="doces" class="topico-produto doces">
-            <div class="titulo-produto">
-                <h3>Doces e Sobremesas</h3>
-            </div>
-
-            <div class="all-produto">
-                <div class="row-produto">
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio-1.svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Fondue</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#Fondue">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Fondue</p>
-                        </div>
-                    </div>
-
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (24).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Chocolate</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#chocolate">Ver
-                                    mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Chocolate</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (23).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Bolo</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#bolo">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Bolo</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (21).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Torta</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#torta">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Torta</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row-produto">
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (22).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Cheesecake</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#cheesecake">Ver
-                                    mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Cheesecake</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (19).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Pavê</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#pave">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Pavê</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (20).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Mousse</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#mousse">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Mousse</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (17).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Gelatina</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#gelatina">Ver
-                                    mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Gelatina</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row-produto">
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (18).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Sorvete</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#sorvete">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Sorvete</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (15).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Cupcake</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#cupcake">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Cupcake</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (16).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Panqueca</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#panqueca">Ver
-                                    mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Panqueca</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (13).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Pudim</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#pudim">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Pudim</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div id="doces" class="topico-produto doces">
+        <div class="titulo-produto">
+          <h3>Doces e Sobremesas</h3>
         </div>
 
-        <div id="bebidas" class="topico-produto bebidas">
-            <div class="titulo-produto">
-                <h3>Bebidas</h3>
+        <div class="all-produto">
+          <div class="row-produto">
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio-1.svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Fondue</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#Fondue"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Fondue</p>
+              </div>
             </div>
 
-            <div class="all-produto">
-                <div class="row-produto">
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (14).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Suco</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#suco">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Suco</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (10).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Vitamina</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#vitamina">Ver
-                                    mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Vitamina</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (11).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Soda</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#soda">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Soda</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (12).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Milkshake</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#milkshake">Ver
-                                    mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Milkshake</p>
-                        </div>
-                    </div>
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (24).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Chocolate</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#chocolate"
+                  >
+                    Ver mais
+                  </button>
                 </div>
-
-                <div class="row-produto">
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (7).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Água</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#agua">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Água</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (8).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Chá</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#cha">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Chá</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (9).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Bubble Tea</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#bubblea">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Bubble Tea</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (5).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Suco com Limão</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#limao">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Suco com Limão</p>
-                        </div>
-                    </div>
-                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Chocolate</p>
+              </div>
             </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (23).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Bolo</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#bolo"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Bolo</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (21).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Torta</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#torta"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Torta</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-produto">
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (22).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Cheesecake</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#cheesecake"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Cheesecake</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (19).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Pavê</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#pave"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Pavê</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (20).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Mousse</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#mousse"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Mousse</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (17).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Gelatina</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#gelatina"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Gelatina</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-produto">
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (18).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Sorvete</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#sorvete"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Sorvete</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (15).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Cupcake</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#cupcake"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Cupcake</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (16).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Panqueca</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#panqueca"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Panqueca</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (13).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Pudim</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#pudim"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Pudim</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="bebidas" class="topico-produto bebidas">
+        <div class="titulo-produto">
+          <h3>Bebidas</h3>
         </div>
 
-        <div id="geleias" class="topico-produto salgadas">
-            <div class="titulo-produto">
-                <h3>Conservas e Comidas salgadas</h3>
+        <div class="all-produto">
+          <div class="row-produto">
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (14).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Suco</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#suco"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Suco</p>
+              </div>
             </div>
 
-            <div class="all-produto">
-                <div class="row-produto">
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (6).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Geleia</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#geleia">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Geleia</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (2).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Diet</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#diet">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Diet</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (3).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Calda</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#calda">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Calda</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (4).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Xarope</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#xarope">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Xarope</p>
-                        </div>
-                    </div>
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (10).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Vitamina</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#vitamina"
+                  >
+                    Ver mais
+                  </button>
                 </div>
-
-                <div class="row-produto">
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (25).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Salada</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#salada">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Salada</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (26).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Risoto</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#risoto">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Risoto</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (27).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Chutney</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#chutney">Ver mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Chutney</p>
-                        </div>
-                    </div>
-
-                    <div class="col-produto">
-                        <div class="img-produto">
-                            <img src="/Images/Cardapio- (1).svg" alt="">
-                            <div class="overlay-cardapio">
-                                <h3>Bruschetta</h3>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#bruschetta">Ver
-                                    mais</button>
-                            </div>
-                        </div>
-                        <div class="nome-produto">
-                            <p>Bruschetta</p>
-                        </div>
-                    </div>
-                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Vitamina</p>
+              </div>
             </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (11).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Soda</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#soda"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Soda</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (12).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Milkshake</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#milkshake"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Milkshake</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-produto">
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (7).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Água</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#agua"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Água</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (8).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Chá</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#cha"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Chá</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (9).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Bubble Tea</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#bubblea"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Bubble Tea</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (5).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Suco com Limão</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#limao"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Suco com Limão</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div id="geleias" class="topico-produto salgadas">
+        <div class="titulo-produto">
+          <h3>Conservas e Comidas salgadas</h3>
+        </div>
+
+        <div class="all-produto">
+          <div class="row-produto">
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (6).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Geleia</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#geleia"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Geleia</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (2).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Diet</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#diet"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Diet</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (3).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Calda</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#calda"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Calda</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (4).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Xarope</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#xarope"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Xarope</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-produto">
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (25).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Salada</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#salada"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Salada</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (26).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Risoto</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#risoto"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Risoto</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (27).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Chutney</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#chutney"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Chutney</p>
+              </div>
+            </div>
+
+            <div class="col-produto">
+              <div class="img-produto">
+                <img src="/Images/Cardapio- (1).svg" alt="" />
+                <div class="overlay-cardapio">
+                  <h3>Bruschetta</h3>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#bruschetta"
+                  >
+                    Ver mais
+                  </button>
+                </div>
+              </div>
+              <div class="nome-produto">
+                <p>Bruschetta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="linha-header"></div>
 
     <footer id="footer">
-        <div class="logo-footer">
-            <a href="">
-                <img src="/Images/Logo(2).svg" alt="">
-            </a>
+      <div class="logo-footer">
+        <a href="">
+          <img src="/Images/Logo(2).svg" alt="" />
+        </a>
+      </div>
+
+      <div class="social-footer">
+        <div class="one-social">
+          <a href="https://www.instagram.com/">
+            <img src="/Images/Instagram.svg" alt="" />
+          </a>
         </div>
 
-        <div class="social-footer">
-            <div class="one-social">
-                <a href="https://www.instagram.com/">
-                    <img src="/Images/Instagram.svg" alt="">
-                </a>
-            </div>
-
-            <div class="one-social">
-                <a href="https://about.x.com/pt">
-                    <img src="/Images/Twitter.svg" alt="">
-                </a>
-            </div>
-
-            <div class="one-social">
-                <a href="https://www.whatsapp.com/download">
-                    <img src="/Images/Zap.svg" alt="">
-                </a>
-            </div>
-
-            <div class="one-social">
-                <a href="https://pt-br.facebook.com/">
-                    <img src="/Images/Face.svg" alt="">
-                </a>
-            </div>
+        <div class="one-social">
+          <a href="https://about.x.com/pt">
+            <img src="/Images/Twitter.svg" alt="" />
+          </a>
         </div>
 
-        <div class="nav-footer">
-            <div class="one-nav">
-                <a href="/">
-                    <h3 style="color: #ff4a4a;">Home</h3>
-                </a>
-            </div>
-
-            <div class="one-nav">
-                <a href="/cardapio">
-                    <h3>Cardápio</h3>
-                </a>
-            </div>
-
-            <div class="one-nav">
-                <a href="/sobre">
-                    <h3>Sobre Nós</h3>
-                </a>
-            </div>
-
-            <div class="one-nav">
-                <a href="/conta/entrar" id="btnLoginFooter">
-                    <h3>Login</h3>
-                </a>
-            </div>
+        <div class="one-social">
+          <a href="https://www.whatsapp.com/download">
+            <img src="/Images/Zap.svg" alt="" />
+          </a>
         </div>
 
-        <div class="direitos-footer">
-            <p>© 2025 Store Berry. Todos os direitos reservados. CNPJ: 41.895.006/0001-51</p>
+        <div class="one-social">
+          <a href="https://pt-br.facebook.com/">
+            <img src="/Images/Face.svg" alt="" />
+          </a>
         </div>
+      </div>
+
+      <div class="nav-footer">
+        <div class="one-nav">
+          <a href="/">
+            <h3 style="color: #ff4a4a">Home</h3>
+          </a>
+        </div>
+
+        <div class="one-nav">
+          <a href="/cardapio">
+            <h3>Cardápio</h3>
+          </a>
+        </div>
+
+        <div class="one-nav">
+          <a href="/sobre">
+            <h3>Sobre Nós</h3>
+          </a>
+        </div>
+
+        <div class="one-nav">
+          <a href="/conta/entrar" id="btnLoginFooter">
+            <h3>Login</h3>
+          </a>
+        </div>
+      </div>
+
+      <div class="direitos-footer">
+        <p>
+          © 2025 Store Berry. Todos os direitos reservados. CNPJ:
+          41.895.006/0001-51
+        </p>
+      </div>
     </footer>
 
-    <div class="modal fade" id="Fondue" tabindex="-1" aria-labelledby="Fondue" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-1.svg);">
-                    <h3 class="modal-title">Fondue com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="Fondue"
+      tabindex="-1"
+      aria-labelledby="Fondue"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-1.svg);
+            "
+          >
+            <h3 class="modal-title">Fondue com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Delicie-se com o sabor irresistível do nosso fondue artesanal! Morangos frescos mergulhados em
-                        um
-                        creme de chocolate cremoso e aveludado, preparados com ingredientes selecionados para garantir
-                        uma experiência única. Ideal para compartilhar — ou saborear sozinho! 🍓🍫
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 49,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Delicie-se com o sabor irresistível do nosso fondue artesanal!
+              Morangos frescos mergulhados em um creme de chocolate cremoso e
+              aveludado, preparados com ingredientes selecionados para garantir
+              uma experiência única. Ideal para compartilhar — ou saborear
+              sozinho! 🍓🍫
+            </p>
+            <div class="modal-preco">
+              <p>R$ 49,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="chocolate" tabindex="-1" aria-labelledby="chocolate" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-2.svg);">
-                    <h3 class="modal-title">Chocolate com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="chocolate"
+      tabindex="-1"
+      aria-labelledby="chocolate"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-2.svg);
+            "
+          >
+            <h3 class="modal-title">Chocolate com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Experimente o nosso delicioso chocolate artesanal, feito com os melhores ingredientes para um
-                        sabor
-                        inesquecível. Perfeito para qualquer ocasião! 🍫
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 29,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Experimente o nosso delicioso chocolate artesanal, feito com os
+              melhores ingredientes para um sabor inesquecível. Perfeito para
+              qualquer ocasião! 🍫
+            </p>
+            <div class="modal-preco">
+              <p>R$ 29,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="bolo" tabindex="-1" aria-labelledby="bolo" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-3.svg);">
-                    <h3 class="modal-title">Bolo com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="bolo"
+      tabindex="-1"
+      aria-labelledby="bolo"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-3.svg);
+            "
+          >
+            <h3 class="modal-title">Bolo com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Nosso bolo caseiro é feito com amor e ingredientes frescos, garantindo um sabor que lembra a
-                        infância.
-                        Ideal para acompanhar um café ou chá! 🎂
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 34,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Nosso bolo caseiro é feito com amor e ingredientes frescos,
+              garantindo um sabor que lembra a infância. Ideal para acompanhar
+              um café ou chá! 🎂
+            </p>
+            <div class="modal-preco">
+              <p>R$ 34,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="torta" tabindex="-1" aria-labelledby="torta" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-4.svg);">
-                    <h3 class="modal-title">Torta com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="torta"
+      tabindex="-1"
+      aria-labelledby="torta"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-4.svg);
+            "
+          >
+            <h3 class="modal-title">Torta com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Nossa torta é uma combinação perfeita de crocância e recheio cremoso. Feita com ingredientes
-                        selecionados para um sabor irresistível! 🥧
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 44,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Nossa torta é uma combinação perfeita de crocância e recheio
+              cremoso. Feita com ingredientes selecionados para um sabor
+              irresistível! 🥧
+            </p>
+            <div class="modal-preco">
+              <p>R$ 44,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="cheesecake" tabindex="-1" aria-labelledby="cheesecake" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-5.svg);">
-                    <h3 class="modal-title">Cheesecake com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="cheesecake"
+      tabindex="-1"
+      aria-labelledby="cheesecake"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-5.svg);
+            "
+          >
+            <h3 class="modal-title">Cheesecake com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Uma fatia do nosso cheesecake é como um pedaço do céu! Com uma base crocante e um recheio
-                        cremoso
-                        de dar água na boca, é a sobremesa perfeita para qualquer hora. 🍰
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 39,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Uma fatia do nosso cheesecake é como um pedaço do céu! Com uma
+              base crocante e um recheio cremoso de dar água na boca, é a
+              sobremesa perfeita para qualquer hora. 🍰
+            </p>
+            <div class="modal-preco">
+              <p>R$ 39,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="pave" tabindex="-1" aria-labelledby="pave" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-6.svg);">
-                    <h3 class="modal-title">Pavê com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="pave"
+      tabindex="-1"
+      aria-labelledby="pave"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-6.svg);
+            "
+          >
+            <h3 class="modal-title">Pavê com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        O nosso pavê é uma verdadeira tentação! Camadas de biscoito, creme e chocolate se combinam para
-                        criar uma sobremesa irresistível. Ideal para os amantes de chocolate! 🍫
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 27,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              O nosso pavê é uma verdadeira tentação! Camadas de biscoito, creme
+              e chocolate se combinam para criar uma sobremesa irresistível.
+              Ideal para os amantes de chocolate! 🍫
+            </p>
+            <div class="modal-preco">
+              <p>R$ 27,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="mousse" tabindex="-1" aria-labelledby="mousse" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-7.svg);">
-                    <h3 class="modal-title">Mousse com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="mousse"
+      tabindex="-1"
+      aria-labelledby="mousse"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-7.svg);
+            "
+          >
+            <h3 class="modal-title">Mousse com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Delicie-se com a nossa mousse leve e arejada, feita com chocolate de alta qualidade. Uma
-                        sobremesa que derrete na boca e traz um sabor intenso a cada colherada. 🍮
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 32,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Delicie-se com a nossa mousse leve e arejada, feita com chocolate
+              de alta qualidade. Uma sobremesa que derrete na boca e traz um
+              sabor intenso a cada colherada. 🍮
+            </p>
+            <div class="modal-preco">
+              <p>R$ 32,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="gelatina" tabindex="-1" aria-labelledby="gelatina" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-8.svg);">
-                    <h3 class="modal-title">Gelatina com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="gelatina"
+      tabindex="-1"
+      aria-labelledby="gelatina"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-8.svg);
+            "
+          >
+            <h3 class="modal-title">Gelatina com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Refresque-se com a nossa gelatina de frutas, uma sobremesa leve e cheia de sabor. Perfeita para
-                        finalizar a sua refeição com chave de ouro! 🍧
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 19,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Refresque-se com a nossa gelatina de frutas, uma sobremesa leve e
+              cheia de sabor. Perfeita para finalizar a sua refeição com chave
+              de ouro! 🍧
+            </p>
+            <div class="modal-preco">
+              <p>R$ 19,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="sorvete" tabindex="-1" aria-labelledby="sorvete" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-9.svg);">
-                    <h3 class="modal-title">Sorvete com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="sorvete"
+      tabindex="-1"
+      aria-labelledby="sorvete"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-9.svg);
+            "
+          >
+            <h3 class="modal-title">Sorvete com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Experimente o nosso sorvete cremoso, feito com ingredientes naturais e sem conservantes. Um
-                        verdadeiro prazer para os amantes de sorvete! 🍦
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 24,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Experimente o nosso sorvete cremoso, feito com ingredientes
+              naturais e sem conservantes. Um verdadeiro prazer para os amantes
+              de sorvete! 🍦
+            </p>
+            <div class="modal-preco">
+              <p>R$ 24,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="cupcake" tabindex="-1" aria-labelledby="cupcake" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-10.svg);">
-                    <h3 class="modal-title">Cupcake com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="cupcake"
+      tabindex="-1"
+      aria-labelledby="cupcake"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-10.svg);
+            "
+          >
+            <h3 class="modal-title">Cupcake com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Nossos cupcakes são feitos com massa fofinha e recheios deliciosos, cobertos com um creme
-                        irresistível. Uma explosão de sabor em cada mordida! 🧁
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 22,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Nossos cupcakes são feitos com massa fofinha e recheios
+              deliciosos, cobertos com um creme irresistível. Uma explosão de
+              sabor em cada mordida! 🧁
+            </p>
+            <div class="modal-preco">
+              <p>R$ 22,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="panqueca" tabindex="-1" aria-labelledby="panqueca" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-11.svg);">
-                    <h3 class="modal-title">Panqueca com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="panqueca"
+      tabindex="-1"
+      aria-labelledby="panqueca"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-11.svg);
+            "
+          >
+            <h3 class="modal-title">Panqueca com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Nossas panquecas são servidas com recheios doces ou salgados, acompanhadas de caldas e
-                        coberturas deliciosas. Uma opção versátil para qualquer hora do dia! 🥞
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 27,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Nossas panquecas são servidas com recheios doces ou salgados,
+              acompanhadas de caldas e coberturas deliciosas. Uma opção versátil
+              para qualquer hora do dia! 🥞
+            </p>
+            <div class="modal-preco">
+              <p>R$ 27,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="pudim" tabindex="-1" aria-labelledby="pudim" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-12.svg);">
-                    <h3 class="modal-title">Pudim com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="pudim"
+      tabindex="-1"
+      aria-labelledby="pudim"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-12.svg);
+            "
+          >
+            <h3 class="modal-title">Pudim com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        O nosso pudim é preparado com ingredientes selecionados e segue a receita tradicional,
-                        garantindo
-                        um sabor inconfundível. Uma sobremesa que agrada a todos os paladares! 🍮
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 29,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              O nosso pudim é preparado com ingredientes selecionados e segue a
+              receita tradicional, garantindo um sabor inconfundível. Uma
+              sobremesa que agrada a todos os paladares! 🍮
+            </p>
+            <div class="modal-preco">
+              <p>R$ 29,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="suco" tabindex="-1" aria-labelledby="suco" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-13.svg);">
-                    <h3 class="modal-title">Suco com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="suco"
+      tabindex="-1"
+      aria-labelledby="suco"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-13.svg);
+            "
+          >
+            <h3 class="modal-title">Suco com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Refresque-se com os nossos sucos naturais, feitos com frutas frescas e sem adição de
-                        conservantes. Uma explosão de sabor e frescor a cada gole! 🥤
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 9,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Refresque-se com os nossos sucos naturais, feitos com frutas
+              frescas e sem adição de conservantes. Uma explosão de sabor e
+              frescor a cada gole! 🥤
+            </p>
+            <div class="modal-preco">
+              <p>R$ 9,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="vitamina" tabindex="-1" aria-labelledby="vitamina" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-14.svg);">
-                    <h3 class="modal-title">Vitamina com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="vitamina"
+      tabindex="-1"
+      aria-labelledby="vitamina"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-14.svg);
+            "
+          >
+            <h3 class="modal-title">Vitamina com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Experimente a nossa vitamina de frutas, uma combinação saudável e deliciosa para
-                        refrescar o seu dia. Feita com frutas da estação e leite, é uma opção nutritiva e saborosa. 🥛
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 11,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Experimente a nossa vitamina de frutas, uma combinação saudável e
+              deliciosa para refrescar o seu dia. Feita com frutas da estação e
+              leite, é uma opção nutritiva e saborosa. 🥛
+            </p>
+            <div class="modal-preco">
+              <p>R$ 11,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="soda" tabindex="-1" aria-labelledby="soda" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-15.svg);">
-                    <h3 class="modal-title">Soda com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="soda"
+      tabindex="-1"
+      aria-labelledby="soda"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-15.svg);
+            "
+          >
+            <h3 class="modal-title">Soda com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Aprecie a nossa soda artesanal, feita com ingredientes naturais e sem conservantes. Uma
-                        bebida refrescante e saborosa para acompanhar a sua refeição. 🥤
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 8,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Aprecie a nossa soda artesanal, feita com ingredientes naturais e
+              sem conservantes. Uma bebida refrescante e saborosa para
+              acompanhar a sua refeição. 🥤
+            </p>
+            <div class="modal-preco">
+              <p>R$ 8,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="milkshake" tabindex="-1" aria-labelledby="milkshake" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-16.svg);">
-                    <h3 class="modal-title">Milkshake com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="milkshake"
+      tabindex="-1"
+      aria-labelledby="milkshake"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-16.svg);
+            "
+          >
+            <h3 class="modal-title">Milkshake com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Delicie-se com o nosso milkshake cremoso, feito com sorvete de alta qualidade e leite fresco.
-                        Uma combinação perfeita para os amantes de sobremesas geladas! 🍦
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 14,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Delicie-se com o nosso milkshake cremoso, feito com sorvete de
+              alta qualidade e leite fresco. Uma combinação perfeita para os
+              amantes de sobremesas geladas! 🍦
+            </p>
+            <div class="modal-preco">
+              <p>R$ 14,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="agua" tabindex="-1" aria-labelledby="agua" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-17.svg);">
-                    <h3 class="modal-title">Água com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="agua"
+      tabindex="-1"
+      aria-labelledby="agua"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-17.svg);
+            "
+          >
+            <h3 class="modal-title">Água com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Mantenha-se hidratado com a nossa água mineral, pura e refrescante. Ideal para acompanhar
-                        qualquer refeição ou para beber a qualquer hora do dia. 💧
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 4,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Mantenha-se hidratado com a nossa água mineral, pura e
+              refrescante. Ideal para acompanhar qualquer refeição ou para beber
+              a qualquer hora do dia. 💧
+            </p>
+            <div class="modal-preco">
+              <p>R$ 4,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="cha" tabindex="-1" aria-labelledby="cha" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-18.svg);">
-                    <h3 class="modal-title">Chá com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="cha"
+      tabindex="-1"
+      aria-labelledby="cha"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-18.svg);
+            "
+          >
+            <h3 class="modal-title">Chá com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Aprecie o nosso chá gelado, uma bebida refrescante e saborosa, perfeita para os dias quentes.
-                        Feito com chá de alta qualidade e frutas frescas. 🍵
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 7,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Aprecie o nosso chá gelado, uma bebida refrescante e saborosa,
+              perfeita para os dias quentes. Feito com chá de alta qualidade e
+              frutas frescas. 🍵
+            </p>
+            <div class="modal-preco">
+              <p>R$ 7,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="bubblea" tabindex="-1" aria-labelledby="bubblea" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-19.svg);">
-                    <h3 class="modal-title">Bubble Tea</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="bubblea"
+      tabindex="-1"
+      aria-labelledby="bubblea"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-19.svg);
+            "
+          >
+            <h3 class="modal-title">Bubble Tea</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Experimente o nosso Bubble Tea, uma bebida asiática que combina chá, leite e bolinhas de
-                        tapioca. Uma explosão de sabores e texturas em cada gole! 🧋
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 12,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Experimente o nosso Bubble Tea, uma bebida asiática que combina
+              chá, leite e bolinhas de tapioca. Uma explosão de sabores e
+              texturas em cada gole! 🧋
+            </p>
+            <div class="modal-preco">
+              <p>R$ 12,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="limao" tabindex="-1" aria-labelledby="limao" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-20.svg);">
-                    <h3 class="modal-title">Suco com Limão</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="limao"
+      tabindex="-1"
+      aria-labelledby="limao"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-20.svg);
+            "
+          >
+            <h3 class="modal-title">Suco com Limão</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Refresque-se com o nosso suco com limão, uma bebida cítrica e revigorante, perfeita para
-                        os dias quentes. Feito com limões frescos e água mineral. 🍋
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 9,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Refresque-se com o nosso suco com limão, uma bebida cítrica e
+              revigorante, perfeita para os dias quentes. Feito com limões
+              frescos e água mineral. 🍋
+            </p>
+            <div class="modal-preco">
+              <p>R$ 9,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="geleia" tabindex="-1" aria-labelledby="geleia" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-21.svg);">
-                    <h3 class="modal-title">Geleia com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="geleia"
+      tabindex="-1"
+      aria-labelledby="geleia"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-21.svg);
+            "
+          >
+            <h3 class="modal-title">Geleia com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Experimente a nossa geleia artesanal, feita com frutas frescas e sem conservantes. Uma
-                        explosão de sabor em cada colherada! 🍯
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 14,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Experimente a nossa geleia artesanal, feita com frutas frescas e
+              sem conservantes. Uma explosão de sabor em cada colherada! 🍯
+            </p>
+            <div class="modal-preco">
+              <p>R$ 14,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="diet" tabindex="-1" aria-labelledby="diet" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-22.svg);">
-                    <h3 class="modal-title">Diet com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="diet"
+      tabindex="-1"
+      aria-labelledby="diet"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-22.svg);
+            "
+          >
+            <h3 class="modal-title">Diet com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        A nossa geleia diet é feita especialmente para quem busca uma opção com menos açúcar, mas
-                        sem abrir mão do sabor. Experimente! 🍇
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 14,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              A nossa geleia diet é feita especialmente para quem busca uma
+              opção com menos açúcar, mas sem abrir mão do sabor. Experimente!
+              🍇
+            </p>
+            <div class="modal-preco">
+              <p>R$ 14,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="calda" tabindex="-1" aria-labelledby="calda" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-23.svg);">
-                    <h3 class="modal-title">Calda de Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="calda"
+      tabindex="-1"
+      aria-labelledby="calda"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-23.svg);
+            "
+          >
+            <h3 class="modal-title">Calda de Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        A nossa calda é perfeita para acompanhar sobremesas, como bolos e sorvetes. Feita com
-                        ingredientes selecionados para um sabor inigualável. 🍨
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 9,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              A nossa calda é perfeita para acompanhar sobremesas, como bolos e
+              sorvetes. Feita com ingredientes selecionados para um sabor
+              inigualável. 🍨
+            </p>
+            <div class="modal-preco">
+              <p>R$ 9,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="xarope" tabindex="-1" aria-labelledby="xarope" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-24.svg);">
-                    <h3 class="modal-title">Xarope de Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="xarope"
+      tabindex="-1"
+      aria-labelledby="xarope"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-24.svg);
+            "
+          >
+            <h3 class="modal-title">Xarope de Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        O nosso xarope é ideal para adoçar bebidas e sobremesas. Feito com ingredientes de
-                        qualidade, proporciona um sabor doce na medida certa. 🍯
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 9,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              O nosso xarope é ideal para adoçar bebidas e sobremesas. Feito com
+              ingredientes de qualidade, proporciona um sabor doce na medida
+              certa. 🍯
+            </p>
+            <div class="modal-preco">
+              <p>R$ 9,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="salada" tabindex="-1" aria-labelledby="salada" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-25.svg);">
-                    <h3 class="modal-title">Salada com Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="salada"
+      tabindex="-1"
+      aria-labelledby="salada"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-25.svg);
+            "
+          >
+            <h3 class="modal-title">Salada com Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Nossa salada é preparada com ingredientes frescos e selecionados, garantindo um prato
-                        saudável e saboroso. Ideal para acompanhar suas refeições! 🥗
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 18,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Nossa salada é preparada com ingredientes frescos e selecionados,
+              garantindo um prato saudável e saboroso. Ideal para acompanhar
+              suas refeições! 🥗
+            </p>
+            <div class="modal-preco">
+              <p>R$ 18,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="risoto" tabindex="-1" aria-labelledby="risoto" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-26.svg);">
-                    <h3 class="modal-title">Risoto de Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="risoto"
+      tabindex="-1"
+      aria-labelledby="risoto"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-26.svg);
+            "
+          >
+            <h3 class="modal-title">Risoto de Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        O nosso risoto é preparado com arroz arbóreo de alta qualidade, cozido lentamente com
-                        caldo saboroso e ingredientes frescos. Uma explosão de sabores a cada garfada! 🍚
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 29,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              O nosso risoto é preparado com arroz arbóreo de alta qualidade,
+              cozido lentamente com caldo saboroso e ingredientes frescos. Uma
+              explosão de sabores a cada garfada! 🍚
+            </p>
+            <div class="modal-preco">
+              <p>R$ 29,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="chutney" tabindex="-1" aria-labelledby="chutney" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-27.svg);">
-                    <h3 class="modal-title">Chutney de Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="chutney"
+      tabindex="-1"
+      aria-labelledby="chutney"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-27.svg);
+            "
+          >
+            <h3 class="modal-title">Chutney de Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        O nosso chutney é uma mistura deliciosa de frutas e especiarias, perfeito para acompanhar
-                        carnes e queijos. Uma explosão de sabores que vai surpreender o seu paladar! 🍖
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 12,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              O nosso chutney é uma mistura deliciosa de frutas e especiarias,
+              perfeito para acompanhar carnes e queijos. Uma explosão de sabores
+              que vai surpreender o seu paladar! 🍖
+            </p>
+            <div class="modal-preco">
+              <p>R$ 12,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <div class="modal fade" id="bruschetta" tabindex="-1" aria-labelledby="bruschetta" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content modal-all">
-                <div class="modal-header banner-modal" style="background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-28.svg);">
-                    <h3 class="modal-title">Bruschetta de Morango</h3>
-                </div>
+    <div
+      class="modal fade"
+      id="bruschetta"
+      tabindex="-1"
+      aria-labelledby="bruschetta"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-all">
+          <div
+            class="modal-header banner-modal"
+            style="
+              background-image: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url(../Images/Fundo-28.svg);
+            "
+          >
+            <h3 class="modal-title">Bruschetta de Morango</h3>
+          </div>
 
-                <div class="modal-body modal-descricao">
-                    <p>
-                        Nossa bruschetta é feita com pão italiano crocante, coberta com tomate fresco, manjericão e
-                        azeite de oliva. Uma entrada clássica e deliciosa! 🍅
-                    </p>
-                    <div class="modal-preco">
-                        <p>R$ 16,90</p>
-                    </div>
-                </div>
-
-                <div class="modal-footer modal-buttons">
-                    <button type="button" class="btn btn-secondary modal-button fechar" data-bs-dismiss="modal">Fechar
-                        detalhes</button>
-                    <button type="button" class="btn btn-primary modal-button adicionar">Adicionar ao carrinho</button>
-                </div>
+          <div class="modal-body modal-descricao">
+            <p>
+              Nossa bruschetta é feita com pão italiano crocante, coberta com
+              tomate fresco, manjericão e azeite de oliva. Uma entrada clássica
+              e deliciosa! 🍅
+            </p>
+            <div class="modal-preco">
+              <p>R$ 16,90</p>
             </div>
+          </div>
+
+          <div class="modal-footer modal-buttons">
+            <button
+              type="button"
+              class="btn btn-secondary modal-button fechar"
+              data-bs-dismiss="modal"
+            >
+              Fechar detalhes
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary modal-button adicionar"
+              data-id="3"
+              data-name="Produto C"
+              data-price="5"
+            >
+              Adicionar ao carrinho
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
 
-    <script src="/JS/cardapio.js"></script>
+    <script>
+      // Chave de armazenamento
+      const CART_KEY = "meuCarrinho";
+
+      // --- Funções de Ajuda (Helpers) ---
+      function carregarCarrinho() {
+        const carrinhoSalvo = localStorage.getItem(CART_KEY);
+        return JSON.parse(carrinhoSalvo) || [];
+      }
+
+      function salvarCarrinho(carrinho) {
+        localStorage.setItem(CART_KEY, JSON.stringify(carrinho));
+      }
+
+      // Verifica se o usuário está logado
+      async function verificarLogin() {
+        try {
+          const response = await fetch("/conta/api/verificar");
+          const data = await response.json();
+          return data.loggedIn;
+        } catch (error) {
+          console.error("Erro ao verificar login:", error);
+          return false;
+        }
+      }
+
+      // Mostra um toast de notificação
+      function mostrarToast(mensagem, tipo = "success") {
+        const toast = document.createElement("div");
+        toast.style.cssText = `
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          padding: 15px 25px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+          z-index: 1000;
+          animation: slideIn 0.3s ease-out;
+          color: white;
+          font-weight: 500;
+        `;
+
+        // Cores diferentes para diferentes tipos de mensagem
+        if (tipo === "success") {
+          toast.style.background = "#4CAF50";
+        } else if (tipo === "error") {
+          toast.style.background = "#f44336";
+        } else if (tipo === "warning") {
+          toast.style.background = "#ff9800";
+        }
+
+        toast.textContent = mensagem;
+        document.body.appendChild(toast);
+
+        // Remove o toast após 3 segundos
+        setTimeout(() => {
+          toast.style.animation = "slideOut 0.3s ease-in";
+          setTimeout(() => toast.remove(), 300);
+        }, 3000);
+      }
+
+      // --- Lógica da Página de Produtos ---
+      document.addEventListener("click", async (evento) => {
+        // Procuramos o botão mais próximo que represente o "Adicionar".
+        const botao = evento.target.closest(
+          ".modal-button.adicionar, button[data-id], .btn-primary.adicionar"
+        );
+
+        if (!botao) return; // clique não é relevante
+
+        // Verifica se está logado antes de prosseguir
+        const estaLogado = await verificarLogin();
+        if (!estaLogado) {
+          if (
+            confirm(
+              "Você precisa fazer login para adicionar itens ao carrinho. Deseja fazer login agora?"
+            )
+          ) {
+            // Salva a URL atual para voltar depois do login
+            sessionStorage.setItem("returnToUrl", window.location.href);
+            window.location.href = "/conta/entrar";
+          }
+          return;
+        }
+
+        const id = botao.dataset.id;
+        const name =
+          botao.dataset.name || botao.getAttribute("data-name") || "Produto";
+        const priceRaw =
+          botao.dataset.price || botao.getAttribute("data-price");
+        const price = priceRaw ? parseFloat(priceRaw) : NaN;
+
+        if (!id) {
+          console.warn("Botão adicionar clicado sem data-id:", botao);
+          mostrarToast(
+            "Este produto não possui informações para ser adicionado ao carrinho.",
+            "error"
+          );
+          return;
+        }
+
+        // 1. Carrega o carrinho ATUAL do localStorage
+        let carrinhoAtual = carregarCarrinho();
+
+        // 2. Modifica o carrinho
+        const itemExistente = carrinhoAtual.find((item) => item.id === id);
+
+        if (itemExistente) {
+          itemExistente.quantity++;
+          mostrarToast(
+            `Quantidade de ${name} aumentada no carrinho!`,
+            "success"
+          );
+        } else {
+          const novoItem = {
+            id: id,
+            name: name,
+            price: isNaN(price) ? 0 : price,
+            quantity: 1,
+          };
+          carrinhoAtual.push(novoItem);
+          mostrarToast(`${name} adicionado ao carrinho!`, "success");
+        }
+
+        // 3. Salva o carrinho MODIFICADO de volta no localStorage
+        salvarCarrinho(carrinhoAtual);
+      });
+    </script>
     <script src="/JS/auth-check.js"></script>
-</body>
-
+  </body>
 </html>

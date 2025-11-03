@@ -1,101 +1,201 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Store Berry - Finalize a sua compra</title>
-    <link rel="stylesheet" href="/CSS/carrinho.css">
-    <link rel="shortcut icon" href="/Images/Icon.svg" type="image/x-icon">
-</head>
+    <link rel="stylesheet" href="/CSS/carrinho.css" />
+    <link rel="shortcut icon" href="/Images/Icon.svg" type="image/x-icon" />
+  </head>
 
-<body>
+  <body>
     <div class="banner" id="banner">
-        <header>
-            <div class="space-icon">
-                <img src="/Images/Icon.svg" alt="Icon">
-            </div>
+      <header>
+        <div class="space-icon">
+          <img src="/Images/Icon.svg" alt="Icon" />
+        </div>
 
-            <nav>
-                <div class="one-nav">
-                    <a href="/">Home</a>
-                </div>
-                <div class="one-nav">
-                    <a href="/cardapio">Cardápio</a>
-                </div>
-                <div class="one-nav" style="margin-left: 1vw;">
-                    <a href="/sobre">Sobre Nós</a>
-                </div>
-            </nav>
+        <nav>
+          <div class="one-nav">
+            <a href="/">Home</a>
+          </div>
+          <div class="one-nav">
+            <a href="/cardapio">Cardápio</a>
+          </div>
+          <div class="one-nav" style="margin-left: 1vw">
+            <a href="/sobre">Sobre Nós</a>
+          </div>
+        </nav>
 
-            <div class="space-others">
-                <div class="other">
-                    <a href="/carrinho" class="active">Carrinho</a>
-                </div>
-                <div class="other-destaque">
-                    <a href="/conta/entrar" id="btnLoginHeader">Login</a>
-                </div>
-            </div>
-        </header>
+        <div class="space-others">
+          <div class="other">
+            <a href="/carrinho" class="active">Carrinho</a>
+          </div>
+          <div class="other-destaque">
+            <a href="/conta/entrar" id="btnLoginHeader">Login</a>
+          </div>
+        </div>
+      </header>
     </div>
 
     <div class="padding">
-        <div class="info-carrinho">
-            <div class="title-carrinho">
-                <img src="/Images/Carrinho.svg" alt="Ícone de Carrinho">
-                <h3>Seu Carrinho</h3>
-            </div>
-            <div class="quantidade-carrinho">
-                <p id="quantidade-itens">0 itens no carrinho</p>
-            </div>
+      <div class="info-carrinho">
+        <div class="title-carrinho">
+          <img src="/Images/Carrinho.svg" alt="Ícone de Carrinho" />
+          <h3>Seu Carrinho</h3>
         </div>
-
-        <div class="cont">
-            <div class="all-produtos" id="lista-produtos"></div>
-
-            <div class="resumo-produtos">
-                <div class="title-resumo">
-                    <h3>Resumo do Pedido</h3>
-                </div>
-
-                <div class="precos-resumo">
-                    <div class="subtotal-resumo">
-                        <p>Subtotal:</p>
-                        <p id="subtotal">R$ 0,00</p>
-                    </div>
-
-                    <div class="entrega-resumo">
-                        <p>Entrega:</p>
-                        <p id="entrega">Grátis</p>
-                    </div>
-
-                    <div class="linha-resumo"></div>
-
-                    <div class="total-resumo">
-                        <p>Total:</p>
-                        <p id="total">R$ 0,00</p>
-                    </div>
-                </div>
-
-                <div class="buttons-resumo">
-                    <div class="finalizar-resumo">
-                        <button id="btn-finalizar">Finalizar Pedido →</button>
-                    </div>
-
-                    <div class="continuar-resumo">
-                        <button id="btn-continuar">Continuar Comprando</button>
-                    </div>
-                </div>
-
-                <div class="desconto-resumo">
-                    <p>🍓 Entrega grátis para compras acima de R$ 50,00</p>
-                </div>
-            </div>
+        <div class="quantidade-carrinho">
+          <p id="quantidade-itens">0 itens no carrinho</p>
         </div>
+      </div>
+
+      <div class="cont">
+        <div class="all-produtos" id="lista-produtos"></div>
+
+        <div class="resumo-produtos">
+          <div class="title-resumo">
+            <h3>Resumo do Pedido</h3>
+          </div>
+
+          <div class="precos-resumo">
+            <div class="subtotal-resumo">
+              <p>Subtotal:</p>
+              <p id="subtotal">R$ 0,00</p>
+            </div>
+
+            <div class="entrega-resumo">
+              <p>Entrega:</p>
+              <p id="entrega">Grátis</p>
+            </div>
+
+            <div class="linha-resumo"></div>
+
+            <div class="total-resumo">
+              <p>Total:</p>
+              <p id="total">R$ 0,00</p>
+            </div>
+          </div>
+
+          <div class="buttons-resumo">
+            <div class="finalizar-resumo">
+              <button id="btn-finalizar">Finalizar Pedido →</button>
+            </div>
+
+            <div class="continuar-resumo">
+              <button id="btn-continuar">Continuar Comprando</button>
+            </div>
+          </div>
+
+          <div class="desconto-resumo">
+            <p>🍓 Entrega grátis para compras acima de R$ 50,00</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="../JS/carrinho.js"></script>
-    <script src="/JS/auth-check.js"></script>
-</body>
+    <script>
+      // Chave de armazenamento (DEVE ser a mesma da outra página)
+      const CART_KEY = "meuCarrinho";
 
+      // Elementos da página
+      const carrinhoItensContainer = document.getElementById("lista-produtos");
+      const totalCarrinhoEl = document.getElementById("total");
+
+      // --- Funções de Ajuda (Helpers) ---
+
+      function carregarCarrinho() {
+        const carrinhoSalvo = localStorage.getItem(CART_KEY);
+        return JSON.parse(carrinhoSalvo) || [];
+      }
+
+      function salvarCarrinho(carrinho) {
+        localStorage.setItem(CART_KEY, JSON.stringify(carrinho));
+      }
+
+      /**
+       * Função principal que desenha o carrinho na tela
+       */
+      function renderizarCarrinho() {
+        // Carrega os dados mais recentes
+        const carrinho = carregarCarrinho();
+
+        // Limpa o HTML antigo
+        carrinhoItensContainer.innerHTML = "";
+
+        let total = 0;
+
+        if (carrinho.length === 0) {
+          carrinhoItensContainer.innerHTML =
+            `<p style="color:red;">Erro ao carregar o carrinho 😞</p>`;
+          totalCarrinhoEl.textContent = "R$ 0,00";
+          return;
+        }
+
+        // Cria o HTML para cada item
+        carrinho.forEach((item) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+                    <span>${item.name} (R$ ${item.price.toFixed(2)})</span>
+                    <div>
+                        <input 
+                            class="qtd-input" 
+                            type="number" 
+                            value="${item.quantity}" 
+                            min="1" 
+                            data-id="${item.id}"
+                        >
+                        <button class="remove-btn" data-id="${
+                          item.id
+                        }">Remover</button>
+                    </div>
+                `;
+          carrinhoItensContainer.appendChild(li);
+
+          total += item.price * item.quantity;
+        });
+
+        totalCarrinhoEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+      }
+
+      // --- Lógica de Eventos da Página do Carrinho ---
+
+      // Eventos para MUDAR QUANTIDADE ou REMOVER
+      carrinhoItensContainer.addEventListener("input", (evento) => {
+        const id = evento.target.dataset.id;
+
+        // Se mudou a QUANTIDADE no input
+        if (evento.target.classList.contains("qtd-input")) {
+          const novaQuantidade = parseInt(evento.target.value);
+          let carrinho = carregarCarrinho();
+          const item = carrinho.find((item) => item.id === id);
+
+          if (item && novaQuantidade > 0) {
+            item.quantity = novaQuantidade;
+            salvarCarrinho(carrinho); // Salva a mudança
+            renderizarCarrinho(); // Redesenha tudo para atualizar o total
+          }
+        }
+      });
+
+      carrinhoItensContainer.addEventListener("click", (evento) => {
+        const id = evento.target.dataset.id;
+
+        // Se clicou em REMOVER
+        if (evento.target.classList.contains("remove-btn")) {
+          let carrinho = carregarCarrinho();
+          carrinho = carrinho.filter((item) => item.id !== id);
+          salvarCarrinho(carrinho); // Salva a mudança
+          renderizarCarrinho(); // Redesenha
+        }
+      });
+
+      // --- PONTO DE ENTRADA ---
+      // Assim que a página carrinho.html carregar,
+      // chama a função para desenhar o carrinho na tela.
+      document.addEventListener("DOMContentLoaded", () => {
+        renderizarCarrinho();
+      });
+    </script>
+    <script src="/JS/auth-check.js"></script>
+  </body>
 </html>

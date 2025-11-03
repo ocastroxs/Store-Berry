@@ -1,61 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Nossos Produtos</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      .content-carrinho {
-        background-color: aqua;
-        height: auto;
-        width: 30dvw;
-      }
-      .content-cardapio {
-        background-color: aqua;
-        height: auto;
-        width: 30dvw;
-      }
+        body { font-family: Arial, sans-serif; }
+        #produtos li { margin-bottom: 10px; }
+        #link-carrinho {
+            position: fixed; top: 20px; right: 20px;
+            background: #007bff; color: white; padding: 10px;
+            border-radius: 5px; text-decoration: none;
+        }
     </style>
-  </head>
+</head>
+<body>
 
-  <body>
-    <a href="carrinho.html">a</a>
+    <h1>Nossos Produtos</h1>
 
-    <div class="content-cardapio">
-      <div class="img">
-        <img src="" id="img"/>
-      </div>
-      <div class="informacoes-cardapio">
-        <h3 id="nome-produto">nome produto</h3>
-        <p id="classe-produto">classe produto</p>
-        <button id="addprodutoCarrinho">add carrinho</button>
-      </div>
-      <div class="preco-cardapio">
-        <span id="preco-produto">0,00</span>
-      </div>
+    <a href="carrinho.html" id="link-carrinho">Ver Carrinho</a>
+
+    <div id="produtos">
+        <ul>
+            <li>
+                Produto A (R$ 10,00)
+                <button class="add-btn" data-id="1" data-name="Produto A" data-price="10">Adicionar</button>
+            </li>
+            <li>
+                Produto B (R$ 25,50)
+                <button class="add-btn" data-id="2" data-name="Produto B" data-price="25.50">Adicionar</button>
+            </li>
+            <li>
+                Produto C (R$ 5,00)
+                <button class="add-btn" data-id="3" data-name="Produto C" data-price="5">Adicionar</button>
+            </li>
+        </ul>
     </div>
 
-    <div class="content-carrinho">
-      <div class="img">
-        <img src="" alt="" />
-      </div>
-      <div class="informações">
-        <h3>nome produto</h3>
-        <p>classe produto</p>
-        <button>-</button>
-        <input type="number" value="1" min="1" readonly />
-        <button>+</button>
-      </div>
-      <div class="preco">
-        <button>X</button>
-        <span>0,00</span>
-      </div>
-    </div>
+    <script>
+        // Chave de armazenamento
+        const CART_KEY = 'meuCarrinho';
 
-    <script src="teste.js"></script>
-  </body>
+        // --- Funções de Ajuda (Helpers) ---
+        // (Note que essas funções terão que ser repetidas na outra página)
+        
+        function carregarCarrinho() {
+            const carrinhoSalvo = localStorage.getItem(CART_KEY);
+            return JSON.parse(carrinhoSalvo) || [];
+        }
+
+        function salvarCarrinho(carrinho) {
+            localStorage.setItem(CART_KEY, JSON.stringify(carrinho));
+        }
+
+        // --- Lógica da Página de Produtos ---
+        
+        const produtosContainer = document.getElementById('produtos');
+
+        produtosContainer.addEventListener('click', (evento) => {
+            // Verifica se o clique foi em um botão 'Adicionar'
+            if (evento.target.classList.contains('add-btn')) {
+                const botao = evento.target;
+                const id = botao.dataset.id;
+                
+                // 1. Carrega o carrinho ATUAL do localStorage
+                let carrinhoAtual = carregarCarrinho();
+
+                // 2. Modifica o carrinho
+                const itemExistente = carrinhoAtual.find(item => item.id === id);
+                
+                if (itemExistente) {
+                    itemExistente.quantity++;
+                } else {
+                    const novoItem = {
+                        id: id,
+                        name: botao.dataset.name,
+                        price: parseFloat(botao.dataset.price),
+                        quantity: 1
+                    };
+                    carrinhoAtual.push(novoItem);
+                }
+                
+                // 3. Salva o carrinho MODIFICADO de volta no localStorage
+                salvarCarrinho(carrinhoAtual);
+
+                // Feedback visual (opcional)
+                alert('Item adicionado ao carrinho!');
+            }
+        });
+    </script>
+</body>
 </html>
