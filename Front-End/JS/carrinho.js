@@ -60,7 +60,7 @@ function renderizarCarrinho() {
                 <button class="btn-decrease" data-id="${item.id}">-</button>
                 <input class="qtd-input" type="number" value="${
                   item.quantity
-                }" min="1" data-id="${item.id}">
+                }" min="1" data-id="${item.id}" readonly>
                 <button class="btn-increase" data-id="${item.id}">+</button>
               </div>
               <div class="preco-produto">

@@ -91,14 +91,12 @@ function mostrarToast(mensagem, tipo = "success") {
 
 // --- Lógica da Página de Produtos ---
 document.addEventListener("click", async (evento) => {
-  // Procuramos o botão mais próximo que represente o "Adicionar".
   const botao = evento.target.closest(
     ".modal-button.adicionar, button[data-id], .btn-primary.adicionar"
   );
 
-  if (!botao) return; // clique não é relevante
+  if (!botao) return;
 
-  // Verifica se está logado antes de prosseguir
   const estaLogado = await verificarLogin();
   if (!estaLogado) {
     if (
@@ -106,7 +104,6 @@ document.addEventListener("click", async (evento) => {
         "Você precisa fazer login para adicionar itens ao carrinho. Deseja fazer login agora?"
       )
     ) {
-      // Salva a URL atual para voltar depois do login
       sessionStorage.setItem("returnToUrl", window.location.href);
       window.location.href = "/conta/entrar";
     }
@@ -114,15 +111,25 @@ document.addEventListener("click", async (evento) => {
   }
 
   const id = botao.dataset.id;
-  const name =
-    botao.dataset.name || botao.getAttribute("data-name") || "Produto";
+  const name = botao.dataset.name || botao.getAttribute("data-name") || "Produto";
   const priceRaw = botao.dataset.price || botao.getAttribute("data-price");
   const price = priceRaw ? parseFloat(priceRaw) : NaN;
 
-  // Tenta inferir o tipo/categoria do produto:
-  // 1) data-type no botão
-  // 2) atributo data-category no botão
-  // 3) id do container .topico-produto mais próximo (ex: 'doces', 'bebidas')
+  // NOVO: Captura a imagem do background do modal
+  const modal = botao.closest('.modal-content');
+  const modalHeader = modal ? modal.querySelector('.modal-header.banner-modal') : null;
+  let image = botao.dataset.image || botao.getAttribute("data-image") || "";
+  
+  // Se não tem imagem definida, tenta extrair do background do modal
+  if (!image && modalHeader) {
+    const backgroundStyle = window.getComputedStyle(modalHeader).backgroundImage;
+    // Extrai a URL do background (formato: url("caminho"))
+    const urlMatch = backgroundStyle.match(/url\(["']?([^"')]+)["']?\)/);
+    if (urlMatch && urlMatch[1]) {
+      image = urlMatch[1];
+    }
+  }
+
   const typeFromButton =
     botao.dataset.type ||
     botao.getAttribute("data-type") ||
@@ -131,9 +138,6 @@ document.addEventListener("click", async (evento) => {
   const topico = botao.closest(".topico-produto");
   const typeFromContainer = topico ? topico.id : "";
   const inferredType = typeFromButton || typeFromContainer || "";
-
-  // Tenta obter imagem (se fornecida via data-image no botão)
-  const image = botao.dataset.image || botao.getAttribute("data-image") || "";
 
   if (!id) {
     console.warn("Botão adicionar clicado sem data-id:", botao);
@@ -144,15 +148,15 @@ document.addEventListener("click", async (evento) => {
     return;
   }
 
-  // 1. Carrega o carrinho ATUAL do localStorage
   let carrinhoAtual = carregarCarrinho();
-
-  // 2. Modifica o carrinho
   const itemExistente = carrinhoAtual.find((item) => item.id === id);
 
   if (itemExistente) {
     itemExistente.quantity++;
-    mostrarToast(`Quantidade de ${name} aumentada no carrinho!`, "success");
+    mostrarToast(
+      `Quantidade de ${name} aumentada no carrinho!`,
+      "success"
+    );
   } else {
     const novoItem = {
       id: id,
@@ -160,12 +164,12 @@ document.addEventListener("click", async (evento) => {
       price: isNaN(price) ? 0 : price,
       quantity: 1,
       type: inferredType,
-      image: image,
+      image: image, // Agora contém a URL do background
     };
     carrinhoAtual.push(novoItem);
     mostrarToast(`${name} adicionado ao carrinho!`, "success");
   }
 
-  // 3. Salva o carrinho MODIFICADO de volta no localStorage
   salvarCarrinho(carrinhoAtual);
 });
+
