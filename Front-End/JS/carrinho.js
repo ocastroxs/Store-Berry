@@ -1,150 +1,158 @@
-// =============== CONFIGURAÇÃO BÁSICA ===============
+// Chave de armazenamento (DEVE ser a mesma da outra página)
+const CART_KEY = "meuCarrinho";
 
-// URL da sua API (ajuste conforme o back-end)
-const API_URL = "http://localhost:3000/carrinho";
+// Elementos da página
+const carrinhoItensContainer = document.getElementById("lista-produtos");
+const totalEl = document.getElementById("total");
+const subtotalEl = document.getElementById("subtotal");
+const entregaEl = document.getElementById("entrega");
+const quantidadeItensEl = document.getElementById("quantidade-itens");
 
-// Elementos principais
-const listaProdutos = document.getElementById("lista-produtos");
-const subtotalElem = document.getElementById("subtotal");
-const totalElem = document.getElementById("total");
-const quantidadeElem = document.getElementById("quantidade-itens");
+// --- Funções de Ajuda (Helpers) ---
+function carregarCarrinho() {
+  const carrinhoSalvo = localStorage.getItem(CART_KEY);
+  return JSON.parse(carrinhoSalvo) || [];
+}
 
+function salvarCarrinho(carrinho) {
+  localStorage.setItem(CART_KEY, JSON.stringify(carrinho));
+}
 
-// =============== FUNÇÃO PRINCIPAL ===============
+function formatCurrency(value) {
+  return value.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+}
 
-// Busca os dados do carrinho no back-end
-async function carregarCarrinho() {
-    try {
-        const response = await fetch(API_URL);
-        if (!response.ok) throw new Error("Erro ao carregar carrinho.");
+/**
+ * Função principal que desenha o carrinho na tela
+ */
+function renderizarCarrinho() {
+  // Carrega os dados mais recentes
+  const carrinho = carregarCarrinho();
 
-        const data = await response.json();
-        renderizarCarrinho(data.itens);
-    } catch (err) {
-        console.error(err);
-        listaProdutos.innerHTML = `<p style="color:red;">Erro ao carregar o carrinho 😞</p>`;
+  // Limpa o HTML antigo
+  carrinhoItensContainer.innerHTML = "";
+
+  let subtotal = 0;
+  let totalItems = 0;
+
+  if (!carrinho || carrinho.length === 0) {
+    carrinhoItensContainer.innerHTML = `<p style="color:#444;">Seu carrinho está vazio</p>`;
+    subtotalEl.textContent = formatCurrency(0);
+    totalEl.textContent = formatCurrency(0);
+    entregaEl.textContent = "Grátis";
+    quantidadeItensEl.textContent = "0 itens no carrinho";
+    return;
+  }
+
+  // Cria o HTML para cada item (usa a estrutura .produto solicitada)
+  carrinho.forEach((item) => {
+    const li = document.createElement("div");
+    li.className = "produto";
+    li.innerHTML = `
+              <div class="produto-img">
+                <img src="${item.image || ""}" class="img">
+              </div>
+              <div class="info-produto">
+                <span class="nome-produto">${item.name}</span>
+                <button class="btn-decrease" data-id="${item.id}">-</button>
+                <input class="qtd-input" type="number" value="${
+                  item.quantity
+                }" min="1" data-id="${item.id}">
+                <button class="btn-increase" data-id="${item.id}">+</button>
+              </div>
+              <div class="preco-produto">
+                <button class="remove-btn" data-id="${item.id}">X</button>
+                <span class="preco-total-item">${formatCurrency(
+                  Number(item.price) * Number(item.quantity)
+                )}</span>
+              </div>
+            `;
+    carrinhoItensContainer.appendChild(li);
+
+    subtotal += Number(item.price) * Number(item.quantity);
+    totalItems += Number(item.quantity);
+  });
+
+  // Atualiza valores na UI
+  subtotalEl.textContent = formatCurrency(subtotal);
+  // Entrega: manter mensagem atual (pode ser dinamizada no futuro)
+  entregaEl.textContent = "Grátis";
+  // Total = subtotal (já que entrega é grátis aqui)
+  totalEl.textContent = formatCurrency(subtotal);
+
+  quantidadeItensEl.textContent = `${totalItems} ${
+    totalItems === 1 ? "item" : "itens"
+  } no carrinho`;
+}
+
+// --- Lógica de Eventos da Página do Carrinho ---
+// Eventos para MUDAR QUANTIDADE ou REMOVER
+carrinhoItensContainer.addEventListener("input", (evento) => {
+  const id = evento.target.dataset.id;
+
+  // Se mudou a QUANTIDADE no input
+  if (evento.target.classList.contains("qtd-input")) {
+    const novaQuantidade = parseInt(evento.target.value, 10);
+    let carrinho = carregarCarrinho();
+    const item = carrinho.find((item) => String(item.id) === String(id));
+
+    if (item && novaQuantidade > 0) {
+      item.quantity = novaQuantidade;
+      salvarCarrinho(carrinho); // Salva a mudança
+      renderizarCarrinho(); // Redesenha tudo para atualizar o total
     }
-}
-
-
-// =============== FUNÇÃO DE RENDERIZAÇÃO ===============
-
-function renderizarCarrinho(itens) {
-    listaProdutos.innerHTML = "";
-    let subtotal = 0;
-    let totalItens = 0;
-
-    itens.forEach((item) => {
-        subtotal += item.preco * item.quantidade;
-        totalItens += item.quantidade;
-
-        const produto = document.createElement("div");
-        produto.classList.add("one-produto");
-
-        produto.innerHTML = `
-      <div class="produto-img">
-        <img src="${item.imagem}" alt="${item.nome}">
-      </div>
-
-      <div class="produto-detalhes">
-        <h4>${item.nome}</h4>
-        <p>${item.categoria}</p>
-      </div>
-
-      <div class="produto-qtd">
-        <button class="menos" data-id="${item.id}">−</button>
-        <span>${item.quantidade}</span>
-        <button class="mais" data-id="${item.id}">+</button>
-      </div>
-
-      <div class="produto-preco">
-        <p class="total">R$ ${(item.preco * item.quantidade).toFixed(2)}</p>
-        <small>R$ ${item.preco.toFixed(2)} cada</small>
-      </div>
-
-      <button class="remover" data-id="${item.id}">×</button>
-    `;
-
-        listaProdutos.appendChild(produto);
-    });
-
-    // Atualiza totais
-    subtotalElem.textContent = `R$ ${subtotal.toFixed(2)}`;
-    totalElem.textContent = `R$ ${subtotal.toFixed(2)}`;
-    quantidadeElem.textContent = `${totalItens} ${totalItens > 1 ? "itens" : "item"} no carrinho`;
-
-    // Adiciona eventos
-    adicionarEventos();
-}
-
-
-// =============== EVENTOS DE BOTÕES ===============
-
-function adicionarEventos() {
-    // Botão +
-    document.querySelectorAll(".mais").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-            const id = btn.dataset.id;
-            await atualizarQuantidade(id, "aumentar");
-        });
-    });
-
-    // Botão −
-    document.querySelectorAll(".menos").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-            const id = btn.dataset.id;
-            await atualizarQuantidade(id, "diminuir");
-        });
-    });
-
-    // Botão remover
-    document.querySelectorAll(".remover").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-            const id = btn.dataset.id;
-            await removerProduto(id);
-        });
-    });
-}
-
-
-// =============== FUNÇÕES DE AÇÃO (API) ===============
-
-// Atualiza quantidade de um produto
-async function atualizarQuantidade(id, acao) {
-    try {
-        const response = await fetch(`${API_URL}/${id}/${acao}`, { method: "PUT" });
-        if (!response.ok) throw new Error("Erro ao atualizar quantidade.");
-        const data = await response.json();
-        renderizarCarrinho(data.itens);
-    } catch (err) {
-        console.error(err);
-    }
-}
-
-// Remove um produto
-async function removerProduto(id) {
-    try {
-        const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-        if (!response.ok) throw new Error("Erro ao remover produto.");
-        const data = await response.json();
-        renderizarCarrinho(data.itens);
-    } catch (err) {
-        console.error(err);
-    }
-}
-
-
-// =============== BOTÕES DO RESUMO ===============
-
-document.getElementById("btn-finalizar").addEventListener("click", () => {
-    alert("Pedido finalizado com sucesso! 🍓");
+  }
 });
 
-document.getElementById("btn-continuar").addEventListener("click", () => {
-    window.location.href = "cardapio.html";
+carrinhoItensContainer.addEventListener("click", (evento) => {
+  const id = evento.target.dataset.id;
+
+  // Se clicou em REMOVER (botão X)
+  if (evento.target.classList.contains("remove-btn")) {
+    let carrinho = carregarCarrinho();
+    carrinho = carrinho.filter((item) => String(item.id) !== String(id));
+    salvarCarrinho(carrinho); // Salva a mudança
+    renderizarCarrinho(); // Redesenha
+    return;
+  }
+
+  // Se clicou em INCREMENTAR quantidade (+)
+  if (evento.target.classList.contains("btn-increase")) {
+    let carrinho = carregarCarrinho();
+    const item = carrinho.find((it) => String(it.id) === String(id));
+    if (item) {
+      item.quantity = Number(item.quantity) + 1;
+      salvarCarrinho(carrinho);
+      renderizarCarrinho();
+    }
+    return;
+  }
+
+  // Se clicou em DECREMENTAR quantidade (-)
+  if (evento.target.classList.contains("btn-decrease")) {
+    let carrinho = carregarCarrinho();
+    const item = carrinho.find((it) => String(it.id) === String(id));
+    if (item) {
+      const novaQtd = Number(item.quantity) - 1;
+      if (novaQtd > 0) {
+        item.quantity = novaQtd;
+      } else {
+        // se chegar a 0, remove o item
+        carrinho = carrinho.filter((it) => String(it.id) !== String(id));
+      }
+      salvarCarrinho(carrinho);
+      renderizarCarrinho();
+    }
+    return;
+  }
 });
 
-
-// =============== INICIALIZAÇÃO ===============
-
-carregarCarrinho();
+// --- PONTO DE ENTRADA ---
+// Assim que a página carrinho.html carregar,
+// chama a função para desenhar o carrinho na tela.
+document.addEventListener("DOMContentLoaded", () => {
+  renderizarCarrinho();
+});

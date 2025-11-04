@@ -1,13 +1,16 @@
+/* Comportamento de rolagem suave para toda a página */
 html {
   scroll-behavior: smooth;
 }
 
+/* Reset de estilos padrão do navegador */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Animação de fade in com deslizamento para cima */
 @keyframes fadeSlide {
   0% {
     opacity: 0;
@@ -20,34 +23,45 @@ html {
   }
 }
 
+/* Definição da fonte Regular (Montserrat) */
 @font-face {
   font-family: Regular;
   src: url("../Fonts/Montserrat-Regular.ttf");
 }
 
+/* Definição da fonte Negrito (Montserrat Alternates Bold) */
 @font-face {
   font-family: Negrito;
   src: url("../Fonts/MontserratAlternates-Bold.ttf");
 }
 
+/* Estilos gerais do body */
 body {
   font-family: Regular;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Esconde barra de rolagem horizontal */
   transition: all 0.5s ease;
-  background-image: url(../Images/Background.svg);
+  background-image: url(../Images/Background.svg); /* Padrão de fundo */
   background-size: 5%;
   background-repeat: repeat;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* Fundo branco semi-transparente */
 }
 
+/* Classe aplicada quando a página carrega completamente */
 body.loaded {
   opacity: 1;
 }
 
+/* Remove sublinhado de todos os links */
 a {
   text-decoration: none;
 }
 
+/* Banner hero principal com imagem de fundo */
 .banner {
   display: flex;
   flex-direction: column;
@@ -55,15 +69,17 @@ a {
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 1),
-      rgba(0, 0, 0, 0.3)
+      /* Gradiente escuro à esquerda */ rgba(0, 0, 0, 0.3)
+        /* Gradiente transparente à direita */
     ),
     url(../Images/Banner-Sobre.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; /* Efeito parallax */
 }
 
+/* Cabeçalho da página */
 header {
   position: relative;
   display: flex;
@@ -71,6 +87,7 @@ header {
   height: 15%;
 }
 
+/* Container do ícone/logo */
 .space-icon {
   margin-left: 1%;
   width: 5%;
@@ -84,6 +101,7 @@ header {
   object-fit: cover;
 }
 
+/* Menu de navegação */
 nav {
   margin-left: 2.5%;
   display: flex;
@@ -91,6 +109,7 @@ nav {
   gap: 17.5%;
 }
 
+/* Item individual do menu de navegação */
 .one-nav {
   display: flex;
   justify-content: center;
@@ -100,18 +119,20 @@ nav {
 .one-nav a {
   font-size: 1.5rem;
   color: white;
-  white-space: nowrap;
+  white-space: nowrap; /* Impede quebra de linha */
 }
 
+/* Container dos botões à direita (Carrinho e Login) */
 .space-others {
   margin-right: 8%;
-  margin-left: auto;
+  margin-left: auto; /* Empurra para a direita */
   display: flex;
   gap: 40%;
   align-items: center;
   flex-wrap: nowrap;
 }
 
+/* Botão "Carrinho" */
 .other {
   display: flex;
   justify-content: center;
@@ -123,6 +144,7 @@ nav {
   color: white;
 }
 
+/* Botão "Login" em destaque */
 .other-destaque {
   display: flex;
   justify-content: center;
@@ -132,15 +154,17 @@ nav {
 .other-destaque a {
   font-weight: bolder;
   font-size: 1.5rem;
-  color: #fc5451;
+  color: #fc5451; /* Cor vermelha de destaque */
 }
 
+/* Efeito de underline animado para links do header */
 header nav a,
 header .space-others a {
   position: relative;
   text-decoration: none;
 }
 
+/* Linha animada que aparece ao passar o mouse */
 header nav a::after,
 header .space-others a::after {
   content: "";
@@ -153,11 +177,18 @@ header .space-others a::after {
   transition: width 0.3s ease;
 }
 
+/* Expande a linha ao passar o mouse */
 header nav a:hover::after,
 header .space-others a:hover::after {
   width: 100%;
 }
 
+/* Mantém a linha visível no link ativo */
+header nav a.active::after {
+  width: 100%;
+}
+
+/* Container do conteúdo do banner */
 .espace-banner {
   flex: 1;
   display: flex;
@@ -166,19 +197,21 @@ header .space-others a:hover::after {
   padding-left: 5%;
 }
 
+/* Informações principais do banner */
 .informations-banner {
   display: flex;
   flex-direction: column;
   height: 55%;
 }
 
+/* Título do banner com animação */
 .titulo-banner {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 40%;
   opacity: 0;
-  animation: fadeSlide 1s ease forwards;
+  animation: fadeSlide 1s ease forwards; /* Aplica animação de entrada */
 }
 
 .titulo-banner h1 {
@@ -186,11 +219,13 @@ header .space-others a:hover::after {
   font-size: 4rem;
 }
 
+/* Efeito de brilho ao passar o mouse no título */
 .titulo-banner h1:hover {
   text-shadow: 0 0 15px rgba(255, 74, 74, 0.8);
   transition: text-shadow 0.3s ease;
 }
 
+/* Descrição/subtítulo do banner */
 .descricao-banner {
   text-align: justify;
   width: 50%;
@@ -205,6 +240,7 @@ header .space-others a:hover::after {
   color: white;
 }
 
+/* Call-to-action button */
 .button-banner {
   width: 20%;
   display: flex;
@@ -229,16 +265,19 @@ header .space-others a:hover::after {
   transition: all 0.3s ease;
 }
 
+/* Efeitos de hover no botão */
 .button-banner a:hover {
   background-color: #ff4444;
-  transform: translateY(-3px);
+  transform: translateY(-3px); /* Eleva o botão */
 }
 
+/* Efeito de clique no botão */
 .button-banner a:active {
-  transform: translateY(1px);
+  transform: translateY(1px); /* Pressiona o botão */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Indicador de scroll (seta para baixo) */
 .scroll-down {
   position: relative;
   top: 17.5%;
@@ -253,14 +292,17 @@ header .space-others a:hover::after {
   color: #ff4444;
 }
 
-/*sobre*/
+/* === SEÇÃO SOBRE === */
 
+/* Container principal da seção "Sobre" */
 .all-sobre {
   height: auto;
   display: flex;
   flex-direction: column;
-  padding: 7vh 20vw;
+  padding: 7vh 20vw; /* Espaçamento interno responsivo */
 }
+
+/* === NOSSA HISTÓRIA === */
 
 .topico-sobre-NossaHistória {
   display: flex;
@@ -298,11 +340,13 @@ header .space-others a:hover::after {
   font-size: 1.5rem;
 }
 
+/* Destaque em negrito com cor vermelha */
 .escrita-sobre-NossaHistória p b {
   color: #ff4444;
   font-weight: 900;
 }
 
+/* Container da imagem */
 .space-sobre-NossaHistória {
   height: 80%;
   width: 45%;
@@ -311,15 +355,17 @@ header .space-others a:hover::after {
 .img-sobre-NossaHistória {
   height: 100%;
   border-radius: 1.5rem;
-  overflow: hidden;
+  overflow: hidden; /* Oculta partes da imagem fora do container */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .img-sobre-NossaHistória img {
-  width: 130%;
+  width: 130%; /* Imagem maior que o container para efeito visual */
 }
+
+/* === O QUE NOS TORNA ÚNICOS === */
 
 .topico-sobre-OQueNosTornaÚnicos {
   display: flex;
@@ -379,6 +425,8 @@ header .space-others a:hover::after {
   object-fit: contain;
 }
 
+/* === PONTOS IMPORTANTES === */
+
 .topico-sobre-pontosImportates {
   display: flex;
   flex-direction: column;
@@ -407,6 +455,8 @@ header .space-others a:hover::after {
   color: #ff4444;
   font-weight: 900;
 }
+
+/* === CONHEÇA QUEM FAZ A MAGIA === */
 
 .topico-sobre-ConheçaQuemFazAMagia {
   display: flex;
@@ -454,6 +504,7 @@ header .space-others a:hover::after {
   width: 100%;
 }
 
+/* Container das fotos dos fundadores */
 .img-sobre-ConheçaQuemFazAMagia {
   border-radius: 1.5rem;
   overflow: hidden;
@@ -470,6 +521,7 @@ header .space-others a:hover::after {
   border-radius: 1.5rem;
 }
 
+/* Citações dos fundadores */
 .escrita-sobre-ConheçaQuemFazAMagia-frase {
   display: flex;
   align-items: center;
@@ -486,8 +538,9 @@ header .space-others a:hover::after {
   font-weight: 900;
 }
 
-/* Footer */
+/* === FOOTER === */
 
+/* Linha decorativa antes do footer */
 .linha-header {
   width: 100%;
   height: 2px;
@@ -502,6 +555,7 @@ footer {
   gap: 0.5vh;
 }
 
+/* Logo no footer */
 .logo-footer {
   margin-top: 1vh;
   width: 100%;
@@ -527,10 +581,12 @@ footer {
   transition: transform 0.4s ease;
 }
 
+/* Efeito de zoom no hover */
 .logo-footer img:hover {
   transform: scale(1.08);
 }
 
+/* Menu de navegação do footer */
 .nav-footer {
   display: flex;
   align-items: center;
@@ -554,11 +610,13 @@ footer {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* Efeito de hover nos links do footer */
 .one-nav h3:hover {
   color: #ff4a4a;
   transform: translateY(-3px);
 }
 
+/* Redes sociais */
 .social-footer {
   display: flex;
   align-items: center;
@@ -583,10 +641,12 @@ footer {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* Efeito de zoom nos ícones sociais */
 .one-social img:hover {
   transform: scale(1.1);
 }
 
+/* Direitos autorais */
 .direitos-footer {
   display: flex;
   justify-content: center;
@@ -595,6 +655,9 @@ footer {
   padding: 0 30%;
 }
 
+/* === MEDIA QUERIES (RESPONSIVIDADE) === */
+
+/* Telas médias (até 1200px) */
 @media screen and (max-width: 1200px) {
   .space-others {
     gap: 20%;
@@ -614,15 +677,17 @@ footer {
   }
 
   .all-sobre {
-    padding: 7vh 10vw;
+    padding: 7vh 10vw; /* Reduz padding lateral */
   }
 
+  /* Reduz tamanho dos títulos */
   .titulo-sobre-NossaHistória h3,
   .titulo-sobre-OQueNosTornaÚnicos h3,
   .titulo-sobre-ConheçaQuemFazAMagia h3 {
     font-size: 2.5rem;
   }
 
+  /* Reduz tamanho dos textos */
   .escrita-sobre-NossaHistória p,
   .escrita-sobre-OQueNosTornaÚnicos p,
   .escrita-sobre-pontosImportates p,
@@ -631,7 +696,9 @@ footer {
   }
 }
 
+/* Tablets (até 900px) */
 @media screen and (max-width: 900px) {
+  /* Empilha seções verticalmente */
   .topico-sobre-NossaHistória,
   .topico-sobre-OQueNosTornaÚnicos {
     flex-direction: column;
@@ -640,6 +707,7 @@ footer {
     justify-content: center;
   }
 
+  /* Ocupa toda a largura */
   .descricao-sobre-NossaHistória,
   .descricao-sobre-OQueNosTornaÚnicos {
     width: 100%;
@@ -650,6 +718,7 @@ footer {
     height: 20vh;
   }
 
+  /* Esconde segunda imagem em telas menores */
   .space-sobre-OQueNosTornaÚnicos {
     display: none;
   }
@@ -663,6 +732,7 @@ footer {
   }
 }
 
+/* Tablets pequenos (até 768px) */
 @media screen and (max-width: 768px) {
   .titulo-banner h1 {
     font-size: 2.5rem;
@@ -702,6 +772,8 @@ footer {
   }
 }
 
+/* === CARDS DOS FUNDADORES === */
+
 .criador {
   display: flex;
   flex-direction: column;
@@ -716,20 +788,21 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efeito de elevação no hover */
 .criador:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
+/* Foto do fundador em círculo */
 .criador img {
   width: 180px;
   height: 180px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 50%; /* Torna circular */
   border: 4px solid #ff4444;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  object-position: center 35%;
-
+  object-position: center 35%; /* Ajusta posição da foto */
 }
 
 .criador h4 {
@@ -744,8 +817,9 @@ footer {
   color: #333;
 }
 
+/* Mobile (até 576px) */
 @media screen and (max-width: 576px) {
-  /* header */
+  /* === HEADER === */
 
   .banner {
     height: 80vh;
@@ -774,6 +848,7 @@ footer {
     width: auto;
   }
 
+  /* Links bem menores em mobile */
   .one-nav a {
     font-size: 0.7rem;
   }
@@ -823,7 +898,7 @@ footer {
     font-size: 0.9rem;
   }
 
-  /* header */
+  /* === CONTEÚDO SOBRE === */
 
   .titulo-sobre-NossaHistória,
   .titulo-sobre-OQueNosTornaÚnicos {
@@ -849,7 +924,7 @@ footer {
     font-size: 1.1rem;
   }
 
-  /* footer */
+  /* === FOOTER === */
 
   .nav-footer {
     gap: 1rem;
@@ -892,7 +967,4 @@ footer {
     font-size: 0.7rem;
     text-align: justify;
   }
-
-  /* footer */
 }
-

@@ -1,13 +1,16 @@
+/* Habilita rolagem suave ao clicar em âncoras */
 html {
   scroll-behavior: smooth;
 }
 
+/* Reset de estilos padrão do navegador */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Animação de fade com deslizamento para cima */
 @keyframes fadeSlide {
   0% {
     opacity: 0;
@@ -20,19 +23,22 @@ html {
   }
 }
 
+/* Importação da fonte Montserrat Regular */
 @font-face {
   font-family: Regular;
   src: url("../Fonts/Montserrat-Regular.ttf");
 }
 
+/* Importação da fonte Montserrat Bold (Alternates) */
 @font-face {
   font-family: Negrito;
   src: url("../Fonts/MontserratAlternates-Bold.ttf");
 }
 
+/* Estilos globais do body */
 body {
   font-family: Regular;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Previne scroll horizontal */
   background-color: rgb(255, 255, 255);
   background-image: url(../Images/Background.svg);
   background-repeat: repeat;
@@ -40,28 +46,35 @@ body {
   transition: all 0.5s ease;
 }
 
+/* Classe aplicada quando a página carrega completamente */
 body.loaded {
   opacity: 1;
 }
 
-
+/* Remove sublinhado padrão de todos os links */
 a {
   text-decoration: none;
 }
 
+/* === SEÇÃO BANNER === */
+/* Banner principal com imagem de fundo e gradiente */
 .banner {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)),
+  height: 100vh; /* Ocupa toda a altura da viewport */
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0.5)
+    ),
     url(../Images/Banner-Home.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; /* Efeito parallax */
 }
 
+/* === HEADER/NAVEGAÇÃO === */
 header {
   position: relative;
   display: flex;
@@ -69,6 +82,7 @@ header {
   height: 15%;
 }
 
+/* Container do ícone/logo */
 .space-icon {
   margin-left: 1%;
   width: 5%;
@@ -82,6 +96,7 @@ header {
   object-fit: cover;
 }
 
+/* Menu de navegação */
 nav {
   margin-left: 2.5%;
   display: flex;
@@ -89,6 +104,7 @@ nav {
   gap: 17.5%;
 }
 
+/* Item individual do menu */
 .one-nav {
   display: flex;
   justify-content: center;
@@ -98,19 +114,20 @@ nav {
 .one-nav a {
   font-size: 1.5rem;
   color: white;
-  white-space: nowrap;
+  white-space: nowrap; /* Evita quebra de linha */
 }
 
-
+/* Container dos botões à direita (Carrinho e Login) */
 .space-others {
   margin-right: 8%;
-  margin-left: auto;
+  margin-left: auto; /* Empurra para a direita */
   display: flex;
   gap: 40%;
   align-items: center;
   flex-wrap: nowrap;
 }
 
+/* Botão "Carrinho" */
 .other {
   display: flex;
   justify-content: center;
@@ -122,6 +139,7 @@ nav {
   color: white;
 }
 
+/* Botão "Login" com destaque */
 .other-destaque {
   display: flex;
   justify-content: center;
@@ -131,15 +149,17 @@ nav {
 .other-destaque a {
   font-weight: bolder;
   font-size: 1.5rem;
-  color: #fc5451;
+  color: #fc5451; /* Cor vermelha de destaque */
 }
 
+/* Efeito de sublinhado animado nos links do header */
 header nav a,
 header .space-others a {
   position: relative;
   text-decoration: none;
 }
 
+/* Pseudo-elemento para criar a linha animada */
 header nav a::after,
 header .space-others a::after {
   content: "";
@@ -152,16 +172,18 @@ header .space-others a::after {
   transition: width 0.3s ease;
 }
 
+/* Anima a linha ao passar o mouse */
 header nav a:hover::after,
 header .space-others a:hover::after {
   width: 100%;
 }
 
+/* Mantém a linha visível no link ativo */
 header nav a.active::after {
   width: 100%;
 }
 
-
+/* === CONTEÚDO DO BANNER === */
 .espace-banner {
   flex: 1;
   display: flex;
@@ -176,13 +198,14 @@ header nav a.active::after {
   height: 55%;
 }
 
+/* Título principal do banner com animação */
 .titulo-banner {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 40%;
   opacity: 0;
-  animation: fadeSlide 1s ease forwards;
+  animation: fadeSlide 1s ease forwards; /* Aplica animação de entrada */
 }
 
 .titulo-banner h1 {
@@ -190,11 +213,13 @@ header nav a.active::after {
   font-size: 4rem;
 }
 
+/* Efeito de brilho ao passar o mouse no título */
 .titulo-banner h1:hover {
   text-shadow: 0 0 15px rgba(255, 74, 74, 0.8);
   transition: text-shadow 0.3s ease;
 }
 
+/* Descrição/subtítulo do banner */
 .descricao-banner {
   text-align: justify;
   width: 50%;
@@ -209,6 +234,7 @@ header nav a.active::after {
   color: white;
 }
 
+/* Botão Call-to-Action do banner */
 .button-banner {
   width: 20%;
   display: flex;
@@ -233,16 +259,18 @@ header nav a.active::after {
   transition: all 0.3s ease;
 }
 
+/* Efeitos de hover e click no botão */
 .button-banner a:hover {
   background-color: #ff4444;
-  transform: translateY(-3px);
+  transform: translateY(-3px); /* Levanta o botão */
 }
 
 .button-banner a:active {
-  transform: translateY(1px);
+  transform: translateY(1px); /* Afunda ao clicar */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Seta de scroll para baixo */
 .scroll-down {
   position: relative;
   top: 17.5%;
@@ -257,6 +285,8 @@ header nav a.active::after {
   color: #ff4444;
 }
 
+/* === SEÇÕES DE CONTEÚDO === */
+/* Padding padrão para todas as seções */
 .padding {
   display: flex;
   flex-direction: column;
@@ -264,6 +294,7 @@ header nav a.active::after {
   gap: 5vh;
 }
 
+/* Títulos das seções */
 .titulo-secao {
   text-align: center;
   margin-bottom: 3vh;
@@ -275,12 +306,15 @@ header nav a.active::after {
   color: #ff4a4a;
 }
 
+/* === SEÇÃO DE BENEFÍCIOS === */
+/* Container dos três benefícios */
 .row-beneficios {
   display: flex;
   align-items: center;
   gap: 3vw;
 }
 
+/* Card individual de benefício */
 .col-beneficio {
   border-radius: 1rem;
   border: 1px solid #ddd;
@@ -296,11 +330,13 @@ header nav a.active::after {
   cursor: auto;
 }
 
+/* Efeito de zoom ao passar o mouse */
 .col-beneficio:hover {
   transform: scale(1.025);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Container da imagem do benefício */
 .img-beneficio {
   height: 60%;
   display: flex;
@@ -334,6 +370,7 @@ header nav a.active::after {
   text-align: center;
 }
 
+/* === SEÇÃO DE CATEGORIAS DE PRODUTOS === */
 .cont-topicos {
   height: 80vh;
   display: flex;
@@ -341,12 +378,14 @@ header nav a.active::after {
   gap: 3vh;
 }
 
+/* Linha com duas categorias lado a lado */
 .row-topicos {
   display: flex;
   gap: 3vh;
   height: 40vh;
 }
 
+/* Card de categoria individual */
 .col-topicos {
   position: relative;
   cursor: pointer;
@@ -365,6 +404,7 @@ header nav a.active::after {
   transition: transform 0.5s ease;
 }
 
+/* Overlay escuro que aparece ao hover */
 .col-topicos::after {
   content: "";
   position: absolute;
@@ -375,6 +415,7 @@ header nav a.active::after {
   border-radius: inherit;
 }
 
+/* Overlay com título e botão "Ver Mais" */
 .overlay {
   position: absolute;
   inset: 0;
@@ -401,6 +442,7 @@ header nav a.active::after {
   margin: 0;
 }
 
+/* Botão "Ver Mais" dentro do overlay */
 .overlay a {
   font-family: Negrito;
   font-size: 1.2rem;
@@ -414,6 +456,7 @@ header nav a.active::after {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Inverte as cores ao passar o mouse */
 .overlay a:hover {
   color: #ff4a4a;
   background-color: white;
@@ -425,28 +468,33 @@ header nav a.active::after {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Mostra o overlay ao passar o mouse */
 .col-topicos:hover::after,
 .col-topicos:hover .overlay {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Zoom na imagem ao passar o mouse */
 .col-topicos:hover img {
   transform: scale(1.1);
 }
 
+/* Levanta o card ao passar o mouse */
 .col-topicos:hover {
   border-color: #fc5451;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transform: translateY(-6px);
 }
 
+/* === SEÇÃO DE LOCALIZAÇÃO === */
 .cont-mapa {
   display: flex;
   height: 50vh;
   gap: 3vw;
 }
 
+/* Container do Google Maps */
 .space-mapa {
   overflow: hidden;
   border-radius: 1rem;
@@ -467,6 +515,7 @@ header nav a.active::after {
   height: 100%;
 }
 
+/* Container das informações de contato */
 .space-more {
   display: flex;
   flex-direction: column;
@@ -475,6 +524,7 @@ header nav a.active::after {
   gap: 2vh;
 }
 
+/* Card individual de informação de contato */
 .one-more {
   display: flex;
   height: 25%;
@@ -490,6 +540,7 @@ header nav a.active::after {
   transform: translateY(-5px);
 }
 
+/* Ícone da informação de contato */
 .img-more {
   display: flex;
   justify-content: center;
@@ -506,6 +557,7 @@ header nav a.active::after {
   transition: transform 0.3s ease;
 }
 
+/* Texto da informação de contato */
 .information-more {
   display: flex;
   flex-direction: column;
@@ -528,14 +580,13 @@ header nav a.active::after {
   color: #fc5451;
 }
 
+/* === FOOTER === */
+/* Linha divisória decorativa antes do footer */
 .linha-header {
   width: 100%;
   height: 2px;
   margin-top: 7.5vh;
-  background: linear-gradient(to right,
-      transparent,
-      #fc5451,
-      transparent);
+  background: linear-gradient(to right, transparent, #fc5451, transparent);
 }
 
 footer {
@@ -545,6 +596,7 @@ footer {
   gap: 0.5vh;
 }
 
+/* Logo no rodapé */
 .logo-footer {
   margin-top: 1vh;
   width: 100%;
@@ -574,6 +626,7 @@ footer {
   transform: scale(1.08);
 }
 
+/* Navegação no rodapé */
 .nav-footer {
   display: flex;
   align-items: center;
@@ -602,6 +655,7 @@ footer {
   transform: translateY(-3px);
 }
 
+/* Redes sociais no rodapé */
 .social-footer {
   display: flex;
   align-items: center;
@@ -630,6 +684,7 @@ footer {
   transform: scale(1.1);
 }
 
+/* Direitos autorais */
 .direitos-footer {
   display: flex;
   justify-content: center;
@@ -638,6 +693,8 @@ footer {
   padding: 0 30%;
 }
 
+/* === MEDIA QUERIES === */
+/* Responsividade para telas médias-grandes (tablets landscape) */
 @media (max-width: 1200px) {
   .space-others {
     gap: 20%;
@@ -652,7 +709,9 @@ footer {
   }
 }
 
+/* Responsividade para tablets */
 @media (max-width: 992px) {
+  /* Transforma benefícios em coluna única */
   .row-beneficios {
     flex-direction: column;
     gap: 5vh;
@@ -671,6 +730,7 @@ footer {
     height: auto;
   }
 
+  /* Categorias em coluna única */
   .row-topicos {
     flex-direction: column;
     gap: 5vh;
@@ -690,6 +750,7 @@ footer {
   }
 }
 
+/* Responsividade para smartphones landscape */
 @media (max-width: 768px) {
   .titulo-banner h1 {
     font-size: 2.5rem;
@@ -736,12 +797,12 @@ footer {
   }
 }
 
+/* Responsividade para smartphones portrait */
 @media (max-width: 576px) {
-
-  /* header */
+  /* === AJUSTES DO HEADER === */
 
   .banner {
-    height: 80vh;
+    height: 80vh; /* Reduz altura do banner */
   }
 
   header {
@@ -759,16 +820,16 @@ footer {
     padding-left: 1vw;
   }
 
-  .space-icon{
+  .space-icon {
     margin: 0;
   }
 
-  .one-nav{
+  .one-nav {
     width: auto;
   }
 
   .one-nav a {
-    font-size: 0.7rem;
+    font-size: 0.7rem; /* Fonte menor para mobile */
   }
 
   .space-others {
@@ -781,11 +842,13 @@ footer {
     font-size: 0.7rem;
   }
 
+  /* === AJUSTES DO BANNER === */
+
   .espace-banner {
     padding: 0 2%;
   }
 
-  .informations-banner{
+  .informations-banner {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -797,7 +860,7 @@ footer {
     text-align: center;
   }
 
-  .descricao-banner{
+  .descricao-banner {
     width: 100%;
     height: auto;
   }
@@ -816,13 +879,11 @@ footer {
     font-size: 0.9rem;
   }
 
-  /* header */
-
-
+  /* === AJUSTES DO CONTEÚDO === */
 
   .padding {
     height: 380vh;
-  }  
+  }
 
   .row-beneficios {
     gap: 3vh;
@@ -844,19 +905,21 @@ footer {
     height: 200px;
   }
 
+  /* Seção do mapa em coluna */
   .cont-mapa {
     flex-direction: column;
     gap: 3vh;
   }
 
   .space-mapa {
-    display: none;
+    display: none; /* Oculta o mapa em mobile */
   }
 
   .space-more {
     width: 100%;
   }
 
+  /* Cards de contato em coluna */
   .one-more {
     height: auto;
     flex-direction: column;
@@ -880,7 +943,7 @@ footer {
     font-size: 1rem;
   }
 
-  /* footer */
+  /* === AJUSTES DO FOOTER === */
 
   .nav-footer {
     gap: 1rem;
@@ -923,6 +986,4 @@ footer {
     font-size: 0.7rem;
     text-align: justify;
   }
-
-  /* footer */
 }

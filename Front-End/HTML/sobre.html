@@ -4,23 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Store Berry - Saiba mais sobre nós</title>
+
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+
+    <!-- CSS customizado da página sobre -->
     <link rel="stylesheet" href="/CSS/sobre.css" />
+
+    <!-- Favicon do site -->
     <link rel="shortcut icon" href="/Images/Icon.svg" type="image/x-icon" />
   </head>
 
   <body>
+    <!-- Banner principal com header e informações de destaque -->
     <div class="banner" id="banner">
       <header>
+        <!-- Logo/ícone da empresa -->
         <div class="space-icon">
           <img src="/Images/Icon.svg" alt="Icon" />
         </div>
 
+        <!-- Menu de navegação principal -->
         <nav>
           <div class="one-nav">
             <a href="/">Home</a>
@@ -29,22 +38,26 @@
             <a href="/cardapio">Cardápio</a>
           </div>
           <div class="one-nav" style="margin-left: 1vw">
-            <a href="/sobre">Sobre Nós</a>
+            <a href="/sobre" class="active">Sobre Nós</a>
           </div>
         </nav>
 
+        <!-- Botões de ação (Carrinho e Login) -->
         <div class="space-others">
           <div class="other">
             <a href="/carrinho">Carrinho</a>
           </div>
           <div class="other-destaque">
+            <!-- ID usado para controle de autenticação via JavaScript -->
             <a href="/conta/entrar" id="btnLoginHeader">Login</a>
           </div>
         </div>
       </header>
 
+      <!-- Conteúdo do banner hero -->
       <div class="espace-banner">
         <div class="informations-banner">
+          <!-- Título principal do banner -->
           <div class="titulo-banner">
             <h1>Quem Somos</h1>
             <h1 style="color: #ff4a4a; font-family: Negrito">
@@ -52,6 +65,7 @@
             </h1>
           </div>
 
+          <!-- Descrição/subtítulo do banner -->
           <div class="descricao-banner">
             <h3>
               Mais que uma sobremesa, uma história feita de carinho, frescor e o
@@ -59,20 +73,25 @@
             </h3>
           </div>
 
+          <!-- Call-to-action para rolar a página -->
           <div class="button-banner">
             <a href="#pagina">Conheça nossa jornada</a>
           </div>
         </div>
 
+        <!-- Indicador visual de scroll down -->
         <div class="scroll-down">
           <a href="#pagina">
             <span>&#x25BC;</span>
+            <!-- Símbolo de seta para baixo -->
           </a>
         </div>
       </div>
     </div>
 
+    <!-- Seção principal de conteúdo "Sobre" -->
     <div id="pagina" class="all-sobre">
+      <!-- Seção: Nossa História -->
       <div class="topico-sobre-NossaHistória">
         <div class="descricao-sobre-NossaHistória">
           <div class="titulo-sobre-NossaHistória">
@@ -88,6 +107,7 @@
             </p>
           </div>
         </div>
+        <!-- Imagem ilustrativa da seção -->
         <div class="space-sobre-NossaHistória">
           <div class="img-sobre-NossaHistória">
             <img src="/Images/Sobre-1.svg" alt="" />
@@ -95,7 +115,9 @@
         </div>
       </div>
 
+      <!-- Seção: O Que Nos Torna Únicos -->
       <div class="topico-sobre-OQueNosTornaÚnicos">
+        <!-- Imagem ilustrativa (posicionada à esquerda nesta seção) -->
         <div class="space-sobre-OQueNosTornaÚnicos">
           <div
             class="img-sobre-OQueNosTornaÚnicos"
@@ -118,14 +140,17 @@
         </div>
       </div>
 
+      <!-- Seção: Pontos Importantes (características do negócio) -->
       <div class="topico-sobre-pontosImportates">
         <div class="descricao-sobre-pontosImportates">
+          <!-- Ponto 1: Colheita Manual -->
           <div class="escrita-sobre-pontosImportates">
             <p>
               <b>Colheita Manual:</b> Nossos morangos são colhidos à mão, apenas
               no pico de maturação, para garantir a máxima doçura e suculência.
             </p>
           </div>
+          <!-- Ponto 2: Receitas de Família -->
           <div class="escrita-sobre-pontosImportates">
             <p>
               <b>Receitas de Família:</b> Nossas geleias e doces são preparados
@@ -133,15 +158,18 @@
               pureza e a intensidade do sabor.
             </p>
           </div>
+          <!-- Ponto 3: Compromisso com o Campo: -->
           <div class="escrita-sobre-pontosImportates">
             <p>
-              <b>Colheita Manual:</b> Nossos morangos são colhidos à mão, apenas
-              no pico de maturação, para garantir a máxima doçura e suculência.
+              <b>Compromisso com o Campo:</b> Priorizamos práticas de cultivo
+              sustentáveis, cuidando da terra para garantir a qualidade hoje e
+              no futuro.
             </p>
           </div>
         </div>
       </div>
 
+      <!-- Seção: Conheça Quem Faz a Magia (fundadores) -->
       <div class="topico-sobre-ConheçaQuemFazAMagia">
         <div class="descricao-sobre-ConheçaQuemFazAMagia">
           <div class="titulo-sobre-ConheçaQuemFazAMagia">
@@ -155,8 +183,10 @@
           </div>
         </div>
 
+        <!-- Cards dos fundadores -->
         <div class="space-sobre-ConheçaQuemFazAMagia">
           <div class="img-sobre-ConheçaQuemFazAMagia">
+            <!-- Fundador 1 -->
             <div class="criador">
               <img src="/Images/castro.jpg" alt="Henrique de Castro Aquino" />
               <h4>Henrique de Castro Aquino</h4>
@@ -164,6 +194,7 @@
                 Co-fundador e responsável pelo frescor e qualidade dos morangos.
               </p>
             </div>
+            <!-- Fundador 2 -->
             <div class="criador">
               <img src="../Images/tiago.jpeg" alt="Tiago Lessa Bela Keney" />
               <h4>Tiago Lessa Bela Keney</h4>
@@ -174,6 +205,7 @@
           </div>
         </div>
 
+        <!-- Citações dos fundadores -->
         <div class="descricao-sobre-ConheçaQuemFazAMagia">
           <div class="escrita-sobre-ConheçaQuemFazAMagia-frase">
             <p>
@@ -192,41 +224,46 @@
       </div>
     </div>
 
+    <!-- Linha divisória decorativa -->
     <div class="linha-header"></div>
 
+    <!-- Rodapé do site -->
     <footer id="footer">
+      <!-- Logo no rodapé -->
       <div class="logo-footer">
         <a href="">
           <img src="/Images/Logo(2).svg" alt="" />
         </a>
       </div>
 
+      <!-- Links para redes sociais -->
       <div class="social-footer">
         <div class="one-social">
-          <a href="https://www.instagram.com/">
+          <a href="https://www.instagram.com/" target="_blank">
             <img src="/Images/Instagram.svg" alt="" />
           </a>
         </div>
 
         <div class="one-social">
-          <a href="https://about.x.com/pt">
+          <a href="https://about.x.com/pt" target="_blank">
             <img src="/Images/Twitter.svg" alt="" />
           </a>
         </div>
 
         <div class="one-social">
-          <a href="https://www.whatsapp.com/download">
+          <a href="https://www.whatsapp.com/download" target="_blank">
             <img src="/Images/Zap.svg" alt="" />
           </a>
         </div>
 
         <div class="one-social">
-          <a href="https://pt-br.facebook.com/">
+          <a href="https://pt-br.facebook.com/" target="_blank">
             <img src="/Images/Face.svg" alt="" />
           </a>
         </div>
       </div>
 
+      <!-- Menu de navegação do rodapé -->
       <div class="nav-footer">
         <div class="one-nav">
           <a href="/">
@@ -247,12 +284,14 @@
         </div>
 
         <div class="one-nav">
+          <!-- ID usado para controle de autenticação -->
           <a href="/conta/entrar" id="btnLoginFooter">
             <h3>Login</h3>
           </a>
         </div>
       </div>
 
+      <!-- Informações de direitos autorais e CNPJ -->
       <div class="direitos-footer">
         <p>
           © 2025 Store Berry. Todos os direitos reservados. CNPJ:
@@ -261,6 +300,7 @@
       </div>
     </footer>
 
+    <!-- Script para verificação de autenticação do usuário -->
     <script src="/JS/auth-check.js"></script>
   </body>
 </html>

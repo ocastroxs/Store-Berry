@@ -51,28 +51,6 @@
 
       <div class="cont">
         <div class="all-produtos" id="lista-produtos">
-          <div class="produto">
-            <div class="produto-img">
-              <img src="" class="img" />
-            </div>
-            <div class="info-produto">
-              <span></span>
-              <span></span>
-              <button>-</button>
-              <input
-                class="qtd-input"
-                type="number"
-                value=""
-                min="1"
-                data-id=""
-              />
-              <button>+</button>
-            </div>
-            <div class="preco-produto">
-              <button>X</button>
-              <span></span>
-            </div>
-          </div>
         </div>
 
         <div class="resumo-produtos">
@@ -110,141 +88,13 @@
           </div>
 
           <div class="desconto-resumo">
-            <p>🍓 Entrega grátis para compras acima de R$ 50,00</p>
+            <p>🍓 Entrega grátis para compras acima de <br>R$ 5,00</p>
           </div>
         </div>
       </div>
     </div>
 
-    <script>
-      // Chave de armazenamento (DEVE ser a mesma da outra página)
-      const CART_KEY = "meuCarrinho";
-
-      // Elementos da página
-      const carrinhoItensContainer = document.getElementById("lista-produtos");
-      const totalEl = document.getElementById("total");
-      const subtotalEl = document.getElementById("subtotal");
-      const entregaEl = document.getElementById("entrega");
-      const quantidadeItensEl = document.getElementById("quantidade-itens");
-
-      // --- Funções de Ajuda (Helpers) ---
-      function carregarCarrinho() {
-        const carrinhoSalvo = localStorage.getItem(CART_KEY);
-        return JSON.parse(carrinhoSalvo) || [];
-      }
-
-      function salvarCarrinho(carrinho) {
-        localStorage.setItem(CART_KEY, JSON.stringify(carrinho));
-      }
-
-      function formatCurrency(value) {
-        return value.toLocaleString("pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        });
-      }
-
-      /**
-       * Função principal que desenha o carrinho na tela
-       */
-      function renderizarCarrinho() {
-        // Carrega os dados mais recentes
-        const carrinho = carregarCarrinho();
-
-        // Limpa o HTML antigo
-        carrinhoItensContainer.innerHTML = "";
-
-        let subtotal = 0;
-        let totalItems = 0;
-
-        if (!carrinho || carrinho.length === 0) {
-          carrinhoItensContainer.innerHTML = `<p style="color:#444;">Seu carrinho está vazio</p>`;
-          subtotalEl.textContent = formatCurrency(0);
-          totalEl.textContent = formatCurrency(0);
-          entregaEl.textContent = "Grátis";
-          quantidadeItensEl.textContent = "0 itens no carrinho";
-          return;
-        }
-
-        // Cria o HTML para cada item (usa a estrutura .produto solicitada)
-        carrinho.forEach((item) => {
-          const li = document.createElement("div");
-          li.className = "produto";
-          li.innerHTML = `
-              <div class="produto-img">
-                <img src="${item.image || ""}" class="img" alt="${item.name}">
-              </div>
-              <div class="info-produto">
-                <span class="nome-produto">${item.name}</span>
-                <button class="btn-decrease" data-id="${item.id}">-</button>
-                <input class="qtd-input" type="number" value="${
-                  item.quantity
-                }" min="1" data-id="${item.id}">
-                <button class="btn-increase" data-id="${item.id}">+</button>
-              </div>
-              <div class="preco-produto">
-                <button class="remove-btn" data-id="${item.id}">X</button>
-                <span class="preco-total-item">${formatCurrency(
-                  Number(item.price) * Number(item.quantity)
-                )}</span>
-              </div>
-            `;
-          carrinhoItensContainer.appendChild(li);
-
-          subtotal += Number(item.price) * Number(item.quantity);
-          totalItems += Number(item.quantity);
-        });
-
-        // Atualiza valores na UI
-        subtotalEl.textContent = formatCurrency(subtotal);
-        // Entrega: manter mensagem atual (pode ser dinamizada no futuro)
-        entregaEl.textContent = "Grátis";
-        // Total = subtotal (já que entrega é grátis aqui)
-        totalEl.textContent = formatCurrency(subtotal);
-
-        quantidadeItensEl.textContent = `${totalItems} ${
-          totalItems === 1 ? "item" : "itens"
-        } no carrinho`;
-      }
-
-      // --- Lógica de Eventos da Página do Carrinho ---
-      // Eventos para MUDAR QUANTIDADE ou REMOVER
-      carrinhoItensContainer.addEventListener("input", (evento) => {
-        const id = evento.target.dataset.id;
-
-        // Se mudou a QUANTIDADE no input
-        if (evento.target.classList.contains("qtd-input")) {
-          const novaQuantidade = parseInt(evento.target.value, 10);
-          let carrinho = carregarCarrinho();
-          const item = carrinho.find((item) => String(item.id) === String(id));
-
-          if (item && novaQuantidade > 0) {
-            item.quantity = novaQuantidade;
-            salvarCarrinho(carrinho); // Salva a mudança
-            renderizarCarrinho(); // Redesenha tudo para atualizar o total
-          }
-        }
-      });
-
-      carrinhoItensContainer.addEventListener("click", (evento) => {
-        const id = evento.target.dataset.id;
-
-        // Se clicou em REMOVER
-        if (evento.target.classList.contains("remove-btn")) {
-          let carrinho = carregarCarrinho();
-          carrinho = carrinho.filter((item) => String(item.id) !== String(id));
-          salvarCarrinho(carrinho); // Salva a mudança
-          renderizarCarrinho(); // Redesenha
-        }
-      });
-
-      // --- PONTO DE ENTRADA ---
-      // Assim que a página carrinho.html carregar,
-      // chama a função para desenhar o carrinho na tela.
-      document.addEventListener("DOMContentLoaded", () => {
-        renderizarCarrinho();
-      });
-    </script>
+    <script src="/JS/carrinho.js"></script>
     <script src="/JS/auth-check.js"></script>
   </body>
 </html>
