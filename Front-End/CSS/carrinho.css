@@ -433,7 +433,26 @@ header a.active::after {
     width: auto;
     display: flex;
     flex-direction: column;
+    justify-content: start;
+    align-items: center;
     padding-left: 1dvw;
+    gap: 3dvh;
+}
+
+.nome-produto{
+    font-weight: bold;
+    font-size: large;
+}
+
+.quan-produto{
+    width: auto;
+    height: auto;
+    gap: 1dvw;
+}
+
+.btn-decrease, .btn-increase{
+    width: 1dvw;
+    height: 1dvh;
 }
 
 

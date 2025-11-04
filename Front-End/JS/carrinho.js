@@ -53,20 +53,18 @@ function renderizarCarrinho() {
     li.className = "produto";
     li.innerHTML = `
               <div class="produto-img">
-                <img src="${item.image || ""}" class="img">
+                <img src="${item.image || ""}" class="img" alt="${item.name}">
               </div>
               <div class="info-produto">
                 <span class="nome-produto">${item.name}</span>
                 <div class="quan-produto">
                   <button class="btn-decrease" data-id="${item.id}">-</button>
-                  <input class="qtd-input" type="number" value="${
-                    item.quantity
-                  } " min="1" data-id="${item.id}" readonly>
+                  <input class="qtd-input" type="number" value="${item.quantity}" min="1" data-id="${item.id}" readonly>
                   <button class="btn-increase" data-id="${item.id}">+</button>
                 </div>
               </div>
               <div class="preco-produto">
-                <button class="remove-btn" data-id="${item.id}">X</button>
+                <button class="remove-btn" data-id="${item.id}">x</button>
                 <span class="preco-total-item">${formatCurrency(
                   Number(item.price) * Number(item.quantity)
                 )}</span>
@@ -93,19 +91,47 @@ function renderizarCarrinho() {
 // --- Lógica de Eventos da Página do Carrinho ---
 // Eventos para MUDAR QUANTIDADE ou REMOVER
 carrinhoItensContainer.addEventListener("input", (evento) => {
+  if (!evento.target.classList.contains("qtd-input")) return;
+  
   const id = evento.target.dataset.id;
+  const novaQuantidade = parseInt(evento.target.value, 10);
+  
+  // Validação de entrada
+  if (isNaN(novaQuantidade) || novaQuantidade < 1) {
+    evento.target.value = 1;
+    return;
+  }
+  
+  let carrinho = carregarCarrinho();
+  const item = carrinho.find((item) => String(item.id) === String(id));
 
-  // Se mudou a QUANTIDADE no input
-  if (evento.target.classList.contains("qtd-input")) {
-    const novaQuantidade = parseInt(evento.target.value, 10);
-    let carrinho = carregarCarrinho();
-    const item = carrinho.find((item) => String(item.id) === String(id));
+  if (item) {
+    item.quantity = novaQuantidade;
+    salvarCarrinho(carrinho);
+    renderizarCarrinho();
+  }
+});
 
-    if (item && novaQuantidade > 0) {
-      item.quantity = novaQuantidade;
-      salvarCarrinho(carrinho); // Salva a mudança
-      renderizarCarrinho(); // Redesenha tudo para atualizar o total
-    }
+// Previne valores inválidos ao digitar
+carrinhoItensContainer.addEventListener("keydown", (evento) => {
+  if (!evento.target.classList.contains("qtd-input")) return;
+  
+  // Permite: backspace, delete, tab, escape, enter
+  if ([46, 8, 9, 27, 13].indexOf(evento.keyCode) !== -1 ||
+      // Permite: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
+      (evento.keyCode === 65 && evento.ctrlKey === true) ||
+      (evento.keyCode === 67 && evento.ctrlKey === true) ||
+      (evento.keyCode === 86 && evento.ctrlKey === true) ||
+      (evento.keyCode === 88 && evento.ctrlKey === true) ||
+      // Permite: home, end, left, right
+      (evento.keyCode >= 35 && evento.keyCode <= 39)) {
+    return;
+  }
+  
+  // Bloqueia tudo que não seja número
+  if ((evento.shiftKey || (evento.keyCode < 48 || evento.keyCode > 57)) &&
+      (evento.keyCode < 96 || evento.keyCode > 105)) {
+    evento.preventDefault();
   }
 });
 
@@ -116,8 +142,8 @@ carrinhoItensContainer.addEventListener("click", (evento) => {
   if (evento.target.classList.contains("remove-btn")) {
     let carrinho = carregarCarrinho();
     carrinho = carrinho.filter((item) => String(item.id) !== String(id));
-    salvarCarrinho(carrinho); // Salva a mudança
-    renderizarCarrinho(); // Redesenha
+    salvarCarrinho(carrinho);
+    renderizarCarrinho();
     return;
   }
 
