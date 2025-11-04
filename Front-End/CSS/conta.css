@@ -1,42 +1,52 @@
+/* Reset de estilos padrão do navegador */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* === IMPORTAÇÃO DE FONTES === */
+/* Fonte Montserrat Regular */
 @font-face {
   font-family: Regular;
   src: url("../Fonts/Montserrat-Regular.ttf");
 }
 
+/* Fonte Montserrat Bold (Alternates) */
 @font-face {
   font-family: Negrito;
   src: url("../Fonts/MontserratAlternates-Bold.ttf");
 }
 
+/* Fonte Montserrat Black (Alternates) */
 @font-face {
   font-family: Preto;
   src: url("../Fonts/MontserratAlternates-Black.ttf");
 }
 
+/* === ESTILOS GLOBAIS === */
 body {
   height: 100vh;
   font-family: Negrito;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: hidden; /* Previne scroll */
   transition: all 0.5s ease;
 }
 
+/* Classe aplicada quando a página carrega completamente */
 body.loaded {
   opacity: 1;
 }
 
+/* Remove sublinhado padrão dos links */
 a {
   text-decoration: none;
 }
 
+/* === IMAGENS DECORATIVAS - PÁGINA DE ENTRAR === */
+/* Imagem decorativa esquerda (página de login) */
 .entrar-image-1 {
   z-index: 1;
   display: flex;
@@ -50,11 +60,13 @@ a {
   width: 55%;
 }
 
+/* Posicionamento da imagem à esquerda */
 .entrar-esq {
   position: relative;
   right: 50%;
 }
 
+/* Imagem decorativa direita (página de login) */
 .entrar-image-2 {
   z-index: 1;
   display: flex;
@@ -68,12 +80,15 @@ a {
   width: 72.5%;
 }
 
+/* Posicionamento da imagem à direita */
 .entrar-dir {
   position: relative;
   padding-top: 20vh;
   left: 39%;
 }
 
+/* === IMAGENS DECORATIVAS - PÁGINA DE CRIAR CONTA === */
+/* Imagem decorativa esquerda (página de cadastro) */
 .criar-image-1 {
   z-index: 1;
   display: flex;
@@ -87,12 +102,14 @@ a {
   width: 77%;
 }
 
+/* Posicionamento da imagem à esquerda */
 .criar-esq {
   position: relative;
   right: 35%;
   padding-bottom: 26px;
 }
 
+/* Imagem decorativa direita (página de cadastro) */
 .criar-image-2 {
   z-index: 1;
   display: flex;
@@ -106,12 +123,15 @@ a {
   width: 55%;
 }
 
+/* Posicionamento da imagem à direita */
 .criar-dir {
   padding-top: 5%;
   position: relative;
   left: 50%;
 }
 
+/* === CONTAINER PRINCIPAL DO FORMULÁRIO === */
+/* Card central com o formulário de login/cadastro */
 .cont {
   background-image: url(../Images/Background.svg);
   background-repeat: repeat;
@@ -122,10 +142,11 @@ a {
   height: 92.5vh;
   width: 35vw;
   border-radius: 2rem;
-  z-index: 2;
+  z-index: 2; /* Fica acima das imagens decorativas */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* Padding interno do formulário */
 .padding {
   display: flex;
   flex-direction: column;
@@ -134,6 +155,8 @@ a {
   gap: 4%;
 }
 
+/* === LOGO === */
+/* Container do logo da empresa */
 .space-logo {
   display: flex;
   justify-content: center;
@@ -147,6 +170,8 @@ a {
   object-fit: cover;
 }
 
+/* === TÍTULO === */
+/* Container do título (Login/Criar Conta) */
 .space-title {
   display: flex;
   justify-content: center;
@@ -159,6 +184,8 @@ a {
   font-size: 2.75rem;
 }
 
+/* === CAMPOS DE ENTRADA === */
+/* Container de todos os campos de input */
 .all-informations {
   margin-top: 2%;
   display: flex;
@@ -167,6 +194,7 @@ a {
   height: 25%;
 }
 
+/* Campo de input individual (email, senha, etc.) */
 .information {
   display: flex;
   align-items: center;
@@ -182,6 +210,7 @@ a {
   outline: none;
 }
 
+/* Estilo do placeholder */
 .information::placeholder {
   color: #737373;
   font-family: Negrito;
@@ -189,26 +218,31 @@ a {
   transition: color 0.3s ease;
 }
 
+/* Efeito quando o input está em foco */
 .information:focus {
   border: solid 0.5px black;
   background-color: #d6d6d6;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  transform: scale(1.03);
+  transform: scale(1.03); /* Leve zoom */
 }
 
+/* Muda cor do placeholder quando focado */
 .information:focus::placeholder {
   color: #545454;
 }
 
-input[type=number]::-webkit-inner-spin-button {
+/* Remove setas de incremento/decremento em campos numéricos (Chrome/Safari) */
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-input[type=number] {
+/* Remove setas em campos numéricos (Firefox) */
+input[type="number"] {
   appearance: textfield;
 }
 
-
+/* === BOTÃO E LINKS === */
+/* Container do botão de submit e links */
 .space-button {
   height: 13.25%;
   display: flex;
@@ -218,6 +252,7 @@ input[type=number] {
   gap: 5%;
 }
 
+/* Botão principal (Entrar/Criar Conta) */
 .space-button button {
   font-size: 1.5rem;
   font-family: Negrito;
@@ -231,22 +266,25 @@ input[type=number] {
   transition: all 0.3s ease;
 }
 
+/* Efeito hover do botão */
 .space-button button:hover {
   background-color: #ff4444;
-  transform: translateY(-3px);
+  transform: translateY(-3px); /* Levanta o botão */
 }
 
+/* Efeito ao clicar no botão */
 .space-button button:active {
-  transform: translateY(1px);
+  transform: translateY(1px); /* Afunda ao clicar */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-
+/* Texto "Não tem conta?" / "Já tem conta?" */
 .space-button h3 {
   font-size: 1.25rem;
   margin-top: 2%;
 }
 
+/* Link para alternar entre Login e Cadastro */
 .space-button a {
   font-family: Negrito;
   color: #ff413b;
@@ -256,11 +294,12 @@ input[type=number] {
 }
 
 .space-button a:hover {
-  color: #29b355;
-  transform: scale(1.1);
+  color: #29b355; /* Muda para verde ao passar o mouse */
+  transform: scale(1.1); /* Leve zoom */
 }
 
-
+/* === AUTENTICAÇÃO SOCIAL === */
+/* Container dos botões de login social (Google, Apple, etc.) */
 .space-others {
   display: flex;
   align-items: center;
@@ -268,6 +307,7 @@ input[type=number] {
   gap: 3%;
 }
 
+/* Botão individual de login social */
 .other {
   display: flex;
   justify-content: center;
@@ -280,18 +320,20 @@ input[type=number] {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Efeito hover nos botões sociais */
 .other:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-  filter: brightness(1.1);
+  filter: brightness(1.1); /* Deixa mais brilhante */
 }
 
+/* Efeito ao clicar */
 .other:active {
   transform: scale(0.95);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-
+/* Botão Google - fundo branco */
 .other-gmail {
   background-color: white;
 }
@@ -300,6 +342,7 @@ input[type=number] {
   width: 40%;
 }
 
+/* Botão Apple - fundo preto */
 .other-apple {
   background-color: black;
 }
@@ -308,18 +351,22 @@ input[type=number] {
   width: 35%;
 }
 
+/* Botão Facebook - azul característico */
 .other-facebook {
-  background-color: #1877F2;
+  background-color: #1877f2;
 }
 
+/* Botão Microsoft - cinza escuro */
 .other-microsoft {
-  background-color: #2F2F2F;
+  background-color: #2f2f2f;
 }
 
 .other-microsoft img {
   width: 45%;
 }
 
+/* === POLÍTICA DE PRIVACIDADE === */
+/* Container do link de política de privacidade */
 .space-politics {
   display: flex;
   justify-content: center;
@@ -327,156 +374,165 @@ input[type=number] {
   flex: 1;
 }
 
+/* Link de política de privacidade */
 .space-politics a {
   transition: color 0.2s ease, transform 0.3s ease;
-  color: #E63946;
+  color: #e63946;
   font-size: 1.4rem;
 }
 
 .space-politics a:hover {
-  color: #29b355;
+  color: #29b355; /* Muda para verde ao passar o mouse */
   transform: scale(1.1);
 }
 
+/* === MEDIA QUERIES - RESPONSIVIDADE === */
+
+/* Tablets e telas médias (até 1200px) */
 @media screen and (max-width: 1200px) {
-  body{
+  body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }  
-  
+  }
+
   .cont {
-        width: 45vw;
-    }
+    width: 45vw; /* Container mais largo */
+  }
 
-    .space-title h1 {
-        font-size: 2.25rem;
-    }
+  .space-title h1 {
+    font-size: 2.25rem;
+  }
 
-    .space-button button {
-        width: 60%;
-        font-size: 1.25rem;
-    }
+  .space-button button {
+    width: 60%;
+    font-size: 1.25rem;
+  }
 
-    .space-politics a {
-        font-size: 1.2rem;
-    }
+  .space-politics a {
+    font-size: 1.2rem;
+  }
 }
 
+/* Tablets menores (até 900px) */
 @media screen and (max-width: 900px) {
-    .cont {
-        width: 60vw;
-    }
+  .cont {
+    width: 60vw;
+  }
 
-    .entrar-image-1 img,
-    .entrar-image-2 img,
-    .criar-image-1 img,
-    .criar-image-2 img {
-        display: none;
-    }
+  /* Oculta todas as imagens decorativas */
+  .entrar-image-1 img,
+  .entrar-image-2 img,
+  .criar-image-1 img,
+  .criar-image-2 img {
+    display: none;
+  }
 
-    .space-logo img {
-        width: 75%;
-    }
+  .space-logo img {
+    width: 75%;
+  }
 
-    .other {
-        height: 12vh;
-    }
+  .other {
+    height: 12vh;
+  }
 }
 
+/* Smartphones landscape (até 768px) */
 @media screen and (max-width: 768px) {
-    .cont {
-        width: 75vw;
-        height: 85vh;
-    }
+  .cont {
+    width: 75vw;
+    height: 85vh;
+  }
 
-    .space-title h1 {
-        font-size: 2rem;
-    }
+  .space-title h1 {
+    font-size: 2rem;
+  }
 
-    .information {
-        font-size: 0.9rem;
-    }
+  .information {
+    font-size: 0.9rem;
+  }
 
-    .information::placeholder {
-        font-size: 0.9rem;
-    }
+  .information::placeholder {
+    font-size: 0.9rem;
+  }
 
-    .space-button h3 {
-        font-size: 1.1rem;
-    }
+  .space-button h3 {
+    font-size: 1.1rem;
+  }
 
-    .other {
-        height: 10vh;
-    }
+  .other {
+    height: 10vh;
+  }
 
-    .space-politics a {
-        font-size: 1.1rem;
-    }
+  .space-politics a {
+    font-size: 1.1rem;
+  }
 }
 
+/* Smartphones portrait (até 480px) */
 @media screen and (max-width: 480px) {
-    .cont {
-        width: 90vw;
-        height: 80vh;
-        border-radius: 1.5rem;
-    }
+  .cont {
+    width: 90vw; /* Quase largura total */
+    height: 80vh;
+    border-radius: 1.5rem;
+  }
 
-    .space-logo img {
-        width: 85%;
-    }
+  .space-logo img {
+    width: 85%;
+  }
 
-    .space-title h1 {
-        font-size: 1.75rem;
-    }
+  .space-title h1 {
+    font-size: 1.75rem;
+  }
 
-    .all-informations {
-        gap: 8%;
-    }
+  .all-informations {
+    gap: 8%;
+  }
 
-    .information {
-        height: 25%;
-        font-size: 0.85rem;
-        padding: 0.75rem;
-    }
+  .information {
+    height: 25%;
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
 
-    .information::placeholder {
-        font-size: 0.85rem;
-    }
+  .information::placeholder {
+    font-size: 0.85rem;
+  }
 
-    .space-button button {
-        width: 70%;
-        font-size: 1.1rem;
-        height: 45%;
-    }
+  .space-button button {
+    width: 70%;
+    font-size: 1.1rem;
+    height: 45%;
+  }
 
-    .space-button h3 {
-        font-size: 1rem;
-    }
+  .space-button h3 {
+    font-size: 1rem;
+  }
 
-    .space-others {
-        gap: 2%;
-    }
+  .space-others {
+    gap: 2%;
+  }
 
-    .other {
-        height: 8vh;
-        width: 22%;
-    }
+  /* Botões sociais menores */
+  .other {
+    height: 8vh;
+    width: 22%;
+  }
 
-    .other img {
-        width: 50%;
-    }
+  .other img {
+    width: 50%;
+  }
 
-    .other-apple img {
-        width: 45%;
-    }
+  .other-apple img {
+    width: 45%;
+  }
 
-    .other-microsoft img {
-        width: 55%;
-    }
+  .other-microsoft img {
+    width: 55%;
+  }
 
-    .space-politics a {
-        font-size: 0.9rem;
-    }
+  .space-politics a {
+    font-size: 0.9rem;
+  }
 }

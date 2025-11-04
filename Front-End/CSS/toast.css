@@ -1,138 +1,201 @@
-/* Animações suaves para o toast */
+/* === ANIMAÇÕES DO TOAST === */
+
+/* Animação de entrada - desliza da direita para dentro */
 @keyframes slideIn {
   from {
-    transform: translateX(400px);
-    opacity: 0;
+    transform: translateX(400px); /* Começa fora da tela à direita */
+    opacity: 0; /* Invisível */
   }
   to {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateX(0); /* Posição final normal */
+    opacity: 1; /* Totalmente visível */
   }
 }
 
+/* Animação de saída - desliza para a direita e desaparece */
 @keyframes slideOut {
   from {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateX(0); /* Posição inicial normal */
+    opacity: 1; /* Totalmente visível */
   }
   to {
-    transform: translateX(400px);
-    opacity: 0;
+    transform: translateX(400px); /* Move para fora da tela à direita */
+    opacity: 0; /* Invisível */
   }
 }
 
-/* Estilo base do toast */
+/* === ESTILO BASE DO TOAST === */
+/* Container principal da notificação toast */
 .toast-notification {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  min-width: 300px;
-  max-width: 400px;
-  padding: 16px 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  position: fixed; /* Fica fixo na tela mesmo com scroll */
+  bottom: 20px; /* Distância do fundo da tela */
+  right: 20px; /* Distância da direita da tela */
+  min-width: 300px; /* Largura mínima */
+  max-width: 400px; /* Largura máxima */
+  padding: 16px 20px; /* Espaçamento interno */
+  border-radius: 12px; /* Cantos arredondados */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Sombra suave */
+  z-index: 9999; /* Fica acima de todos os outros elementos */
+  display: flex; /* Layout flexível */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 12px; /* Espaço entre ícone e texto */
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   font-size: 14px;
   font-weight: 500;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 0; /* Invisível por padrão */
+  transform: translateX(100%); /* Posicionado fora da tela à direita */
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Animação com efeito elástico */
 }
 
-/* Classe para mostrar o toast */
+/* === ESTADOS DE VISIBILIDADE === */
+
+/* Classe aplicada para mostrar o toast */
 .toast-show {
-  opacity: 1 !important;
-  transform: translateX(0) !important;
+  opacity: 1 !important; /* Torna visível */
+  transform: translateX(0) !important; /* Move para posição normal */
 }
 
-/* Classe para esconder o toast */
+/* Classe aplicada para esconder o toast */
 .toast-hide {
-  opacity: 0 !important;
-  transform: translateX(100%) !important;
+  opacity: 0 !important; /* Torna invisível */
+  transform: translateX(100%) !important; /* Move para fora da tela */
 }
 
-/* Ícone do toast */
+/* === ELEMENTOS DO TOAST === */
+
+/* Ícone do toast (✓, ✕, ⚠, ℹ) */
 .toast-icon {
   font-size: 24px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  flex-shrink: 0;
+  width: 32px; /* Largura fixa */
+  height: 32px; /* Altura fixa */
+  border-radius: 50%; /* Formato circular */
+  flex-shrink: 0; /* Não encolhe quando há muito texto */
 }
 
-/* Mensagem do toast */
+/* Mensagem de texto do toast */
 .toast-message {
-  flex: 1;
-  line-height: 1.4;
+  flex: 1; /* Ocupa todo o espaço disponível */
+  line-height: 1.4; /* Espaçamento entre linhas */
 }
 
-/* Variantes de cores */
+/* === VARIANTES DE CORES POR TIPO === */
+
+/* Toast de Sucesso - Verde */
 .toast-success {
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  background: linear-gradient(
+    135deg,
+    #4caf50 0%,
+    #45a049 100%
+  ); /* Gradiente verde */
   color: white;
-  border-left: 5px solid #2e7d32;
+  border-left: 5px solid #2e7d32; /* Borda esquerda verde escuro */
 }
 
 .toast-success .toast-icon {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Fundo branco semi-transparente */
 }
 
+/* Toast de Erro - Vermelho */
 .toast-error {
-  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  background: linear-gradient(
+    135deg,
+    #f44336 0%,
+    #d32f2f 100%
+  ); /* Gradiente vermelho */
   color: white;
-  border-left: 5px solid #b71c1c;
+  border-left: 5px solid #b71c1c; /* Borda esquerda vermelha escura */
 }
 
 .toast-error .toast-icon {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Fundo branco semi-transparente */
 }
 
+/* Toast de Aviso - Laranja */
 .toast-warning {
-  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  background: linear-gradient(
+    135deg,
+    #ff9800 0%,
+    #f57c00 100%
+  ); /* Gradiente laranja */
   color: white;
-  border-left: 5px solid #e65100;
+  border-left: 5px solid #e65100; /* Borda esquerda laranja escura */
 }
 
 .toast-warning .toast-icon {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Fundo branco semi-transparente */
 }
 
+/* Toast de Informação - Azul */
 .toast-info {
-  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  background: linear-gradient(
+    135deg,
+    #2196f3 0%,
+    #1976d2 100%
+  ); /* Gradiente azul */
   color: white;
-  border-left: 5px solid #0d47a1;
+  border-left: 5px solid #0d47a1; /* Borda esquerda azul escura */
 }
 
 .toast-info .toast-icon {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Fundo branco semi-transparente */
 }
 
-/* Responsividade */
+/* === RESPONSIVIDADE === */
+
+/* Smartphones (até 576px) */
 @media (max-width: 576px) {
   .toast-notification {
-    bottom: 10px;
-    right: 10px;
-    left: 10px;
-    min-width: auto;
-    max-width: none;
+    bottom: 10px; /* Menor distância do fundo */
+    right: 10px; /* Menor distância da direita */
+    left: 10px; /* Adiciona distância da esquerda */
+    min-width: auto; /* Remove largura mínima */
+    max-width: none; /* Remove largura máxima */
+    /* Resultado: Toast ocupa quase toda a largura da tela em mobile */
   }
 }
 
-/* Suporte para múltiplos toasts */
-.toast-notification:nth-child(n+2) {
+/* === SUPORTE PARA MÚLTIPLOS TOASTS === */
+
+/* Empilha toasts verticalmente quando há mais de um */
+/* A variável CSS --toast-index é definida dinamicamente via JavaScript */
+.toast-notification:nth-child(n + 2) {
   bottom: calc(20px + (80px * var(--toast-index, 0)));
+  /* Calcula posição vertical: 
+     - Começa em 20px do fundo
+     - Adiciona 80px * índice do toast
+     - Exemplo: 2º toast fica em 100px, 3º em 180px, etc.
+  */
 }
 
+/* Ajuste do empilhamento em mobile */
 @media (max-width: 576px) {
-  .toast-notification:nth-child(n+2) {
+  .toast-notification:nth-child(n + 2) {
     bottom: calc(10px + (80px * var(--toast-index, 0)));
+    /* Mesmo cálculo mas começa em 10px devido ao menor espaçamento em mobile */
   }
 }

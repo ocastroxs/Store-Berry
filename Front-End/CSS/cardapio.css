@@ -1,955 +1,1034 @@
+/* Habilita rolagem suave ao clicar em âncoras */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
+/* Reset de estilos padrão do navegador */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* === ANIMAÇÃO DE ENTRADA === */
+/* Animação de fade com deslizamento para cima */
 @keyframes fadeSlide {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@font-face {
-    font-family: Regular;
-    src: url("../Fonts/Montserrat-Regular.ttf");
-}
-
-@font-face {
-    font-family: Negrito;
-    src: url("../Fonts/MontserratAlternates-Bold.ttf");
-}
-
-body {
-    overflow-x: hidden;
-    font-family: Regular;
-    transition: all 0.5s ease;
-    background-image: url(../Images/Background.svg);
-    background-size: 5%;
-    background-repeat: repeat;
-    background-color: rgb(255, 255, 255);
-}
-
-body.loaded {
+  100% {
     opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+/* === IMPORTAÇÃO DE FONTES === */
+/* Fonte Montserrat Regular */
+@font-face {
+  font-family: Regular;
+  src: url("../Fonts/Montserrat-Regular.ttf");
+}
+
+/* Fonte Montserrat Bold (Alternates) */
+@font-face {
+  font-family: Negrito;
+  src: url("../Fonts/MontserratAlternates-Bold.ttf");
+}
+
+/* === ESTILOS GLOBAIS === */
+body {
+  overflow-x: hidden; /* Previne scroll horizontal */
+  font-family: Regular;
+  transition: all 0.5s ease;
+  background-image: url(../Images/Background.svg);
+  background-size: 5%;
+  background-repeat: repeat;
+  background-color: rgb(255, 255, 255);
+}
+
+/* Classe aplicada quando a página carrega completamente */
+body.loaded {
+  opacity: 1;
+}
+
+/* Remove sublinhado padrão dos links */
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
+/* === BANNER PRINCIPAL === */
+/* Banner com imagem de fundo e gradiente */
 .banner {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)),
-        url(../Images/Banner-Cardapio.svg);
-    background-repeat: no-repeat;
-    background-size: 120%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ocupa toda a altura da viewport */
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(../Images/Banner-Cardapio.svg);
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efeito parallax */
 }
 
+/* === HEADER/NAVEGAÇÃO === */
 header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 15%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 15%;
 }
 
+/* Container do ícone/logo */
 .space-icon {
-    margin-left: 1%;
-    width: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-left: 1%;
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .space-icon img {
-    width: 75%;
-    object-fit: cover;
+  width: 75%;
+  object-fit: cover;
 }
 
+/* Menu de navegação */
 nav {
-    margin-left: 2.5%;
-    display: flex;
-    align-items: center;
-    gap: 17.5%;
+  margin-left: 2.5%;
+  display: flex;
+  align-items: center;
+  gap: 17.5%;
 }
 
+/* Item individual do menu */
 .one-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .one-nav a {
-    font-size: 1.5rem;
-    color: white;
-    white-space: nowrap;
+  font-size: 1.5rem;
+  color: white;
+  white-space: nowrap; /* Evita quebra de linha */
 }
 
-
+/* Container dos botões à direita (Carrinho e Login) */
 .space-others {
-    margin-right: 8%;
-    margin-left: auto;
-    display: flex;
-    gap: 40%;
-    align-items: center;
-    flex-wrap: nowrap;
+  margin-right: 8%;
+  margin-left: auto; /* Empurra para a direita */
+  display: flex;
+  gap: 40%;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
+/* Botão "Carrinho" */
 .other {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .other a {
-    font-size: 1.5rem;
-    color: white;
+  font-size: 1.5rem;
+  color: white;
 }
 
+/* Botão "Login" com destaque */
 .other-destaque {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .other-destaque a {
-    font-weight: bolder;
-    font-size: 1.5rem;
-    color: #fc5451;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  color: #fc5451; /* Cor vermelha de destaque */
 }
 
+/* Efeito de sublinhado animado nos links do header */
 header nav a,
 header .space-others a {
-    position: relative;
-    text-decoration: none;
+  position: relative;
+  text-decoration: none;
 }
 
+/* Pseudo-elemento para criar a linha animada */
 header nav a::after,
 header .space-others a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0%;
-    height: 2.5px;
-    background-color: #ff4a4a;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2.5px;
+  background-color: #ff4a4a;
+  transition: width 0.3s ease;
 }
 
+/* Anima a linha ao passar o mouse */
 header nav a:hover::after,
 header .space-others a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
+/* Mantém a linha visível no link ativo */
 header nav a.active::after {
-    width: 100%;
+  width: 100%;
 }
 
+/* === CONTEÚDO DO BANNER === */
 .espace-banner {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .informations-banner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 55%;
 }
 
+/* Título principal do banner com animação */
 .titulo-banner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 40%;
-    opacity: 0;
-    animation: fadeSlide 1s ease forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40%;
+  opacity: 0;
+  animation: fadeSlide 1s ease forwards; /* Aplica animação de entrada */
 }
 
 .titulo-banner h1 {
-    color: white;
-    font-size: 4rem;
+  color: white;
+  font-size: 4rem;
 }
 
+/* Efeito de brilho ao passar o mouse no título */
 .titulo-banner h1:hover {
-    text-shadow: 0 0 15px rgba(255, 74, 74, 0.8);
-    transition: text-shadow 0.3s ease;
+  text-shadow: 0 0 15px rgba(255, 74, 74, 0.8);
+  transition: text-shadow 0.3s ease;
 }
 
+/* Descrição/subtítulo do banner */
 .descricao-banner {
-    text-align: center;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 40%;
+  text-align: center;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40%;
 }
 
 .descricao-banner h3 {
-    font-size: 2rem;
-    color: white;
+  font-size: 2rem;
+  color: white;
 }
 
+/* Botão Call-to-Action do banner */
 .button-banner {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 20%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20%;
 }
 
 .button-banner a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Negrito;
-    font-size: 1.35rem;
-    color: white;
-    border: none;
-    background-color: #ff5757;
-    border-radius: 1rem;
-    height: 75%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Negrito;
+  font-size: 1.35rem;
+  color: white;
+  border: none;
+  background-color: #ff5757;
+  border-radius: 1rem;
+  height: 75%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+/* Efeitos de hover e click no botão */
 .button-banner a:hover {
-    background-color: #ff4444;
-    transform: translateY(-3px);
+  background-color: #ff4444;
+  transform: translateY(-3px); /* Levanta o botão */
 }
 
 .button-banner a:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px); /* Afunda ao clicar */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Seta de scroll para baixo */
 .scroll-down {
-    position: relative;
-    top: 17.5%;
-    display: flex;
-    justify-content: center;
+  position: relative;
+  top: 17.5%;
+  display: flex;
+  justify-content: center;
 }
 
 .scroll-down a {
-    cursor: pointer;
-    display: inline-block;
-    font-size: 3rem;
-    color: #ff4444;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 3rem;
+  color: #ff4444;
 }
 
+/* === FILTROS DE CATEGORIA === */
+/* Container dos títulos/filtros de categorias */
 .titulos-cardapio {
-    height: 15vh;
-    display: flex;
-    align-items: center;
-    padding: 0 12.5%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  padding: 0 12.5%;
 }
 
+/* Linha com todos os botões de categoria */
 .row-cardapio {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    gap: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 3vw;
 }
 
+/* Container de um botão de categoria individual */
 .one-titulo {
-    width: auto;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Botão de categoria (Doces, Bebidas, etc.) */
 .one-titulo button {
-    font-size: 1.9rem;
-    font-family: Negrito;
-    color: #545454;
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.4s ease;
-
+  font-size: 1.9rem;
+  font-family: Negrito;
+  color: #545454;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
 }
 
+/* Linha animada abaixo do botão */
 .one-titulo button::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background-color: #ff4a4a;
-    transition: width 0.4s ease;
-    border-radius: 2px;
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #ff4a4a;
+  transition: width 0.4s ease;
+  border-radius: 2px;
 }
 
+/* Anima a linha ao passar o mouse */
 .one-titulo button:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
+/* Efeito hover do botão */
 .one-titulo button:hover {
-    color: #ff4a4a;
-    transform: scale(1.05);
+  color: #ff4a4a;
+  transform: scale(1.05);
 }
 
+/* Estilo do botão ativo */
 .one-titulo button.active {
-    color: #ff4a4a;
-    transform: scale(1.05);
+  color: #ff4a4a;
+  transform: scale(1.05);
 }
 
+/* Mantém a linha visível no botão ativo */
 .one-titulo button.active::after {
-    width: 100%;
+  width: 100%;
 }
 
+/* === SEÇÃO DE PRODUTOS === */
+/* Container de todos os produtos */
 .all-produtos {
-    padding: 5vh 17.5vw;
-    display: flex;
-    flex-direction: column;
-    gap: 10vh;
+  padding: 5vh 17.5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
 }
 
+/* Container de uma categoria de produtos */
 .topico-produto {
-    display: flex;
-    flex-direction: column;
-    gap: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
 }
 
+/* Título da categoria de produtos */
 .titulo-produto {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
 }
 
 .titulo-produto h3 {
-    font-size: 1.75rem;
-    font-family: Negrito;
-    color: #ff4a4a;
-    border-left: 6px solid #ff4a4a;
-    padding-left: 10px;
+  font-size: 1.75rem;
+  font-family: Negrito;
+  color: #ff4a4a;
+  border-left: 6px solid #ff4a4a; /* Barra decorativa à esquerda */
+  padding-left: 10px;
 }
 
+/* Container de todos os produtos de uma categoria */
 .all-produto {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vh;
 }
 
+/* Linha com 4 produtos lado a lado */
 .row-produto {
-    display: flex;
-    gap: 2vw;
-    height: auto;
-    width: 100%;
+  display: flex;
+  gap: 2vw;
+  height: auto;
+  width: 100%;
 }
 
+/* === CARD DE PRODUTO === */
+/* Card individual de produto */
 .col-produto {
-    position: relative;
-    border-radius: 1rem;
-    height: 30vh;
-    width: 25%;
-    border: 1px solid #ddd;
-    background-color: #f5f5f5;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-    transition: all 0.3s ease;
-    padding-bottom: 0.5rem;
-    border-bottom: 5px solid #ff4a4a;
-    overflow: hidden;
+  position: relative;
+  border-radius: 1rem;
+  height: 30vh;
+  width: 25%;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  transition: all 0.3s ease;
+  padding-bottom: 0.5rem;
+  border-bottom: 5px solid #ff4a4a; /* Borda inferior destacada */
+  overflow: hidden;
 }
 
+/* Container da imagem do produto */
 .img-produto {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
-    height: 77.5%;
-    border-radius: 1rem 1rem 0 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 77.5%;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .img-produto img {
-    width: auto;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    transition: transform 0.5s ease;
+  width: auto;
+  height: 100%;
+  object-fit: contain; /* Mantém proporção da imagem */
+  object-position: center;
+  transition: transform 0.5s ease;
 }
 
+/* Overlay que aparece ao passar o mouse sobre o produto */
 .overlay-cardapio {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.45);
-    color: white;
-    border-radius: inherit;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 2;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.45); /* Fundo escuro semi-transparente */
+  color: white;
+  border-radius: inherit;
+  opacity: 0; /* Invisível por padrão */
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
 }
 
 .overlay-cardapio h3 {
-    font-family: Negrito;
-    font-size: 1.3rem;
-    margin: 0;
+  font-family: Negrito;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
+/* Botão "Ver Detalhes" dentro do overlay */
 .overlay-cardapio button {
-    font-family: Negrito;
-    font-size: 1rem;
-    color: white;
-    background-color: #ff4a4a;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.3rem 0.8rem;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: Negrito;
+  font-size: 1rem;
+  color: white;
+  background-color: #ff4a4a;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Inverte as cores ao passar o mouse no botão */
 .overlay-cardapio button:hover {
-    color: #ff4a4a;
-    background-color: white;
-    transform: translateY(-3px);
+  color: #ff4a4a;
+  background-color: white;
+  transform: translateY(-3px);
 }
 
+/* Zoom na imagem ao passar o mouse no card */
 .col-produto:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
+/* Mostra o overlay ao passar o mouse */
 .col-produto:hover .overlay-cardapio {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* Levanta o card ao passar o mouse */
 .col-produto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
+/* Nome do produto */
 .nome-produto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 22.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 22.5%;
 }
 
 .nome-produto p {
-    font-family: Negrito;
-    color: black;
-    font-size: 1.5rem;
+  font-family: Negrito;
+  color: black;
+  font-size: 1.5rem;
 }
 
+/* === FOOTER === */
+/* Linha divisória decorativa antes do footer */
 .linha-header {
-    width: 100%;
-    height: 2px;
-    margin-top: 7.5vh;
-    background: linear-gradient(to right,
-            transparent,
-            #fc5451,
-            transparent);
+  width: 100%;
+  height: 2px;
+  margin-top: 7.5vh;
+  background: linear-gradient(to right, transparent, #fc5451, transparent);
 }
 
 footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5vh;
 }
 
+/* Logo no rodapé */
 .logo-footer {
-    margin-top: 1vh;
-    width: 100%;
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  margin-top: 1vh;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .logo-footer a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .logo-footer img {
-    width: 10%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+  width: 10%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
 .logo-footer img:hover {
-    transform: scale(1.08);
+  transform: scale(1.08);
 }
 
+/* Navegação no rodapé */
 .nav-footer {
-    display: flex;
-    align-items: center;
-    gap: 1.5vw;
-    height: 7.5vh;
-    width: 100%;
-    padding: 0 35%;
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  height: 7.5vh;
+  width: 100%;
+  padding: 0 35%;
 }
 
 .one-nav {
-    width: 25%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .one-nav h3 {
-    font-family: Negrito;
-    color: #737373;
-    transition: color 0.3s ease, transform 0.3s ease;
+  font-family: Negrito;
+  color: #737373;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .one-nav h3:hover {
-    color: #ff4a4a;
-    transform: translateY(-3px);
+  color: #ff4a4a;
+  transform: translateY(-3px);
 }
 
+/* Redes sociais no rodapé */
 .social-footer {
-    display: flex;
-    align-items: center;
-    gap: 1.5vw;
-    height: 7.5vh;
-    width: 100%;
-    padding: 0 40%;
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  height: 7.5vh;
+  width: 100%;
+  padding: 0 40%;
 }
 
 .one-social {
-    width: 25%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .one-social img {
-    width: 70%;
-    object-fit: cover;
-    transition: transform 0.3s ease, filter 0.3s ease;
+  width: 70%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .one-social img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
+/* Direitos autorais */
 .direitos-footer {
-    display: flex;
-    justify-content: center;
-    height: 7vh;
-    width: 100%;
-    padding: 0 30%;
+  display: flex;
+  justify-content: center;
+  height: 7vh;
+  width: 100%;
+  padding: 0 30%;
 }
 
+/* === MEDIA QUERIES - RESPONSIVIDADE === */
+
+/* Telas médias-grandes (até 1200px) */
 @media (max-width: 1200px) {
-    /* header */
+  /* Ajustes no header */
+  .space-others {
+    gap: 20%;
+  }
 
-    .space-others {
-        gap: 20%;
-    }
+  .descricao-banner h3 {
+    font-size: 1.5rem;
+  }
 
-    .descricao-banner h3 {
-        font-size: 1.5rem;
-    }
-
-    .button-banner a {
-        font-size: 1.2rem;
-    }
-
-    /* header */
+  .button-banner a {
+    font-size: 1.2rem;
+  }
 }
 
+/* Tablets (até 900px) */
 @media screen and (max-width: 900px) {
+  /* Produtos em 2 colunas */
+  .row-produto {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3vh;
+  }
 
-    .row-produto {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 3vh;
-    }
+  .col-produto {
+    width: 45%;
+    height: 35vh;
+  }
 
-    .col-produto {
-        width: 45%;
-        height: 35vh;
-    }
-
-    .nome-produto p {
-        font-size: 1.3rem;
-    }
+  .nome-produto p {
+    font-size: 1.3rem;
+  }
 }
 
+/* Tablets menores (até 768px) */
 @media screen and (max-width: 768px) {
-    /* header */
+  /* Ajustes no header */
+  .titulo-banner h1 {
+    font-size: 2.5rem;
+  }
 
-    .titulo-banner h1 {
-        font-size: 2.5rem;
-    }
+  .descricao-banner h3 {
+    font-size: 1.2rem;
+  }
 
-    .descricao-banner h3 {
-        font-size: 1.2rem;
-    }
+  .button-banner a {
+    font-size: 1rem;
+  }
 
-    .button-banner a {
-        font-size: 1rem;
-    }
+  .space-icon {
+    width: 10%;
+  }
 
-    .space-icon {
-        width: 10%;
-    }
+  nav {
+    gap: 10%;
+  }
 
-    nav {
-        gap: 10%;
-    }
+  .space-others {
+    gap: 10%;
+  }
 
-    .space-others {
-        gap: 10%;
-    }
+  /* Oculta a barra de filtros horizontal */
+  .titulos-cardapio {
+    display: none;
+  }
 
-    /* header */
+  /* Filtros em grade */
+  .row-cardapio {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 
-    .titulos-cardapio {
-        display: none;
-    }
+  .one-titulo {
+    width: 45%;
+  }
 
-    .row-cardapio {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
+  .one-titulo button {
+    font-size: 1.2rem;
+    text-align: center;
+  }
 
-    .one-titulo {
-        width: 45%;
-    }
+  .all-produtos {
+    padding: 5vh 5vw;
+  }
 
-    .one-titulo button {
-        font-size: 1.2rem;
-        text-align: center;
-    }
+  /* Produtos em coluna única */
+  .col-produto {
+    width: 90%;
+    height: 40vh;
+  }
 
-    .all-produtos {
-        padding: 5vh 5vw;
-    }
+  /* Ajustes no footer */
+  .nav-footer,
+  .social-footer {
+    padding: 0 10%;
+  }
 
-    .col-produto {
-        width: 90%;
-        height: 40vh;
-    }
+  .direitos-footer {
+    padding: 0 5%;
+    text-align: center;
+  }
 
-    .nav-footer,
-    .social-footer {
-        padding: 0 10%;
-    }
-
-    .direitos-footer {
-        padding: 0 5%;
-        text-align: center;
-    }
-
-    .direitos-footer p {
-        font-size: 1rem;
-    }
+  .direitos-footer p {
+    font-size: 1rem;
+  }
 }
 
+/* Smartphones portrait (até 576px) */
 @media screen and (max-width: 576px) {
-    /* header */
+  /* === AJUSTES DO HEADER === */
+  .banner {
+    height: 80vh;
+  }
 
-    .banner {
-        height: 80vh;
-    }
+  header {
+    height: auto;
+    padding: 1rem 0;
+  }
 
-    header {
-        height: auto;
-        padding: 1rem 0;
-    }
+  .space-icon {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
 
-    .space-icon {
-        margin-left: 0;
-        margin-bottom: 1rem;
-    }
+  nav {
+    gap: 1rem;
+    padding-left: 1vw;
+  }
 
-    nav {
-        gap: 1rem;
-        padding-left: 1vw;
-    }
+  .space-icon {
+    margin: 0;
+  }
 
-    .space-icon {
-        margin: 0;
-    }
+  .one-nav {
+    width: auto;
+  }
 
-    .one-nav {
-        width: auto;
-    }
+  .one-nav a {
+    font-size: 0.7rem;
+  }
 
-    .one-nav a {
-        font-size: 0.7rem;
-    }
+  .space-others {
+    gap: 1rem;
+    margin-right: 0;
+    margin-left: 20vw;
+  }
 
-    .space-others {
-        gap: 1rem;
-        margin-right: 0;
-        margin-left: 20vw;
-    }
+  .space-others a {
+    font-size: 0.7rem;
+  }
 
-    .space-others a {
-        font-size: 0.7rem;
-    }
+  .espace-banner {
+    padding: 0 2%;
+  }
 
-    .espace-banner {
-        padding: 0 2%;
-    }
+  .informations-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+  }
 
-    .informations-banner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1vh;
-    }
+  .titulo-banner h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
 
-    .titulo-banner h1 {
-        font-size: 2rem;
-        text-align: center;
-    }
+  .descricao-banner {
+    width: 100%;
+    height: auto;
+  }
 
-    .descricao-banner {
-        width: 100%;
-        height: auto;
-    }
+  .descricao-banner h3 {
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+  }
 
-    .descricao-banner h3 {
-        font-size: 1rem;
-        width: 100%;
-        text-align: center;
-    }
+  .button-banner {
+    width: 45%;
+  }
 
-    .button-banner {
-        width: 45%;
-    }
+  .button-banner a {
+    font-size: 0.9rem;
+  }
 
-    .button-banner a {
-        font-size: 0.9rem;
-    }
+  /* === AJUSTES DOS PRODUTOS === */
+  .one-titulo {
+    width: 100%;
+  }
 
-    /* header */
+  .one-titulo button {
+    font-size: 1.1rem;
+  }
 
-    .one-titulo {
-        width: 100%;
-    }
+  .titulo-produto h3 {
+    font-size: 1.4rem;
+  }
 
-    .one-titulo button {
-        font-size: 1.1rem;
-    }
+  .col-produto {
+    width: 80%;
+    height: 30vh;
+  }
 
-    .titulo-produto h3 {
-        font-size: 1.4rem;
-    }
+  /* === AJUSTES DO FOOTER === */
+  .nav-footer {
+    gap: 1rem;
+    padding: 0;
+    justify-content: center;
+  }
 
-    .col-produto {
-        width: 80%;
-        height: 30vh;
-    }
+  .nav-footer h3 {
+    font-size: 1.1rem;
+  }
 
-    /* footer */
+  .logo-footer {
+    height: 10vh;
+  }
 
-    .nav-footer {
-        gap: 1rem;
-        padding: 0;
-        justify-content: center;
-    }
+  .logo-footer a {
+    width: 100%;
+    height: 100%;
+  }
 
-    .nav-footer h3 {
-        font-size: 1.1rem;
-    }
+  .logo-footer img {
+    width: 30%;
+  }
 
-    .logo-footer {
-        height: 10vh;
-    }
+  .social-footer {
+    width: 50%;
+    gap: 1rem;
+    padding: 0;
+  }
 
-    .logo-footer a {
-        width: 100%;
-        height: 100%;
-    }
+  .one-social img {
+    width: 100%;
+  }
 
-    .logo-footer img {
-        width: 30%;
-    }
+  .direitos-footer {
+    padding: 0 1vh;
+  }
 
-    .social-footer {
-        width: 50%;
-        gap: 1rem;
-        padding: 0;
-    }
-
-    .one-social img {
-        width: 100%;
-    }
-
-    .direitos-footer {
-        padding: 0 1vh;
-    }
-
-    .direitos-footer p {
-        font-size: 0.7rem;
-        text-align: justify;
-    }
+  .direitos-footer p {
+    font-size: 0.7rem;
+    text-align: justify;
+  }
 }
 
-/* ===== ANIMAÇÕES DO MODAL ===== */
+/* === MODAL DE DETALHES DO PRODUTO === */
+
+/* Animações de entrada/saída do modal */
 .modal.fade .modal-dialog {
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
 .modal.fade.show .modal-dialog {
-    transform: translateY(0);
-    opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
+/* Container principal do modal */
 .modal-all {
-    border-radius: 1.5rem;
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    border: none;
-    height: 75vh;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border: none;
+  height: 75vh;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efeito sutil ao passar o mouse sobre o modal */
 .modal-all:hover {
-    transform: scale(1.01);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transform: scale(1.01);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* ===== BANNER ===== */
+/* Banner do modal com imagem de fundo */
 .banner-modal {
-    height: 40%;
-    background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-        url(../Images/Fundo-1.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 40%;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url(../Images/Fundo-1.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Nome do produto no banner do modal */
 .banner-modal h3 {
-    font-family: Negrito;
-    font-size: 3.2rem;
-    color: #fff;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-    margin: 0;
-    transition: transform 0.3s ease;
+  font-family: Negrito;
+  font-size: 3.2rem;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  transition: transform 0.3s ease;
 }
 
 .banner-modal:hover h3 {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-/* ===== DESCRIÇÃO ===== */
+/* Descrição do produto no modal */
 .modal-descricao {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 2rem;
-    color: #333;
-    font-family: Regular;
-    font-size: 1.5rem;
-    line-height: 2.25rem;
-    text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  color: #333;
+  font-family: Regular;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  text-align: justify;
 }
 
-/* ===== PREÇO ===== */
+/* Preço do produto */
 .modal-preco {
-    text-align: center;
-    font-family: Negrito;
-    font-size: 2rem;
-    color: #d62828;
-    margin-top: 1.5rem;
-    animation: fadeIn 0.6s ease;
+  text-align: center;
+  font-family: Negrito;
+  font-size: 2rem;
+  color: #d62828;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.6s ease;
 }
 
+/* Animação de fade in para o preço */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* ===== BOTÕES ===== */
+/* Container dos botões do modal */
 .modal-buttons {
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid #ddd;
-    padding: 1.2rem 1.5rem;
-    gap: 0.8rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+  padding: 1.2rem 1.5rem;
+  gap: 0.8rem;
 }
 
+/* Estilo base dos botões do modal */
 .modal-button {
-    width: 40%;
-    font-family: Negrito;
-    font-size: 1rem;
-    border-radius: 10px;
-    padding: 0.6rem 1.4rem;
-    transition: all 0.25s ease;
+  width: 40%;
+  font-family: Negrito;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 0.6rem 1.4rem;
+  transition: all 0.25s ease;
 }
 
+/* Botão "Fechar" */
 .modal-button.fechar {
-    background-color: #bbb;
-    border: none;
-    color: #fff;
+  background-color: #bbb;
+  border: none;
+  color: #fff;
 }
 
 .modal-button.fechar:hover {
-    background-color: #999;
-    transform: scale(1.05);
+  background-color: #999;
+  transform: scale(1.05);
 }
 
+/* Botão "Adicionar ao Carrinho" */
 .modal-button.adicionar {
-    background-color: #d62828;
-    border: none;
-    color: #fff;
+  background-color: #d62828;
+  border: none;
+  color: #fff;
 }
 
 .modal-button.adicionar:hover {
-    background-color: #b91c1c;
-    transform: scale(1.05);
+  background-color: #b91c1c;
+  transform: scale(1.05);
 }

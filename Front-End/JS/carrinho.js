@@ -182,10 +182,6 @@ carrinhoItensContainer.addEventListener("click", (evento) => {
     carrinho = carrinho.filter((item) => String(item.id) !== String(id));
     salvarCarrinho(carrinho);
     renderizarCarrinho();
-
-    if (itemRemovido) {
-      mostrarToast(`${itemRemovido.name} removido do carrinho`, "info");
-    }
     return;
   }
 
@@ -212,7 +208,6 @@ carrinhoItensContainer.addEventListener("click", (evento) => {
       } else {
         // se chegar a 0, remove o item
         carrinho = carrinho.filter((it) => String(it.id) !== String(id));
-        mostrarToast(`${item.name} removido do carrinho`, "info");
       }
       salvarCarrinho(carrinho);
       renderizarCarrinho();
@@ -228,10 +223,6 @@ if (btnFinalizar) {
 
     // Verifica se o carrinho está vazio
     if (!carrinho || carrinho.length === 0) {
-      mostrarToast(
-        "Seu carrinho está vazio! Adicione itens antes de finalizar.",
-        "warning"
-      );
       return;
     }
 
@@ -243,19 +234,12 @@ if (btnFinalizar) {
     // Limpa o carrinho
     localStorage.removeItem(CART_KEY);
 
-    // Mostra mensagem de sucesso
-    mostrarToast(
-      `Pedido finalizado com sucesso! Total: ${formatCurrency(total)} 🍓`,
-      "success"
-    );
-
     // Atualiza a visualização
     renderizarCarrinho();
 
     // Opcional: Redirecionar para a home após alguns segundos
     setTimeout(() => {
       // Descomentar a linha abaixo se quiser redirecionar
-      // window.location.href = "/";
     }, 2000);
   });
 }

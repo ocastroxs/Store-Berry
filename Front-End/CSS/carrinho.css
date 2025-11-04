@@ -1,3 +1,4 @@
+/* Reset básico e scroll suave pra navegação ficar mais bonita */
 html {
     scroll-behavior: smooth;
 }
@@ -8,18 +9,19 @@ html {
     box-sizing: border-box;
 }
 
+/* Animação de entrada dos elementos - fade com slide pra baixo */
 @keyframes fadeSlide {
     0% {
         opacity: 0;
         transform: translateY(30px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+/* Carregando as fontes customizadas do projeto */
 @font-face {
     font-family: Regular;
     src: url("../Fonts/Montserrat-Regular.ttf");
@@ -30,8 +32,9 @@ html {
     src: url("../Fonts/MontserratAlternates-Bold.ttf");
 }
 
+/* Configuração geral do body com background padrão do site */
 body {
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evita scroll horizontal indesejado */
     font-family: Regular;
     transition: all 0.5s ease;
     background-image: url(../Images/Background.svg);
@@ -40,29 +43,32 @@ body {
     background-color: rgba(255, 255, 255, 0.95);
 }
 
+/* Classe pra quando a página terminar de carregar */
 body.loaded {
     opacity: 1;
 }
 
+/* Remove sublinhado padrão dos links */
 a {
     text-decoration: none;
 }
 
+/* Banner do topo com gradiente e imagem de fundo */
 .banner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 10vh;
     background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)),
+        linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), /* Gradiente escuro */
         url(../Images/Banner-Carrinho.svg);
     background-repeat: no-repeat;
-    background-size: 120%;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Efeito parallax */
 }
 
+/* Header principal */
 header {
     position: relative;
     display: flex;
@@ -70,6 +76,7 @@ header {
     height: 15%;
 }
 
+/* Container do logo */
 .space-icon {
     margin-left: 1%;
     width: 5%;
@@ -83,6 +90,7 @@ header {
     object-fit: cover;
 }
 
+/* Menu de navegação */
 nav {
     margin-left: 2.5%;
     display: flex;
@@ -99,13 +107,13 @@ nav {
 .one-nav a {
     font-size: 1.5rem;
     color: white;
-    white-space: nowrap;
+    white-space: nowrap; /* Impede quebra de linha nos links */
 }
 
-
+/* Container dos itens do lado direito do header (login, cadastro, etc) */
 .space-others {
     margin-right: 8%;
-    margin-left: auto;
+    margin-left: auto; /* Empurra pro final */
     display: flex;
     gap: 40%;
     align-items: center;
@@ -123,6 +131,7 @@ nav {
     color: white;
 }
 
+/* Item destacado do header (provavelmente carrinho) */
 .other-destaque {
     display: flex;
     justify-content: center;
@@ -132,9 +141,10 @@ nav {
 .other-destaque a {
     font-weight: bolder;
     font-size: 1.5rem;
-    color: #fc5451;
+    color: #fc5451; /* Cor vermelha destaque */
 }
 
+/* Efeito de underline animado nos links do header */
 header nav a,
 header .space-others a {
     position: relative;
@@ -153,20 +163,24 @@ header .space-others a::after {
     transition: width 0.3s ease;
 }
 
+/* Expande o underline no hover */
 header nav a:hover::after,
 header .space-others a:hover::after {
     width: 100%;
 }
 
+/* Link ativo já mostra o underline completo */
 header a.active::after {
     width: 100%;
 }
 
+/* Padding padrão do conteúdo com animação de entrada */
 .padding {
     padding: 5vh 8vw;
     animation: fadeSlide 0.7s ease forwards;
 }
 
+/* Layout principal - grid com 2 colunas (produtos | resumo) */
 .cont {
     display: grid;
     grid-template-columns: 65% 30%;
@@ -174,6 +188,7 @@ header a.active::after {
     align-items: flex-start;
 }
 
+/* Cabeçalho da seção do carrinho */
 .info-carrinho {
     display: flex;
     align-items: center;
@@ -182,6 +197,7 @@ header a.active::after {
     animation: fadeSlide 0.8s ease;
 }
 
+/* Título "Meu Carrinho" com ícone */
 .title-carrinho {
     display: flex;
     align-items: center;
@@ -199,17 +215,20 @@ header a.active::after {
     color: #ff4a4a;
 }
 
+/* Contador de itens no carrinho */
 .quantidade-carrinho p {
     font-size: 1.1rem;
     color: #333;
 }
 
+/* Container com todos os produtos */
 .all-produtos {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
 
+/* Card de cada produto individual */
 .one-produto {
     display: flex;
     align-items: center;
@@ -222,10 +241,12 @@ header a.active::after {
     transition: transform 0.2s ease;
 }
 
+/* Efeito de levantar o card no hover */
 .one-produto:hover {
     transform: translateY(-2px);
 }
 
+/* Imagem do produto - comentado, mas deixei aqui caso precise depois */
 /* .produto-img img {
     width: 80px;
     height: 80px;
@@ -233,6 +254,7 @@ header a.active::after {
     object-fit: cover;
 } */
 
+/* Informações do produto (nome, descrição) */
 .produto-detalhes {
     flex: 1;
     margin-left: 1rem;
@@ -249,6 +271,7 @@ header a.active::after {
     color: #666;
 }
 
+/* Controles de quantidade (- | número | +) */
 .produto-qtd {
     display: flex;
     align-items: center;
@@ -269,7 +292,7 @@ header a.active::after {
 }
 
 .produto-qtd button:hover {
-    background-color: #ffe6e6;
+    background-color: #ffe6e6; /* Fundo levemente rosado no hover */
 }
 
 .produto-qtd span {
@@ -279,6 +302,7 @@ header a.active::after {
     color: #444;
 }
 
+/* Preço do produto */
 .produto-preco {
     text-align: right;
     min-width: 100px;
@@ -295,6 +319,7 @@ header a.active::after {
     font-size: 0.85rem;
 }
 
+/* Botão de remover produto (X) */
 .remover {
     background: none;
     border: none;
@@ -306,9 +331,10 @@ header a.active::after {
 }
 
 .remover:hover {
-    transform: scale(1.2);
+    transform: scale(1.2); /* Aumenta levemente no hover */
 }
 
+/* Card do resumo do pedido (lateral direita) */
 .resumo-produtos {
     background-color: #fff;
     border: 2px solid rgba(255, 74, 74, 0.2);
@@ -325,6 +351,7 @@ header a.active::after {
     margin-bottom: 1rem;
 }
 
+/* Container dos valores (subtotal, entrega, total) */
 .precos-resumo {
     display: flex;
     flex-direction: column;
@@ -346,6 +373,7 @@ header a.active::after {
     color: #444;
 }
 
+/* Total destaque */
 .total-resumo p:first-child {
     font-family: Negrito;
     font-size: 1.2rem;
@@ -358,11 +386,13 @@ header a.active::after {
     color: #ff4a4a;
 }
 
+/* Linha divisória no resumo */
 .linha-resumo {
     border-top: 1.5px solid rgba(255, 74, 74, 0.3);
     margin: 0.8rem 0;
 }
 
+/* Botões de ação do resumo */
 .buttons-resumo {
     display: flex;
     flex-direction: column;
@@ -381,6 +411,7 @@ header a.active::after {
     transition: 0.3s;
 }
 
+/* Botão finalizar compra */
 #btn-finalizar {
     background-color: #ff4a4a;
     color: white;
@@ -390,6 +421,7 @@ header a.active::after {
     background-color: #e63e3e;
 }
 
+/* Botão continuar comprando */
 #btn-continuar {
     background-color: #fff;
     border: 2px solid #ff4a4a;
@@ -400,6 +432,7 @@ header a.active::after {
     background-color: #ffeaea;
 }
 
+/* Texto de desconto */
 .desconto-resumo p {
     margin-top: 1.5rem;
     text-align: center;
@@ -407,9 +440,9 @@ header a.active::after {
     font-size: 0.9rem;
 }
 
-
-.produto{
-    height: 15dvh;
+/* Card alternativo de produto (acho que é uma segunda versão) */
+.produto {
+    height: 15dvh; /* Usando dvh pra responsividade */
     width: 100%;
     background-color: #fff;
     border-radius: 15px;
@@ -419,227 +452,189 @@ header a.active::after {
     align-items: center;
 }
 
-.produto-img{
+/* Container da imagem do produto */
+.produto-img {
     height: 12dvh;
     width: 12dvh;
 }
 
-.img{
+.img {
     width: 100%;
     border-radius: 15px;
 }
 
-.info-produto{
+/* Informações do produto */
+.info-produto {
     width: auto;
     display: flex;
     flex-direction: column;
-    align-items:start;
+    align-items: start;
     padding-left: 1dvw;
     gap: 3dvh;
 }
 
-.nome-produto{
+.nome-produto {
     font-weight: bold;
     font-size: large;
     text-align: start;
 }
 
-.quan-produto{
+.quan-produto {
     width: auto;
     height: auto;
     gap: 1dvw;
 }
 
-/* Container dos controles de quantidade */
+/* Controles de quantidade mais elaborados */
 .quan-produto {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
 }
 
-/* Botões de incrementar e decrementar */
+/* Botões de aumentar/diminuir quantidade */
 .btn-decrease,
 .btn-increase {
-  width: 40px;
-  height: 40px;
-  border: 2px solid rgba(255, 74, 74, 0.2);
-  background: white;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #000;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  user-select: none;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 74, 74, 0.2);
+    background: white;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    user-select: none; /* Impede seleção de texto */
 }
 
 .btn-decrease:hover,
 .btn-increase:hover {
-  border-color: #ff4a4a;
-  color: #ff4a4a;
-  background: #fff5f5;
+    border-color: #ff4a4a;
+    color: #ff4a4a;
+    background: #fff5f5;
 }
 
 .btn-decrease:active,
 .btn-increase:active {
-  transform: scale(0.95);
+    transform: scale(0.95); /* Feedback visual ao clicar */
 }
 
+/* Estado desabilitado dos botões */
 .btn-decrease:disabled,
 .btn-increase:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  border-color: #e0e0e0;
-  color: #999;
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #e0e0e0;
+    color: #999;
 }
 
-/* Input de quantidade */
+/* Input de quantidade customizado */
 .qtd-input {
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  border: 2px solid rgba(255, 74, 74, 0);
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-  background: white;
-  transition: all 0.2s ease;
-  outline: none;
-  appearance: textfield;
-  -moz-appearance: textfield; /* Remove setas do Firefox */
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid rgba(255, 74, 74, 0);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    background: white;
+    transition: all 0.2s ease;
+    outline: none;
+    appearance: textfield;
+    -moz-appearance: textfield; /* Remove setas do Firefox */
 }
 
-/* Remove setas do input number (Chrome, Safari, Edge) */
+/* Remove setas do input number no Chrome/Safari/Edge */
 .qtd-input::-webkit-outer-spin-button,
 .qtd-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .qtd-input:focus {
-  border-color: #ff4a4a;
-  box-shadow: 0 0 0 3px rgba(255, 74, 74, 0.1);
+    border-color: #ff4a4a;
+    box-shadow: 0 0 0 3px rgba(255, 74, 74, 0.1); /* Glow vermelho suave */
 }
 
 .qtd-input:hover {
-  border-color: #ff4a4a;
+    border-color: #ff4a4a;
 }
 
-/* Estilo para quando o input está desabilitado */
 .qtd-input:disabled {
-  background: #f5f5f5;
-  color: #999;
-  cursor: not-allowed;
+    background: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
 }
 
 /* Container do preço e botão remover */
 .preco-produto {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
-  margin-left: auto;
-  padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-left: auto; /* Empurra pro final */
+    padding: 8px;
 }
 
-/* Botão de remover (X) */
+/* Botão X de remover */
 .remove-btn {
-  width: 28px;
-  height: 28px;
-  border: none;
-  background: transparent;
-  color: #bbb;
-  font-size: 22px;
-  font-weight: 300;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-radius: 4px;
-  line-height: 1;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: #bbb;
+    font-size: 22px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 4px;
+    line-height: 1;
 }
 
+/* Usando ::before pra criar o X */
 .remove-btn::before {
-  content: '×';
-  font-size: 28px;
-  line-height: 1;
+    content: '×';
+    font-size: 28px;
+    line-height: 1;
 }
 
 .remove-btn:hover {
-  color: #ff4a4a;
-  background: rgba(255, 74, 74, 0.05);
-  transform: scale(1.1);
+    color: #ff4a4a;
+    background: rgba(255, 74, 74, 0.05);
+    transform: scale(1.1);
 }
 
 .remove-btn:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 /* Preço total do item */
 .preco-total-item {
-  font-size: 20px;
-  font-weight: 700;
-  color: #ff4a4a;
-  letter-spacing: -0.5px;
-  white-space: nowrap;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff4a4a;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
 }
 
-/* Responsividade para mobile */
-@media (max-width: 768px) {
-  .preco-produto {
-    gap: 12px;
-    padding: 4px;
-  }
-  
-  .remove-btn {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .remove-btn::before {
-    font-size: 24px;
-  }
-  
-  .preco-total-item {
-    font-size: 18px;
-  }
-}
+/* === MEDIA QUERIES - RESPONSIVIDADE === */
 
-/* Responsividade para mobile */
-@media (max-width: 768px) {
-  .quan-produto {
-    gap: 8px;
-  }
-  
-  .btn-decrease,
-  .btn-increase {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
-  }
-  
-  .qtd-input {
-    width: 50px;
-    height: 36px;
-    font-size: 14px;
-  }
-}
-
-
-
-
+/* Tablet médio */
 @media (max-width: 950px) {
     .cont {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Uma coluna só */
         gap: 3rem;
     }
 
@@ -648,42 +643,46 @@ header a.active::after {
     }
 }
 
-@media (max-width: 600px) {
-    .produto-img img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .produto-detalhes h4 {
-        font-size: 1rem;
-    }
-
-    .produto-qtd button {
-        width: 26px;
-        height: 26px;
-        font-size: 1rem;
-    }
-
-    .produto-preco {
-        min-width: 80px;
-    }
-}
-
-/* Adicionando responsividade para dispositivos menores */
-
-@media (max-width: 1200px) {
-    /* header */
-
-    .space-others {
-        gap: 20%;
-    }
-
-    /* header */
-}
-
+/* Mobile grande */
 @media (max-width: 768px) {
-     /* header */
+    /* Ajustes no preço produto */
+    .preco-produto {
+        gap: 12px;
+        padding: 4px;
+    }
+    
+    .remove-btn {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .remove-btn::before {
+        font-size: 24px;
+    }
+    
+    .preco-total-item {
+        font-size: 18px;
+    }
 
+    /* Ajustes nos botões de quantidade */
+    .quan-produto {
+        gap: 8px;
+    }
+    
+    .btn-decrease,
+    .btn-increase {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+    
+    .qtd-input {
+        width: 50px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    /* Header */
     .space-icon {
         width: 10%;
     }
@@ -696,8 +695,7 @@ header a.active::after {
         gap: 10%;
     }
 
-    /* header */
-
+    /* Carrinho */
     .info-carrinho {
         flex-direction: column;
         align-items: flex-start;
@@ -738,9 +736,38 @@ header a.active::after {
     }
 }
 
-@media (max-width: 576px) {
-    /* header */
+/* Mobile médio */
+@media (max-width: 600px) {
+    .produto-img img {
+        width: 60px;
+        height: 60px;
+    }
 
+    .produto-detalhes h4 {
+        font-size: 1rem;
+    }
+
+    .produto-qtd button {
+        width: 26px;
+        height: 26px;
+        font-size: 1rem;
+    }
+
+    .produto-preco {
+        min-width: 80px;
+    }
+}
+
+/* Desktop grande */
+@media (max-width: 1200px) {
+    .space-others {
+        gap: 20%;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 576px) {
+    /* Banner e header compactos */
     .banner {
         height: 10vh;
     }
@@ -768,6 +795,7 @@ header a.active::after {
         width: auto;
     }
 
+    /* Fontes menores no mobile */
     .one-nav a {
         font-size: 0.7rem;
     }
@@ -782,7 +810,7 @@ header a.active::after {
         font-size: 0.7rem;
     }
 
-    /* header */
+    /* Carrinho */
     .title-carrinho img {
         width: 30px;
     }

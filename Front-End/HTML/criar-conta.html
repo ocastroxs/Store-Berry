@@ -1,70 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store Berry - Finalize a sua compra</title>
+    <!-- Linkando o CSS específico da página de carrinho -->
+    <link rel="stylesheet" href="/CSS/carrinho.css" />
+    <!-- Favicon da loja, aquele iconezinho que aparece na aba do navegador -->
+    <link rel="shortcut icon" href="/Images/Icon.svg" type="image/x-icon" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store Berry - Crie sua Conta</title>
-    <link rel="stylesheet" href="/CSS/conta.css">
-    <link rel="shortcut icon" href="/Images/Icon.svg" type="image/x-icon">
-</head>
-
-<body>
-
-    <div class="criar-image-1">
-        <img src="/Images/Criar-1.svg" alt="Morango Esquerda" class="criar-esq">
-    </div>
-
-    <div class="criar-image-2">
-        <img src="/Images/Criar-2.svg" alt="Morango Direita" class="criar-dir">
-    </div>
-
-        <div class="cont">
-            <div class="padding">
-
-                <a href="/" class="space-logo">
-                    <img src="/Images/Logo.svg" alt="Logo">
-                </a>
-
-                <div class="space-title">
-                    <h1>Criar Conta</h1>
-                </div>
-
-                <div class="all-informations">
-                    <input type="text" class="information" placeholder="CPF" maxlength="14" id="cpf">
-                    <input type="email" class="information" placeholder="Email">
-                    <input type="password" class="information" placeholder="Senha">
-                </div>
-
-                <div class="space-button">
-                    <button>Criar</button>
-                    <h3>Já tem?<a href="/conta/entrar">Entrar</a></h3>
-                </div>
-
-                <div class="space-others">
-                    <a href="" class="other other-gmail">
-                        <img src="/Images/Google.svg" alt="Google">
-                    </a>
-                    <a href="" class="other other-apple">
-                        <img src="/Images/Apple.svg" alt="Apple">
-                    </a>
-                    <a href="" class="other other-facebook">
-                        <img src="/Images/Facebook.svg" alt="Facebook">
-                    </a>
-                    <a href="" class="other other-microsoft">
-                        <img src="/Images/Microsoft.svg" alt="Microsoft">
-                    </a>
-                </div>
-
-                <div class="space-politics">
-                    <a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank">Políticas de Privacidade</a>
-                </div>
-
-            </div>
+  <body>
+    <!-- Banner/Header fixo no topo -->
+    <div class="banner" id="banner">
+      <header>
+        <!-- Logo da Store Berry -->
+        <div class="space-icon">
+          <img src="/Images/Icon.svg" alt="Icon" />
         </div>
 
-    <script src="../JS/conta.js"></script>
-    <script src="/JS/auth-check.js"></script>
-</body>
+        <!-- Menu de navegação principal -->
+        <nav>
+          <div class="one-nav">
+            <a href="/">Home</a>
+          </div>
+          <div class="one-nav">
+            <a href="/cardapio">Cardápio</a>
+          </div>
+          <div class="one-nav" style="margin-left: 1vw">
+            <a href="/sobre">Sobre Nós</a>
+          </div>
+        </nav>
 
+        <!-- Botões de ação do lado direito -->
+        <div class="space-others">
+          <div class="other">
+            <!-- Página atual, por isso tem a classe 'active' -->
+            <a href="/carrinho" class="active">Carrinho</a>
+          </div>
+          <div class="other-destaque">
+            <!-- Botão de login, vai ser manipulado pelo auth-check.js -->
+            <a href="/conta/entrar" id="btnLoginHeader">Login</a>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <!-- Container principal com padding -->
+    <div class="padding">
+      <!-- Cabeçalho do carrinho mostrando ícone e quantidade -->
+      <div class="info-carrinho">
+        <div class="title-carrinho">
+          <img src="/Images/Carrinho.svg" alt="Ícone de Carrinho" />
+          <h3>Seu Carrinho</h3>
+        </div>
+        <div class="quantidade-carrinho">
+          <!-- Esse texto vai ser atualizado dinamicamente pelo JS -->
+          <p id="quantidade-itens">0 itens no carrinho</p>
+        </div>
+      </div>
+
+      <!-- Layout em duas colunas: lista de produtos + resumo -->
+      <div class="cont">
+        <!-- Lista dinâmica de produtos - vai ser preenchida pelo carrinho.js -->
+        <div class="all-produtos" id="lista-produtos">
+        </div>
+
+        <!-- Card lateral com o resumo do pedido -->
+        <div class="resumo-produtos">
+          <div class="title-resumo">
+            <h3>Resumo do Pedido</h3>
+          </div>
+
+          <!-- Detalhamento dos valores -->
+          <div class="precos-resumo">
+            <div class="subtotal-resumo">
+              <p>Subtotal:</p>
+              <!-- Valor calculado dinamicamente -->
+              <p id="subtotal">R$ 0,00</p>
+            </div>
+
+            <div class="entrega-resumo">
+              <p>Entrega:</p>
+              <!-- Por enquanto sempre grátis, mas pode ser calculado depois -->
+              <p id="entrega">Grátis</p>
+            </div>
+
+            <!-- Linha divisória visual -->
+            <div class="linha-resumo"></div>
+
+            <div class="total-resumo">
+              <p>Total:</p>
+              <!-- Total final do pedido -->
+              <p id="total">R$ 0,00</p>
+            </div>
+          </div>
+
+          <!-- Botões de ação -->
+          <div class="buttons-resumo">
+            <div class="finalizar-resumo">
+              <!-- Botão principal pra finalizar a compra -->
+              <button id="btn-finalizar">Finalizar Pedido →</button>
+            </div>
+
+            <div class="continuar-resumo">
+              <!-- Link pra voltar pro cardápio e adicionar mais coisas -->
+              <a href="/cardapio"><button id="btn-continuar">Continuar Comprando</button></a>
+            </div>
+          </div>
+
+          <!-- Informação sobre frete grátis pra incentivar compra -->
+          <div class="desconto-resumo">
+            <p>🍓 Entrega grátis para compras acima de <br>R$5,00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script principal que gerencia o carrinho (adicionar, remover, calcular total) -->
+    <script src="/JS/carrinho.js"></script>
+    <!-- Script que verifica se o usuário tá logado e atualiza o botão do header -->
+    <script src="/JS/auth-check.js"></script>
+  </body>
 </html>
