@@ -226,12 +226,12 @@ header a.active::after {
     transform: translateY(-2px);
 }
 
-.produto-img img {
+/* .produto-img img {
     width: 80px;
     height: 80px;
     border-radius: 10px;
     object-fit: cover;
-}
+} */
 
 .produto-detalhes {
     flex: 1;
@@ -420,7 +420,20 @@ header a.active::after {
 }
 
 .produto-img{
-    height: 100%;
+    height: 12dvh;
+    width: 12dvh;
+}
+
+.img{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.info-produto{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1dvw;
 }
 
 
