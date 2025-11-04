@@ -6,5 +6,13 @@
     "senha": "$2b$10$e.bGY8u.4Ma7O7u1zM0gcOB/uzOIQ4Xj/G16e35YLdL1H6cIHrPoS",
     "nome": "eu",
     "criadoEm": "2025-11-03T19:15:06.981Z"
+  },
+  {
+    "id": 2,
+    "cpf": "12312312312",
+    "email": "phietro@gmail.com",
+    "senha": "$2b$10$qkazVBd6wJf7HDE1hRZpIecAITBXVFCbWenkz7bCmNroh9zmUNT6m",
+    "nome": "phietro",
+    "criadoEm": "2025-11-04T19:56:09.447Z"
   }
 ]

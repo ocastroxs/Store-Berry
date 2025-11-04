@@ -54,37 +54,37 @@ async function verificarLogin() {
   }
 }
 
-// Mostra um toast de notificação
+// Toast estilizado bonito que combina com o site
 function mostrarToast(mensagem, tipo = "success") {
   const toast = document.createElement("div");
-  toast.style.cssText = `
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          padding: 15px 25px;
-          border-radius: 5px;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-          z-index: 1000;
-          animation: slideIn 0.3s ease-out;
-          color: white;
-          font-weight: 500;
-        `;
+  toast.className = `toast-notification toast-${tipo}`;
 
-  // Cores diferentes para diferentes tipos de mensagem
+  // Ícone baseado no tipo
+  let icone = "";
   if (tipo === "success") {
-    toast.style.background = "#4CAF50";
+    icone = "✓";
   } else if (tipo === "error") {
-    toast.style.background = "#f44336";
+    icone = "✕";
   } else if (tipo === "warning") {
-    toast.style.background = "#ff9800";
+    icone = "⚠";
+  } else if (tipo === "info") {
+    icone = "ℹ";
   }
 
-  toast.textContent = mensagem;
+  toast.innerHTML = `
+    <div class="toast-icon">${icone}</div>
+    <div class="toast-message">${mensagem}</div>
+  `;
+
   document.body.appendChild(toast);
 
-  // Remove o toast após 3 segundos
+  // Animação de entrada suave
+  setTimeout(() => toast.classList.add("toast-show"), 10);
+
+  // Remove o toast após 3 segundos com animação
   setTimeout(() => {
-    toast.style.animation = "slideOut 0.3s ease-in";
+    toast.classList.remove("toast-show");
+    toast.classList.add("toast-hide");
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 }
@@ -99,31 +99,33 @@ document.addEventListener("click", async (evento) => {
 
   const estaLogado = await verificarLogin();
   if (!estaLogado) {
-    if (
-      confirm(
-        "Você precisa fazer login para adicionar itens ao carrinho. Deseja fazer login agora?"
-      )
-    ) {
+    mostrarToast(
+      "Você precisa fazer login para adicionar itens ao carrinho 🔒",
+      "warning"
+    );
+    setTimeout(() => {
       sessionStorage.setItem("returnToUrl", window.location.href);
       window.location.href = "/conta/entrar";
-    }
+    }, 1500);
     return;
   }
 
   const id = botao.dataset.id;
-  const name = botao.dataset.name || botao.getAttribute("data-name") || "Produto";
+  const name =
+    botao.dataset.name || botao.getAttribute("data-name") || "Produto";
   const priceRaw = botao.dataset.price || botao.getAttribute("data-price");
   const price = priceRaw ? parseFloat(priceRaw) : NaN;
 
-  // NOVO: Captura a imagem do background do modal
-  const modal = botao.closest('.modal-content');
-  const modalHeader = modal ? modal.querySelector('.modal-header.banner-modal') : null;
+  // Captura a imagem do background do modal
+  const modal = botao.closest(".modal-content");
+  const modalHeader = modal
+    ? modal.querySelector(".modal-header.banner-modal")
+    : null;
   let image = botao.dataset.image || botao.getAttribute("data-image") || "";
-  
-  // Se não tem imagem definida, tenta extrair do background do modal
+
   if (!image && modalHeader) {
-    const backgroundStyle = window.getComputedStyle(modalHeader).backgroundImage;
-    // Extrai a URL do background (formato: url("caminho"))
+    const backgroundStyle =
+      window.getComputedStyle(modalHeader).backgroundImage;
     const urlMatch = backgroundStyle.match(/url\(["']?([^"')]+)["']?\)/);
     if (urlMatch && urlMatch[1]) {
       image = urlMatch[1];
@@ -141,10 +143,7 @@ document.addEventListener("click", async (evento) => {
 
   if (!id) {
     console.warn("Botão adicionar clicado sem data-id:", botao);
-    mostrarToast(
-      "Este produto não possui informações para ser adicionado ao carrinho.",
-      "error"
-    );
+    mostrarToast("Este produto não possui informações válidas", "error");
     return;
   }
 
@@ -153,10 +152,7 @@ document.addEventListener("click", async (evento) => {
 
   if (itemExistente) {
     itemExistente.quantity++;
-    mostrarToast(
-      `Quantidade de ${name} aumentada no carrinho!`,
-      "success"
-    );
+    mostrarToast(`Quantidade de ${name} aumentada no carrinho! 🍓`, "success");
   } else {
     const novoItem = {
       id: id,
@@ -164,12 +160,11 @@ document.addEventListener("click", async (evento) => {
       price: isNaN(price) ? 0 : price,
       quantity: 1,
       type: inferredType,
-      image: image, // Agora contém a URL do background
+      image: image,
     };
     carrinhoAtual.push(novoItem);
-    mostrarToast(`${name} adicionado ao carrinho!`, "success");
+    mostrarToast(`${name} adicionado ao carrinho com sucesso! 🛒`, "success");
   }
 
   salvarCarrinho(carrinhoAtual);
 });
-

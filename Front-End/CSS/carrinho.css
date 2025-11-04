@@ -433,8 +433,7 @@ header a.active::after {
     width: auto;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    align-items:start;
     padding-left: 1dvw;
     gap: 3dvh;
 }
@@ -442,6 +441,7 @@ header a.active::after {
 .nome-produto{
     font-weight: bold;
     font-size: large;
+    text-align: start;
 }
 
 .quan-produto{
@@ -450,10 +450,190 @@ header a.active::after {
     gap: 1dvw;
 }
 
-.btn-decrease, .btn-increase{
-    width: 1dvw;
-    height: 1dvh;
+/* Container dos controles de quantidade */
+.quan-produto {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
 }
+
+/* Botões de incrementar e decrementar */
+.btn-decrease,
+.btn-increase {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 74, 74, 0.2);
+  background: white;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  user-select: none;
+}
+
+.btn-decrease:hover,
+.btn-increase:hover {
+  border-color: #ff4a4a;
+  color: #ff4a4a;
+  background: #fff5f5;
+}
+
+.btn-decrease:active,
+.btn-increase:active {
+  transform: scale(0.95);
+}
+
+.btn-decrease:disabled,
+.btn-increase:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #e0e0e0;
+  color: #999;
+}
+
+/* Input de quantidade */
+.qtd-input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 2px solid rgba(255, 74, 74, 0);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  background: white;
+  transition: all 0.2s ease;
+  outline: none;
+  appearance: textfield;
+  -moz-appearance: textfield; /* Remove setas do Firefox */
+}
+
+/* Remove setas do input number (Chrome, Safari, Edge) */
+.qtd-input::-webkit-outer-spin-button,
+.qtd-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qtd-input:focus {
+  border-color: #ff4a4a;
+  box-shadow: 0 0 0 3px rgba(255, 74, 74, 0.1);
+}
+
+.qtd-input:hover {
+  border-color: #ff4a4a;
+}
+
+/* Estilo para quando o input está desabilitado */
+.qtd-input:disabled {
+  background: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Container do preço e botão remover */
+.preco-produto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-left: auto;
+  padding: 8px;
+}
+
+/* Botão de remover (X) */
+.remove-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #bbb;
+  font-size: 22px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.remove-btn::before {
+  content: '×';
+  font-size: 28px;
+  line-height: 1;
+}
+
+.remove-btn:hover {
+  color: #ff4a4a;
+  background: rgba(255, 74, 74, 0.05);
+  transform: scale(1.1);
+}
+
+.remove-btn:active {
+  transform: scale(0.95);
+}
+
+/* Preço total do item */
+.preco-total-item {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff4a4a;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .preco-produto {
+    gap: 12px;
+    padding: 4px;
+  }
+  
+  .remove-btn {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .remove-btn::before {
+    font-size: 24px;
+  }
+  
+  .preco-total-item {
+    font-size: 18px;
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .quan-produto {
+    gap: 8px;
+  }
+  
+  .btn-decrease,
+  .btn-increase {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  
+  .qtd-input {
+    width: 50px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
 
 
 

@@ -7,6 +7,7 @@ const totalEl = document.getElementById("total");
 const subtotalEl = document.getElementById("subtotal");
 const entregaEl = document.getElementById("entrega");
 const quantidadeItensEl = document.getElementById("quantidade-itens");
+const btnFinalizar = document.getElementById("btn-finalizar");
 
 // --- Funções de Ajuda (Helpers) ---
 function carregarCarrinho() {
@@ -23,6 +24,41 @@ function formatCurrency(value) {
     style: "currency",
     currency: "BRL",
   });
+}
+
+// Toast estilizado bonito que combina com o site
+function mostrarToast(mensagem, tipo = "success") {
+  const toast = document.createElement("div");
+  toast.className = `toast-notification toast-${tipo}`;
+
+  // Ícone baseado no tipo
+  let icone = "";
+  if (tipo === "success") {
+    icone = "✓";
+  } else if (tipo === "error") {
+    icone = "✕";
+  } else if (tipo === "warning") {
+    icone = "⚠";
+  } else if (tipo === "info") {
+    icone = "ℹ";
+  }
+
+  toast.innerHTML = `
+    <div class="toast-icon">${icone}</div>
+    <div class="toast-message">${mensagem}</div>
+  `;
+
+  document.body.appendChild(toast);
+
+  // Animação de entrada suave
+  setTimeout(() => toast.classList.add("toast-show"), 10);
+
+  // Remove o toast após 3 segundos com animação
+  setTimeout(() => {
+    toast.classList.remove("toast-show");
+    toast.classList.add("toast-hide");
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
 }
 
 /**
@@ -59,12 +95,14 @@ function renderizarCarrinho() {
                 <span class="nome-produto">${item.name}</span>
                 <div class="quan-produto">
                   <button class="btn-decrease" data-id="${item.id}">-</button>
-                  <input class="qtd-input" type="number" value="${item.quantity}" min="1" data-id="${item.id}" readonly>
+                  <input class="qtd-input" type="number" value="${
+                    item.quantity
+                  }" min="1" data-id="${item.id}" readonly>
                   <button class="btn-increase" data-id="${item.id}">+</button>
                 </div>
               </div>
               <div class="preco-produto">
-                <button class="remove-btn" data-id="${item.id}">x</button>
+                <button class="remove-btn" data-id="${item.id}"></button>
                 <span class="preco-total-item">${formatCurrency(
                   Number(item.price) * Number(item.quantity)
                 )}</span>
@@ -78,9 +116,7 @@ function renderizarCarrinho() {
 
   // Atualiza valores na UI
   subtotalEl.textContent = formatCurrency(subtotal);
-  // Entrega: manter mensagem atual (pode ser dinamizada no futuro)
   entregaEl.textContent = "Grátis";
-  // Total = subtotal (já que entrega é grátis aqui)
   totalEl.textContent = formatCurrency(subtotal);
 
   quantidadeItensEl.textContent = `${totalItems} ${
@@ -92,16 +128,15 @@ function renderizarCarrinho() {
 // Eventos para MUDAR QUANTIDADE ou REMOVER
 carrinhoItensContainer.addEventListener("input", (evento) => {
   if (!evento.target.classList.contains("qtd-input")) return;
-  
+
   const id = evento.target.dataset.id;
   const novaQuantidade = parseInt(evento.target.value, 10);
-  
-  // Validação de entrada
+
   if (isNaN(novaQuantidade) || novaQuantidade < 1) {
     evento.target.value = 1;
     return;
   }
-  
+
   let carrinho = carregarCarrinho();
   const item = carrinho.find((item) => String(item.id) === String(id));
 
@@ -115,22 +150,22 @@ carrinhoItensContainer.addEventListener("input", (evento) => {
 // Previne valores inválidos ao digitar
 carrinhoItensContainer.addEventListener("keydown", (evento) => {
   if (!evento.target.classList.contains("qtd-input")) return;
-  
-  // Permite: backspace, delete, tab, escape, enter
-  if ([46, 8, 9, 27, 13].indexOf(evento.keyCode) !== -1 ||
-      // Permite: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
-      (evento.keyCode === 65 && evento.ctrlKey === true) ||
-      (evento.keyCode === 67 && evento.ctrlKey === true) ||
-      (evento.keyCode === 86 && evento.ctrlKey === true) ||
-      (evento.keyCode === 88 && evento.ctrlKey === true) ||
-      // Permite: home, end, left, right
-      (evento.keyCode >= 35 && evento.keyCode <= 39)) {
+
+  if (
+    [46, 8, 9, 27, 13].indexOf(evento.keyCode) !== -1 ||
+    (evento.keyCode === 65 && evento.ctrlKey === true) ||
+    (evento.keyCode === 67 && evento.ctrlKey === true) ||
+    (evento.keyCode === 86 && evento.ctrlKey === true) ||
+    (evento.keyCode === 88 && evento.ctrlKey === true) ||
+    (evento.keyCode >= 35 && evento.keyCode <= 39)
+  ) {
     return;
   }
-  
-  // Bloqueia tudo que não seja número
-  if ((evento.shiftKey || (evento.keyCode < 48 || evento.keyCode > 57)) &&
-      (evento.keyCode < 96 || evento.keyCode > 105)) {
+
+  if (
+    (evento.shiftKey || evento.keyCode < 48 || evento.keyCode > 57) &&
+    (evento.keyCode < 96 || evento.keyCode > 105)
+  ) {
     evento.preventDefault();
   }
 });
@@ -141,9 +176,16 @@ carrinhoItensContainer.addEventListener("click", (evento) => {
   // Se clicou em REMOVER (botão X)
   if (evento.target.classList.contains("remove-btn")) {
     let carrinho = carregarCarrinho();
+    const itemRemovido = carrinho.find(
+      (item) => String(item.id) === String(id)
+    );
     carrinho = carrinho.filter((item) => String(item.id) !== String(id));
     salvarCarrinho(carrinho);
     renderizarCarrinho();
+
+    if (itemRemovido) {
+      mostrarToast(`${itemRemovido.name} removido do carrinho`, "info");
+    }
     return;
   }
 
@@ -170,6 +212,7 @@ carrinhoItensContainer.addEventListener("click", (evento) => {
       } else {
         // se chegar a 0, remove o item
         carrinho = carrinho.filter((it) => String(it.id) !== String(id));
+        mostrarToast(`${item.name} removido do carrinho`, "info");
       }
       salvarCarrinho(carrinho);
       renderizarCarrinho();
@@ -177,6 +220,45 @@ carrinhoItensContainer.addEventListener("click", (evento) => {
     return;
   }
 });
+
+// --- FUNCIONALIDADE DE FINALIZAR COMPRA ---
+if (btnFinalizar) {
+  btnFinalizar.addEventListener("click", () => {
+    const carrinho = carregarCarrinho();
+
+    // Verifica se o carrinho está vazio
+    if (!carrinho || carrinho.length === 0) {
+      mostrarToast(
+        "Seu carrinho está vazio! Adicione itens antes de finalizar.",
+        "warning"
+      );
+      return;
+    }
+
+    // Calcula o total
+    const total = carrinho.reduce((acc, item) => {
+      return acc + Number(item.price) * Number(item.quantity);
+    }, 0);
+
+    // Limpa o carrinho
+    localStorage.removeItem(CART_KEY);
+
+    // Mostra mensagem de sucesso
+    mostrarToast(
+      `Pedido finalizado com sucesso! Total: ${formatCurrency(total)} 🍓`,
+      "success"
+    );
+
+    // Atualiza a visualização
+    renderizarCarrinho();
+
+    // Opcional: Redirecionar para a home após alguns segundos
+    setTimeout(() => {
+      // Descomentar a linha abaixo se quiser redirecionar
+      // window.location.href = "/";
+    }, 2000);
+  });
+}
 
 // --- PONTO DE ENTRADA ---
 // Assim que a página carrinho.html carregar,
