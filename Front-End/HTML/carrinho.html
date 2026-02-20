@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -50,8 +50,7 @@
       </div>
 
       <div class="cont">
-        <div class="all-produtos" id="lista-produtos">
-        </div>
+        <div class="all-produtos" id="lista-produtos"></div>
 
         <div class="resumo-produtos">
           <div class="title-resumo">
@@ -88,8 +87,37 @@
           </div>
 
           <div class="desconto-resumo">
-            <p>🍓 Entrega grátis para compras acima de <br>R$5,00</p>
+            <p>🍓 Entrega grátis para compras acima de <br />R$5,00</p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Pagamento PIX -->
+    <div id="modalPix" class="modal-pix">
+      <div class="modal-content-pix">
+        <button class="close-modal" id="closeModal">&times;</button>
+
+        <div class="pix-container">
+          <h2>Pague com PIX</h2>
+          <p class="pix-subtitle">Escaneie o código abaixo para pagar</p>
+
+          <div class="qrcode-wrapper">
+            <img id="qrcode" src="" alt="QR Code PIX" width="280" height="280" />
+          </div>
+
+          <div class="pix-info">
+            <p class="pix-label">Chave PIX:</p>
+            <p class="pix-key" id="pixKey">11994705544</p>
+            <button class="btn-copy" id="btnCopyPix">Copiar Chave</button>
+          </div>
+
+          <div class="pix-total">
+            <p>Valor a Pagar:</p>
+            <p class="pix-value" id="pixValue">R$ 0,00</p>
+          </div>
+
+          <button class="btn-pix-confirm" id="btnConfirmPix">Já Paguei</button>
         </div>
       </div>
     </div>

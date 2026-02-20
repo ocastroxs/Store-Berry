@@ -95,17 +95,13 @@ function renderizarCarrinho() {
                 <span class="nome-produto">${item.name}</span>
                 <div class="quan-produto">
                   <button class="btn-decrease" data-id="${item.id}">-</button>
-                  <input class="qtd-input" type="number" value="${
-                    item.quantity
-                  }" min="1" data-id="${item.id}" readonly>
+                  <input class="qtd-input" type="number" value="${item.quantity}" min="1" data-id="${item.id}" readonly>
                   <button class="btn-increase" data-id="${item.id}">+</button>
                 </div>
               </div>
               <div class="preco-produto">
                 <button class="remove-btn" data-id="${item.id}"></button>
-                <span class="preco-total-item">${formatCurrency(
-                  Number(item.price) * Number(item.quantity)
-                )}</span>
+                <span class="preco-total-item">${formatCurrency(Number(item.price) * Number(item.quantity))}</span>
               </div>
             `;
     carrinhoItensContainer.appendChild(li);
@@ -119,9 +115,7 @@ function renderizarCarrinho() {
   entregaEl.textContent = "Grátis";
   totalEl.textContent = formatCurrency(subtotal);
 
-  quantidadeItensEl.textContent = `${totalItems} ${
-    totalItems === 1 ? "item" : "itens"
-  } no carrinho`;
+  quantidadeItensEl.textContent = `${totalItems} ${totalItems === 1 ? "item" : "itens"} no carrinho`;
 }
 
 // --- Lógica de Eventos da Página do Carrinho ---
@@ -162,10 +156,7 @@ carrinhoItensContainer.addEventListener("keydown", (evento) => {
     return;
   }
 
-  if (
-    (evento.shiftKey || evento.keyCode < 48 || evento.keyCode > 57) &&
-    (evento.keyCode < 96 || evento.keyCode > 105)
-  ) {
+  if ((evento.shiftKey || evento.keyCode < 48 || evento.keyCode > 57) && (evento.keyCode < 96 || evento.keyCode > 105)) {
     evento.preventDefault();
   }
 });
@@ -176,9 +167,7 @@ carrinhoItensContainer.addEventListener("click", (evento) => {
   // Se clicou em REMOVER (botão X)
   if (evento.target.classList.contains("remove-btn")) {
     let carrinho = carregarCarrinho();
-    const itemRemovido = carrinho.find(
-      (item) => String(item.id) === String(id)
-    );
+    const itemRemovido = carrinho.find((item) => String(item.id) === String(id));
     carrinho = carrinho.filter((item) => String(item.id) !== String(id));
     salvarCarrinho(carrinho);
     renderizarCarrinho();
@@ -231,18 +220,76 @@ if (btnFinalizar) {
       return acc + Number(item.price) * Number(item.quantity);
     }, 0);
 
-    // Limpa o carrinho
-    localStorage.removeItem(CART_KEY);
-
-    // Atualiza a visualização
-    renderizarCarrinho();
-
-    // Opcional: Redirecionar para a home após alguns segundos
-    setTimeout(() => {
-      // Descomentar a linha abaixo se quiser redirecionar
-    }, 2000);
+    // Mostra o modal com QR code PIX
+    mostrarModalPix(total);
   });
 }
+
+// --- FUNÇÕES DO MODAL PIX ---
+function mostrarModalPix(total) {
+  const modalPix = document.getElementById("modalPix");
+  const pixValue = document.getElementById("pixValue");
+  const qrcodeImg = document.getElementById("qrcode");
+  const pixKey = "12345678901234567890"; // Sua chave PIX aqui
+
+  // Atualiza o valor no modal
+  pixValue.textContent = formatCurrency(total);
+
+  // Gera o QR code usando a API gratuita qrserver.com
+  qrcodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(pixKey)}`;
+
+  // Mostra o modal
+  modalPix.classList.add("show");
+}
+
+// Fechar modal ao clicar no X
+document.getElementById("closeModal").addEventListener("click", () => {
+  document.getElementById("modalPix").classList.remove("show");
+});
+
+// Fechar modal ao clicar fora dele
+document.getElementById("modalPix").addEventListener("click", (e) => {
+  if (e.target.id === "modalPix") {
+    document.getElementById("modalPix").classList.remove("show");
+  }
+});
+
+// Copiar chave PIX para clipboard
+document.getElementById("btnCopyPix").addEventListener("click", () => {
+  const pixKeyEl = document.getElementById("pixKey");
+  const pixKey = pixKeyEl.textContent;
+
+  navigator.clipboard.writeText(pixKey).then(() => {
+    const btnCopy = document.getElementById("btnCopyPix");
+    const originalText = btnCopy.textContent;
+    btnCopy.textContent = "✓ Copiado!";
+    btnCopy.style.background = "#1db760";
+
+    setTimeout(() => {
+      btnCopy.textContent = originalText;
+      btnCopy.style.background = "#1db760";
+    }, 2000);
+  });
+});
+
+// Confirmar pagamento (limpa carrinho)
+document.getElementById("btnConfirmPix").addEventListener("click", () => {
+  const carrinho = carregarCarrinho();
+
+  if (carrinho && carrinho.length > 0) {
+    localStorage.removeItem(CART_KEY);
+    renderizarCarrinho();
+    document.getElementById("modalPix").classList.remove("show");
+
+    // Toast de sucesso
+    mostrarToast("Pedido finalizado com sucesso!", "success");
+
+    // Opcional: redirecionar após alguns segundos
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 2000);
+  }
+});
 
 // --- PONTO DE ENTRADA ---
 // Assim que a página carrinho.html carregar,

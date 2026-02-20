@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "id": 1,
+    "cpf": "22222222222",
+    "email": "ocastroxs@gmail.com",
+    "senha": "$2b$10$LTn/ABoOUPiEdZ/R0luE/uixfw2WSAAJto3d0aLMYnz1lmAsiJEV6",
+    "nome": "ocastroxs",
+    "criadoEm": "2026-02-20T17:04:56.739Z"
+  }
+]

@@ -1,249 +1,249 @@
 /* Reset básico e scroll suave pra navegação ficar mais bonita */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Animação de entrada dos elementos - fade com slide pra baixo */
 @keyframes fadeSlide {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Carregando as fontes customizadas do projeto */
 @font-face {
-    font-family: Regular;
-    src: url("../Fonts/Montserrat-Regular.ttf");
+  font-family: Regular;
+  src: url("../Fonts/Montserrat-Regular.ttf");
 }
 
 @font-face {
-    font-family: Negrito;
-    src: url("../Fonts/MontserratAlternates-Bold.ttf");
+  font-family: Negrito;
+  src: url("../Fonts/MontserratAlternates-Bold.ttf");
 }
 
 /* Configuração geral do body com background padrão do site */
 body {
-    overflow-x: hidden; /* Evita scroll horizontal indesejado */
-    font-family: Regular;
-    transition: all 0.5s ease;
-    background-image: url(../Images/Background.svg);
-    background-size: 5%;
-    background-repeat: repeat;
-    background-color: rgba(255, 255, 255, 0.95);
+  overflow-x: hidden; /* Evita scroll horizontal indesejado */
+  font-family: Regular;
+  transition: all 0.5s ease;
+  background-image: url(../Images/Background.svg);
+  background-size: 5%;
+  background-repeat: repeat;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 /* Classe pra quando a página terminar de carregar */
 body.loaded {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Remove sublinhado padrão dos links */
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* Banner do topo com gradiente e imagem de fundo */
 .banner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 10vh;
-    background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), /* Gradiente escuro */
-        url(../Images/Banner-Carrinho.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Efeito parallax */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10vh;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)),
+    /* Gradiente escuro */ url(../Images/Banner-Carrinho.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efeito parallax */
 }
 
 /* Header principal */
 header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 15%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 15%;
 }
 
 /* Container do logo */
 .space-icon {
-    margin-left: 1%;
-    width: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-left: 1%;
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .space-icon img {
-    width: 75%;
-    object-fit: cover;
+  width: 75%;
+  object-fit: cover;
 }
 
 /* Menu de navegação */
 nav {
-    margin-left: 2.5%;
-    display: flex;
-    align-items: center;
-    gap: 17.5%;
+  margin-left: 2.5%;
+  display: flex;
+  align-items: center;
+  gap: 17.5%;
 }
 
 .one-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .one-nav a {
-    font-size: 1.5rem;
-    color: white;
-    white-space: nowrap; /* Impede quebra de linha nos links */
+  font-size: 1.5rem;
+  color: white;
+  white-space: nowrap; /* Impede quebra de linha nos links */
 }
 
 /* Container dos itens do lado direito do header (login, cadastro, etc) */
 .space-others {
-    margin-right: 8%;
-    margin-left: auto; /* Empurra pro final */
-    display: flex;
-    gap: 40%;
-    align-items: center;
-    flex-wrap: nowrap;
+  margin-right: 8%;
+  margin-left: auto; /* Empurra pro final */
+  display: flex;
+  gap: 40%;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .other {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .other a {
-    font-size: 1.5rem;
-    color: white;
+  font-size: 1.5rem;
+  color: white;
 }
 
 /* Item destacado do header (provavelmente carrinho) */
 .other-destaque {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .other-destaque a {
-    font-weight: bolder;
-    font-size: 1.5rem;
-    color: #fc5451; /* Cor vermelha destaque */
+  font-weight: bolder;
+  font-size: 1.5rem;
+  color: #fc5451; /* Cor vermelha destaque */
 }
 
 /* Efeito de underline animado nos links do header */
 header nav a,
 header .space-others a {
-    position: relative;
-    text-decoration: none;
+  position: relative;
+  text-decoration: none;
 }
 
 header nav a::after,
 header .space-others a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0%;
-    height: 2.5px;
-    background-color: #ff4a4a;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2.5px;
+  background-color: #ff4a4a;
+  transition: width 0.3s ease;
 }
 
 /* Expande o underline no hover */
 header nav a:hover::after,
 header .space-others a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 /* Link ativo já mostra o underline completo */
 header a.active::after {
-    width: 100%;
+  width: 100%;
 }
 
 /* Padding padrão do conteúdo com animação de entrada */
 .padding {
-    padding: 5vh 8vw;
-    animation: fadeSlide 0.7s ease forwards;
+  padding: 5vh 8vw;
+  animation: fadeSlide 0.7s ease forwards;
 }
 
 /* Layout principal - grid com 2 colunas (produtos | resumo) */
 .cont {
-    display: grid;
-    grid-template-columns: 65% 30%;
-    gap: 5%;
-    align-items: flex-start;
+  display: grid;
+  grid-template-columns: 65% 30%;
+  gap: 5%;
+  align-items: flex-start;
 }
 
 /* Cabeçalho da seção do carrinho */
 .info-carrinho {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 3vh;
-    animation: fadeSlide 0.8s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3vh;
+  animation: fadeSlide 0.8s ease;
 }
 
 /* Título "Meu Carrinho" com ícone */
 .title-carrinho {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
 .title-carrinho img {
-    width: 40px;
-    fill: #ff5454;
+  width: 40px;
+  fill: #ff5454;
 }
 
 .title-carrinho h3 {
-    font-family: Negrito;
-    font-size: 1.8rem;
-    color: #ff4a4a;
+  font-family: Negrito;
+  font-size: 1.8rem;
+  color: #ff4a4a;
 }
 
 /* Contador de itens no carrinho */
 .quantidade-carrinho p {
-    font-size: 1.1rem;
-    color: #333;
+  font-size: 1.1rem;
+  color: #333;
 }
 
 /* Container com todos os produtos */
 .all-produtos {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 /* Card de cada produto individual */
 .one-produto {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid rgba(255, 74, 74, 0.2);
-    border-radius: 14px;
-    background-color: #fff;
-    padding: 1rem 1.5rem;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rgba(255, 74, 74, 0.2);
+  border-radius: 14px;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
 }
 
 /* Efeito de levantar o card no hover */
 .one-produto:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 /* Imagem do produto - comentado, mas deixei aqui caso precise depois */
@@ -256,578 +256,777 @@ header a.active::after {
 
 /* Informações do produto (nome, descrição) */
 .produto-detalhes {
-    flex: 1;
-    margin-left: 1rem;
+  flex: 1;
+  margin-left: 1rem;
 }
 
 .produto-detalhes h4 {
-    font-family: Negrito;
-    font-size: 1.2rem;
-    color: #333;
+  font-family: Negrito;
+  font-size: 1.2rem;
+  color: #333;
 }
 
 .produto-detalhes p {
-    font-size: 0.95rem;
-    color: #666;
+  font-size: 0.95rem;
+  color: #666;
 }
 
 /* Controles de quantidade (- | número | +) */
 .produto-qtd {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .produto-qtd button {
-    border: 1.5px solid #ff7a7a;
-    background-color: #fff;
-    color: #ff4a4a;
-    font-weight: bold;
-    font-size: 1.1rem;
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
+  border: 1.5px solid #ff7a7a;
+  background-color: #fff;
+  color: #ff4a4a;
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .produto-qtd button:hover {
-    background-color: #ffe6e6; /* Fundo levemente rosado no hover */
+  background-color: #ffe6e6; /* Fundo levemente rosado no hover */
 }
 
 .produto-qtd span {
-    min-width: 25px;
-    text-align: center;
-    font-family: Negrito;
-    color: #444;
+  min-width: 25px;
+  text-align: center;
+  font-family: Negrito;
+  color: #444;
 }
 
 /* Preço do produto */
 .produto-preco {
-    text-align: right;
-    min-width: 100px;
+  text-align: right;
+  min-width: 100px;
 }
 
 .produto-preco .total {
-    font-family: Negrito;
-    color: #ff4a4a;
-    font-size: 1.1rem;
+  font-family: Negrito;
+  color: #ff4a4a;
+  font-size: 1.1rem;
 }
 
 .produto-preco small {
-    color: #777;
-    font-size: 0.85rem;
+  color: #777;
+  font-size: 0.85rem;
 }
 
 /* Botão de remover produto (X) */
 .remover {
-    background: none;
-    border: none;
-    color: #ff4a4a;
-    font-size: 1.3rem;
-    cursor: pointer;
-    margin-left: 0.8rem;
-    transition: 0.2s;
+  background: none;
+  border: none;
+  color: #ff4a4a;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 0.8rem;
+  transition: 0.2s;
 }
 
 .remover:hover {
-    transform: scale(1.2); /* Aumenta levemente no hover */
+  transform: scale(1.2); /* Aumenta levemente no hover */
 }
 
 /* Card do resumo do pedido (lateral direita) */
 .resumo-produtos {
-    background-color: #fff;
-    border: 2px solid rgba(255, 74, 74, 0.2);
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    animation: fadeSlide 0.9s ease;
+  background-color: #fff;
+  border: 2px solid rgba(255, 74, 74, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeSlide 0.9s ease;
 }
 
 .title-resumo h3 {
-    font-family: Negrito;
-    font-size: 1.6rem;
-    color: #ff4a4a;
-    margin-bottom: 1rem;
+  font-family: Negrito;
+  font-size: 1.6rem;
+  color: #ff4a4a;
+  margin-bottom: 1rem;
 }
 
 /* Container dos valores (subtotal, entrega, total) */
 .precos-resumo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .subtotal-resumo,
 .entrega-resumo,
 .total-resumo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .subtotal-resumo p,
 .entrega-resumo p,
 .total-resumo p {
-    font-size: 1rem;
-    color: #444;
+  font-size: 1rem;
+  color: #444;
 }
 
 /* Total destaque */
 .total-resumo p:first-child {
-    font-family: Negrito;
-    font-size: 1.2rem;
-    color: #222;
+  font-family: Negrito;
+  font-size: 1.2rem;
+  color: #222;
 }
 
 .total-resumo p:last-child {
-    font-family: Negrito;
-    font-size: 1.3rem;
-    color: #ff4a4a;
+  font-family: Negrito;
+  font-size: 1.3rem;
+  color: #ff4a4a;
 }
 
 /* Linha divisória no resumo */
 .linha-resumo {
-    border-top: 1.5px solid rgba(255, 74, 74, 0.3);
-    margin: 0.8rem 0;
+  border-top: 1.5px solid rgba(255, 74, 74, 0.3);
+  margin: 0.8rem 0;
 }
 
 /* Botões de ação do resumo */
 .buttons-resumo {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .buttons-resumo button {
-    width: 100%;
-    padding: 0.9rem 0;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-family: Negrito;
-    cursor: pointer;
-    transition: 0.3s;
+  width: 100%;
+  padding: 0.9rem 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: Negrito;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 /* Botão finalizar compra */
 #btn-finalizar {
-    background-color: #ff4a4a;
-    color: white;
+  background-color: #ff4a4a;
+  color: white;
 }
 
 #btn-finalizar:hover {
-    background-color: #e63e3e;
+  background-color: #e63e3e;
 }
 
 /* Botão continuar comprando */
 #btn-continuar {
-    background-color: #fff;
-    border: 2px solid #ff4a4a;
-    color: #ff4a4a;
+  background-color: #fff;
+  border: 2px solid #ff4a4a;
+  color: #ff4a4a;
 }
 
 #btn-continuar:hover {
-    background-color: #ffeaea;
+  background-color: #ffeaea;
 }
 
 /* Texto de desconto */
 .desconto-resumo p {
-    margin-top: 1.5rem;
-    text-align: center;
-    color: #777;
-    font-size: 0.9rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
 }
 
 /* Card alternativo de produto (acho que é uma segunda versão) */
 .produto {
-    height: 15dvh; /* Usando dvh pra responsividade */
-    width: 100%;
-    background-color: #fff;
-    border-radius: 15px;
-    border: 2px solid rgba(255, 74, 74, 0.2);
-    padding: 2dvh;
-    display: flex;
-    align-items: center;
+  height: 15dvh; /* Usando dvh pra responsividade */
+  width: 100%;
+  background-color: #fff;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 74, 74, 0.2);
+  padding: 2dvh;
+  display: flex;
+  align-items: center;
 }
 
 /* Container da imagem do produto */
 .produto-img {
-    height: 12dvh;
-    width: 12dvh;
+  height: 12dvh;
+  width: 12dvh;
 }
 
 .img {
-    width: 100%;
-    border-radius: 15px;
+  width: 100%;
+  border-radius: 15px;
 }
 
 /* Informações do produto */
 .info-produto {
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    padding-left: 1dvw;
-    gap: 3dvh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 1dvw;
+  gap: 3dvh;
 }
 
 .nome-produto {
-    font-weight: bold;
-    font-size: large;
-    text-align: start;
+  font-weight: bold;
+  font-size: large;
+  text-align: start;
 }
 
 .quan-produto {
-    width: auto;
-    height: auto;
-    gap: 1dvw;
+  width: auto;
+  height: auto;
+  gap: 1dvw;
 }
 
 /* Controles de quantidade mais elaborados */
 .quan-produto {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 /* Botões de aumentar/diminuir quantidade */
 .btn-decrease,
 .btn-increase {
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(255, 74, 74, 0.2);
-    background: white;
-    border-radius: 8px;
-    font-size: 20px;
-    font-weight: 600;
-    color: #000;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    user-select: none; /* Impede seleção de texto */
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 74, 74, 0.2);
+  background: white;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  user-select: none; /* Impede seleção de texto */
 }
 
 .btn-decrease:hover,
 .btn-increase:hover {
-    border-color: #ff4a4a;
-    color: #ff4a4a;
-    background: #fff5f5;
+  border-color: #ff4a4a;
+  color: #ff4a4a;
+  background: #fff5f5;
 }
 
 .btn-decrease:active,
 .btn-increase:active {
-    transform: scale(0.95); /* Feedback visual ao clicar */
+  transform: scale(0.95); /* Feedback visual ao clicar */
 }
 
 /* Estado desabilitado dos botões */
 .btn-decrease:disabled,
 .btn-increase:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    border-color: #e0e0e0;
-    color: #999;
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #e0e0e0;
+  color: #999;
 }
 
 /* Input de quantidade customizado */
 .qtd-input {
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    border: 2px solid rgba(255, 74, 74, 0);
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    background: white;
-    transition: all 0.2s ease;
-    outline: none;
-    appearance: textfield;
-    -moz-appearance: textfield; /* Remove setas do Firefox */
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 2px solid rgba(255, 74, 74, 0);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  background: white;
+  transition: all 0.2s ease;
+  outline: none;
+  appearance: textfield;
+  -moz-appearance: textfield; /* Remove setas do Firefox */
 }
 
 /* Remove setas do input number no Chrome/Safari/Edge */
 .qtd-input::-webkit-outer-spin-button,
 .qtd-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .qtd-input:focus {
-    border-color: #ff4a4a;
-    box-shadow: 0 0 0 3px rgba(255, 74, 74, 0.1); /* Glow vermelho suave */
+  border-color: #ff4a4a;
+  box-shadow: 0 0 0 3px rgba(255, 74, 74, 0.1); /* Glow vermelho suave */
 }
 
 .qtd-input:hover {
-    border-color: #ff4a4a;
+  border-color: #ff4a4a;
 }
 
 .qtd-input:disabled {
-    background: #f5f5f5;
-    color: #999;
-    cursor: not-allowed;
+  background: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
 }
 
 /* Container do preço e botão remover */
 .preco-produto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 16px;
-    margin-left: auto; /* Empurra pro final */
-    padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-left: auto; /* Empurra pro final */
+  padding: 8px;
 }
 
 /* Botão X de remover */
 .remove-btn {
-    width: 28px;
-    height: 28px;
-    border: none;
-    background: transparent;
-    color: #bbb;
-    font-size: 22px;
-    font-weight: 300;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border-radius: 4px;
-    line-height: 1;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #bbb;
+  font-size: 22px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 4px;
+  line-height: 1;
 }
 
 /* Usando ::before pra criar o X */
 .remove-btn::before {
-    content: '×';
-    font-size: 28px;
-    line-height: 1;
+  content: "×";
+  font-size: 28px;
+  line-height: 1;
 }
 
 .remove-btn:hover {
-    color: #ff4a4a;
-    background: rgba(255, 74, 74, 0.05);
-    transform: scale(1.1);
+  color: #ff4a4a;
+  background: rgba(255, 74, 74, 0.05);
+  transform: scale(1.1);
 }
 
 .remove-btn:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 /* Preço total do item */
 .preco-total-item {
-    font-size: 20px;
-    font-weight: 700;
-    color: #ff4a4a;
-    letter-spacing: -0.5px;
-    white-space: nowrap;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff4a4a;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
 }
 
 /* === MEDIA QUERIES - RESPONSIVIDADE === */
 
 /* Tablet médio */
 @media (max-width: 950px) {
-    .cont {
-        grid-template-columns: 1fr; /* Uma coluna só */
-        gap: 3rem;
-    }
+  .cont {
+    grid-template-columns: 1fr; /* Uma coluna só */
+    gap: 3rem;
+  }
 
-    .resumo-produtos {
-        width: 100%;
-    }
+  .resumo-produtos {
+    width: 100%;
+  }
 }
 
 /* Mobile grande */
 @media (max-width: 768px) {
-    /* Ajustes no preço produto */
-    .preco-produto {
-        gap: 12px;
-        padding: 4px;
-    }
-    
-    .remove-btn {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .remove-btn::before {
-        font-size: 24px;
-    }
-    
-    .preco-total-item {
-        font-size: 18px;
-    }
+  /* Ajustes no preço produto */
+  .preco-produto {
+    gap: 12px;
+    padding: 4px;
+  }
 
-    /* Ajustes nos botões de quantidade */
-    .quan-produto {
-        gap: 8px;
-    }
-    
-    .btn-decrease,
-    .btn-increase {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
-    }
-    
-    .qtd-input {
-        width: 50px;
-        height: 36px;
-        font-size: 14px;
-    }
+  .remove-btn {
+    width: 24px;
+    height: 24px;
+  }
 
-    /* Header */
-    .space-icon {
-        width: 10%;
-    }
+  .remove-btn::before {
+    font-size: 24px;
+  }
 
-    nav {
-        gap: 10%;
-    }
+  .preco-total-item {
+    font-size: 18px;
+  }
 
-    .space-others {
-        gap: 10%;
-    }
+  /* Ajustes nos botões de quantidade */
+  .quan-produto {
+    gap: 8px;
+  }
 
-    /* Carrinho */
-    .info-carrinho {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
+  .btn-decrease,
+  .btn-increase {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
 
-    .cont {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+  .qtd-input {
+    width: 50px;
+    height: 36px;
+    font-size: 14px;
+  }
 
-    .produto-img img {
-        width: 60px;
-        height: 60px;
-    }
+  /* Header */
+  .space-icon {
+    width: 10%;
+  }
 
-    .produto-detalhes h4 {
-        font-size: 1rem;
-    }
+  nav {
+    gap: 10%;
+  }
 
-    .produto-qtd button {
-        width: 26px;
-        height: 26px;
-        font-size: 1rem;
-    }
+  .space-others {
+    gap: 10%;
+  }
 
-    .produto-preco {
-        min-width: 80px;
-    }
+  /* Carrinho */
+  .info-carrinho {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 
-    .resumo-produtos {
-        padding: 1.5rem;
-    }
+  .cont {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
-    .buttons-resumo button {
-        padding: 0.7rem 0;
-        font-size: 0.9rem;
-    }
+  .produto-img img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .produto-detalhes h4 {
+    font-size: 1rem;
+  }
+
+  .produto-qtd button {
+    width: 26px;
+    height: 26px;
+    font-size: 1rem;
+  }
+
+  .produto-preco {
+    min-width: 80px;
+  }
+
+  .resumo-produtos {
+    padding: 1.5rem;
+  }
+
+  .buttons-resumo button {
+    padding: 0.7rem 0;
+    font-size: 0.9rem;
+  }
 }
 
 /* Mobile médio */
 @media (max-width: 600px) {
-    .produto-img img {
-        width: 60px;
-        height: 60px;
-    }
+  .produto-img img {
+    width: 60px;
+    height: 60px;
+  }
 
-    .produto-detalhes h4 {
-        font-size: 1rem;
-    }
+  .produto-detalhes h4 {
+    font-size: 1rem;
+  }
 
-    .produto-qtd button {
-        width: 26px;
-        height: 26px;
-        font-size: 1rem;
-    }
+  .produto-qtd button {
+    width: 26px;
+    height: 26px;
+    font-size: 1rem;
+  }
 
-    .produto-preco {
-        min-width: 80px;
-    }
+  .produto-preco {
+    min-width: 80px;
+  }
 }
 
 /* Desktop grande */
 @media (max-width: 1200px) {
-    .space-others {
-        gap: 20%;
-    }
+  .space-others {
+    gap: 20%;
+  }
+}
+
+/* === MODAL PIX === */
+
+.modal-pix {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-pix.show {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content-pix {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #999;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-modal:hover {
+  color: #ff4a4a;
+  transform: rotate(90deg);
+}
+
+.pix-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.pix-container h2 {
+  font-family: Negrito;
+  font-size: 1.8rem;
+  color: #1db760;
+  margin: 0;
+  text-align: center;
+}
+
+.pix-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  text-align: center;
+}
+
+.qrcode-wrapper {
+  background: white;
+  padding: 1rem;
+  border: 3px solid #1db760;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qrcode-wrapper img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.pix-info {
+  width: 100%;
+  background: #f5f5f5;
+  padding: 1.2rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.pix-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+}
+
+.pix-key {
+  font-family: Negrito;
+  font-size: 1rem;
+  color: #333;
+  margin: 0 0 0.8rem 0;
+  word-break: break-all;
+  user-select: all;
+}
+
+.btn-copy {
+  background: #1db760;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: Negrito;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-copy:hover {
+  background: #17a04f;
+}
+
+.btn-copy:active {
+  transform: scale(0.95);
+}
+
+.pix-total {
+  width: 100%;
+  background: rgba(29, 183, 96, 0.1);
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 2px solid #1db760;
+  text-align: center;
+}
+
+.pix-total p:first-child {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+}
+
+.pix-value {
+  font-family: Negrito;
+  font-size: 1.8rem;
+  color: #1db760;
+  margin: 0;
+}
+
+.btn-pix-confirm {
+  width: 100%;
+  background: #ff4a4a;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-family: Negrito;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 0.5rem;
+}
+
+.btn-pix-confirm:hover {
+  background: #e63e3e;
+}
+
+.btn-pix-confirm:active {
+  transform: scale(0.98);
 }
 
 /* Mobile pequeno */
 @media (max-width: 576px) {
-    /* Banner e header compactos */
-    .banner {
-        height: 10vh;
-    }
+  /* Banner e header compactos */
+  .banner {
+    height: 10vh;
+  }
 
-    header {
-        height: auto;
-        padding: 1rem 0;
-    }
+  header {
+    height: auto;
+    padding: 1rem 0;
+  }
 
-    .space-icon {
-        margin-left: 0;
-        margin-bottom: 1rem;
-    }
+  .space-icon {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
 
-    nav {
-        gap: 1rem;
-        padding-left: 1vw;
-    }
+  nav {
+    gap: 1rem;
+    padding-left: 1vw;
+  }
 
-    .space-icon {
-        margin: 0;
-    }
+  .space-icon {
+    margin: 0;
+  }
 
-    .one-nav {
-        width: auto;
-    }
+  .one-nav {
+    width: auto;
+  }
 
-    /* Fontes menores no mobile */
-    .one-nav a {
-        font-size: 0.7rem;
-    }
+  /* Fontes menores no mobile */
+  .one-nav a {
+    font-size: 0.7rem;
+  }
 
-    .space-others {
-        gap: 1rem;
-        margin-right: 0;
-        margin-left: 20vw;
-    }
+  .space-others {
+    gap: 1rem;
+    margin-right: 0;
+    margin-left: 20vw;
+  }
 
-    .space-others a {
-        font-size: 0.7rem;
-    }
+  .space-others a {
+    font-size: 0.7rem;
+  }
 
-    /* Carrinho */
-    .title-carrinho img {
-        width: 30px;
-    }
+  /* Carrinho */
+  .title-carrinho img {
+    width: 30px;
+  }
 
-    .title-carrinho h3 {
-        font-size: 1.5rem;
-    }
+  .title-carrinho h3 {
+    font-size: 1.5rem;
+  }
 
-    .produto-qtd span {
-        font-size: 0.9rem;
-    }
+  .produto-qtd span {
+    font-size: 0.9rem;
+  }
 
-    .produto-preco .total {
-        font-size: 1rem;
-    }
+  .produto-preco .total {
+    font-size: 1rem;
+  }
 
-    .desconto-resumo p {
-        font-size: 0.8rem;
-    }
+  .desconto-resumo p {
+    font-size: 0.8rem;
+  }
 }
