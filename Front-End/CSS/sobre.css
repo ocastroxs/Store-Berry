@@ -35,20 +35,15 @@ html {
   src: url("../Fonts/MontserratAlternates-Bold.ttf");
 }
 
-/* Estilos gerais do body */
+/* Estilos globais do body */
 body {
   font-family: Regular;
-  overflow-x: hidden; /* Esconde barra de rolagem horizontal */
-  transition: all 0.5s ease;
-  background-image: url(../Images/Background.svg); /* Padrão de fundo */
-  background-size: 5%;
+  overflow-x: hidden; /* Previne scroll horizontal */
+  background-color: rgb(255, 255, 255);
+  background-image: url(../Images/Background2.svg);
   background-repeat: repeat;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.95
-  ); /* Fundo branco semi-transparente */
+  background-size: 10%;
+  transition: all 0.5s ease;
 }
 
 /* Classe aplicada quando a página carrega completamente */

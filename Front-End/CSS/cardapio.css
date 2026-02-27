@@ -37,15 +37,15 @@ html {
   src: url("../Fonts/MontserratAlternates-Bold.ttf");
 }
 
-/* === ESTILOS GLOBAIS === */
+/* Estilos globais do body */
 body {
-  overflow-x: hidden; /* Previne scroll horizontal */
   font-family: Regular;
-  transition: all 0.5s ease;
-  background-image: url(../Images/Background.svg);
-  background-size: 5%;
-  background-repeat: repeat;
+  overflow-x: hidden; /* Previne scroll horizontal */
   background-color: rgb(255, 255, 255);
+  background-image: url(../Images/Background2.svg);
+  background-repeat: repeat;
+  background-size: 10%;
+  transition: all 0.5s ease;
 }
 
 /* Classe aplicada quando a página carrega completamente */

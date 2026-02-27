@@ -32,15 +32,15 @@ html {
   src: url("../Fonts/MontserratAlternates-Bold.ttf");
 }
 
-/* Configuração geral do body com background padrão do site */
+/* Estilos globais do body */
 body {
-  overflow-x: hidden; /* Evita scroll horizontal indesejado */
   font-family: Regular;
-  transition: all 0.5s ease;
-  background-image: url(../Images/Background.svg);
-  background-size: 5%;
+  overflow-x: hidden; /* Previne scroll horizontal */
+  background-color: rgb(255, 255, 255);
+  background-image: url(../Images/Background2.svg);
   background-repeat: repeat;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-size: 10%;
+  transition: all 0.5s ease;
 }
 
 /* Classe pra quando a página terminar de carregar */

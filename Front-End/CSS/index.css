@@ -40,9 +40,9 @@ body {
   font-family: Regular;
   overflow-x: hidden; /* Previne scroll horizontal */
   background-color: rgb(255, 255, 255);
-  background-image: url(../Images/Background.svg);
+  background-image: url(../Images/Background2.svg);
   background-repeat: repeat;
-  background-size: 5%;
+  background-size: 10%;
   transition: all 0.5s ease;
 }
 
