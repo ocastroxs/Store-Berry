@@ -896,139 +896,327 @@ footer {
 
 /* Animações de entrada/saída do modal */
 .modal.fade .modal-dialog {
-  transform: translateY(20px);
+  transform: translateY(40px) scale(0.96);
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .modal.fade.show .modal-dialog {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   opacity: 1;
 }
 
 /* Container principal do modal */
 .modal-all {
-  border-radius: 1.5rem;
+  border-radius: 2rem;
   overflow: hidden;
   background-color: #fff;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 74, 74, 0.08);
   border: none;
-  height: 75vh;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Efeito sutil ao passar o mouse sobre o modal */
-.modal-all:hover {
-  transform: scale(1.01);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  height: auto;
 }
 
 /* Banner do modal com imagem de fundo */
 .banner-modal {
-  height: 40%;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.2)
-    ),
-    url(../Images/Fundo-1.svg);
+  position: relative;
+  height: 260px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 1.6rem 2rem 1.4rem;
 }
 
-/* Nome do produto no banner do modal */
-.banner-modal h3 {
-  font-family: Negrito;
-  font-size: 3.2rem;
+/* Tag da marca no canto superior esquerdo */
+.banner-modal::before {
+  content: "🍓 Store Berry";
+  position: absolute;
+  top: 1rem;
+  left: 1.6rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(214, 40, 40, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.28rem 0.7rem;
+  border-radius: 2rem;
+}
+
+/* Botão fechar flutuante */
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.4rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-  margin: 0;
-  transition: transform 0.3s ease;
-}
-
-.banner-modal:hover h3 {
-  transform: scale(1.05);
-}
-
-/* Descrição do produto no modal */
-.modal-descricao {
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  padding: 2rem;
-  color: #333;
-  font-family: Regular;
-  font-size: 1.5rem;
-  line-height: 2.25rem;
-  text-align: justify;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  line-height: 1;
+  z-index: 10;
 }
 
-/* Preço do produto */
+.modal-close-btn:hover {
+  transform: rotate(90deg) scale(1.1);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Nome do produto no banner */
+.banner-modal h3 {
+  font-family: Negrito;
+  font-size: 2.2rem;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  line-height: 1.15;
+}
+
+/* Linha vermelha decorativa sob o título */
+.banner-modal h3::after {
+  content: "";
+  display: block;
+  width: 38px;
+  height: 3px;
+  background: #ff4a4a;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+}
+
+/* === CORPO DO MODAL === */
+.modal-body-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem 0;
+  gap: 0;
+}
+
+/* Descrição do produto */
+.modal-descricao-text {
+  font-family: Regular;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #5a5a5a;
+  text-align: left;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid linear-gradient(to right, #f0f0f0, transparent);
+  position: relative;
+}
+
+.modal-descricao-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, #e8e8e8, transparent);
+}
+
+/* === INGREDIENTES === */
+.modal-ingredientes {
+  padding: 1.1rem 0 0.9rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-ingredientes-titulo {
+  font-family: Negrito;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #d62828;
+  margin-bottom: 0.65rem;
+}
+
+.modal-ingredientes-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-ingredientes-lista li {
+  font-family: Regular;
+  font-size: 0.82rem;
+  color: #555;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  border-radius: 2rem;
+  padding: 0.22rem 0.72rem;
+  transition: all 0.2s ease;
+}
+
+.modal-ingredientes-lista li:hover {
+  background: #fff1f1;
+  border-color: #ffcaca;
+  color: #d62828;
+}
+
+/* === LINHA PREÇO + DISPONIBILIDADE === */
+.modal-preco-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0 0.25rem;
+}
+
 .modal-preco {
-  text-align: center;
   font-family: Negrito;
   font-size: 2rem;
   color: #d62828;
-  margin-top: 1.5rem;
-  animation: fadeIn 0.6s ease;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  animation: fadeUpPrice 0.5s 0.2s ease both;
 }
 
-/* Animação de fade in para o preço */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeUpPrice {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modal-badge-disponivel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #16a34a;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 0.26rem 0.65rem;
+  border-radius: 2rem;
+  white-space: nowrap;
 }
 
 /* Container dos botões do modal */
 .modal-buttons {
   display: flex;
   justify-content: center;
-  border-top: 1px solid #ddd;
-  padding: 1.2rem 1.5rem;
-  gap: 0.8rem;
+  align-items: center;
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
+  padding: 1rem 1.5rem 1.25rem;
+  gap: 0.7rem;
 }
 
 /* Estilo base dos botões do modal */
 .modal-button {
-  width: 40%;
+  flex: 1;
   font-family: Negrito;
-  font-size: 1rem;
-  border-radius: 10px;
-  padding: 0.6rem 1.4rem;
-  transition: all 0.25s ease;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: all 0.22s ease;
+  cursor: pointer;
 }
 
-/* Botão "Fechar" */
+/* Botão "Fechar" — ghost */
 .modal-button.fechar {
-  background-color: #bbb;
-  border: none;
-  color: #fff;
+  background: transparent;
+  border: 1.5px solid #ddd;
+  color: #888;
+  max-width: 38%;
 }
 
 .modal-button.fechar:hover {
-  background-color: #999;
-  transform: scale(1.05);
+  background: #f5f5f5;
+  border-color: #bbb;
+  color: #555;
 }
 
 /* Botão "Adicionar ao Carrinho" */
 .modal-button.adicionar {
-  background-color: #d62828;
+  background: linear-gradient(135deg, #ff4a4a 0%, #d62828 100%);
   border: none;
   color: #fff;
+  box-shadow: 0 4px 18px rgba(214, 40, 40, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-button.adicionar::before {
+  content: "🛒 ";
+}
+
+.modal-button.adicionar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 .modal-button.adicionar:hover {
-  background-color: #b91c1c;
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff6060 0%, #e03030 100%);
+  box-shadow: 0 8px 28px rgba(214, 40, 40, 0.5);
+  transform: translateY(-2px);
+}
+
+/* === RESPONSIVIDADE DO MODAL === */
+@media (max-width: 768px) {
+  .banner-modal {
+    height: 200px;
+  }
+
+  .banner-modal h3 {
+    font-size: 1.75rem;
+  }
+
+  .modal-preco {
+    font-size: 1.7rem;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+
+  .modal-button.fechar,
+  .modal-button.adicionar {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-all {
+    border-radius: 1.5rem;
+  }
+
+  .banner-modal {
+    height: 180px;
+    padding: 1.25rem 1.4rem 1.1rem;
+  }
+
+  .banner-modal h3 {
+    font-size: 1.5rem;
+  }
+
+  .modal-body-wrap {
+    padding: 1.2rem 1.4rem 0;
+  }
+
+  .modal-buttons {
+    padding: 0.9rem 1.2rem 1.1rem;
+  }
+
+  .modal-preco {
+    font-size: 1.5rem;
+  }
 }
